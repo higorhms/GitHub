@@ -29,7 +29,7 @@ export default class Main extends Component {
     };
 
     static navigationOptions = {
-        title: 'Users',
+        title: 'All Users',
     };
 
     state = {
