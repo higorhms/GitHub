@@ -16,6 +16,8 @@ import {
     Bio,
     ProfileButton,
     ProfileButtonText,
+    GroupButton,
+    RemoveUserButton,
 } from './styles';
 import api from '../../services/api';
 
@@ -34,6 +36,8 @@ export default class Main extends Component {
         users: [],
         newUser: '',
         loading: false,
+        refreshing: false,
+        wrongInput: false,
     };
 
     async componentDidMount() {
@@ -56,20 +60,30 @@ export default class Main extends Component {
 
         this.setState({ loading: true });
 
-        await api.get(`/users/${newUser}`).then(response => {
-            const data = {
-                login: response.data.login,
-                name: response.data.name,
-                bio: response.data.bio,
-                avatar: response.data.avatar_url,
-            };
+        await api
+            .get(`/users/${newUser}`)
+            .then(response => {
+                const data = {
+                    login: response.data.login,
+                    name: response.data.name,
+                    bio: response.data.bio,
+                    avatar: response.data.avatar_url,
+                };
 
-            this.setState({
-                users: [...users, data],
-                newUser: '',
-                loading: false,
+                this.setState({
+                    users: [...users, data],
+                    newUser: '',
+                    loading: false,
+                    wrongInput: false,
+                });
+            })
+            .catch(() => {
+                this.setState({
+                    loading: false,
+                    newUser: '',
+                    wrongInput: true,
+                });
             });
-        });
 
         Keyboard.dismiss();
     };
@@ -79,16 +93,33 @@ export default class Main extends Component {
         navigation.navigate('User', { user });
     };
 
+    handleDelete = user => {
+        const { users } = this.state;
+        const newUsers = users.filter(u => u.login !== user.login);
+        this.setState({ users: newUsers });
+    };
+
+    refreshList = () => {
+        this.setState({ refreshing: true });
+        // HERE YOU CAN ADD SOMETHING TO DO WHEN THE PAGE ARE REFRESHING
+        this.setState({ refreshing: false });
+    };
+
     render() {
-        const { newUser, users, loading } = this.state;
+        const { newUser, users, loading, refreshing, wrongInput } = this.state;
 
         return (
             <Container>
                 <Form>
                     <Input
+                        wrongInput={wrongInput}
                         autoCorrect={false}
                         autoCapitalize="none"
-                        placeholder="Add User"
+                        placeholder={
+                            wrongInput
+                                ? 'Please check your nickname'
+                                : 'Nick of user on GitHub'
+                        }
                         returnKeyType="send"
                         onSubmitEditing={this.handleAddUser}
                         value={newUser}
@@ -108,24 +139,37 @@ export default class Main extends Component {
 
                 <List
                     data={users}
-                    keyExtractor={user => user.login}
+                    keyExtractor={user => String(user.login)}
+                    onRefresh={this.refreshList} // Função dispara quando o usuário arrasta a lista pra baixo
+                    refreshing={refreshing} // Variável que armazena um estado true/false que representa se a lista está atualizando
                     renderItem={({ item }) => (
                         <User>
                             <Avatar source={{ uri: item.avatar }} />
                             <Name>{item.name}</Name>
                             <Bio>{item.bio}</Bio>
-                            <ProfileButton
-                                onPress={() => this.handleNavigate(item)}
-                            >
-                                <ProfileIcon
-                                    name="profile"
-                                    color="#FFF"
-                                    size={20}
-                                />
-                                <ProfileButtonText>
-                                    Full Profile
-                                </ProfileButtonText>
-                            </ProfileButton>
+                            <GroupButton>
+                                <ProfileButton
+                                    onPress={() => this.handleNavigate(item)}
+                                >
+                                    <ProfileIcon
+                                        name="profile"
+                                        color="#FFF"
+                                        size={20}
+                                    />
+                                    <ProfileButtonText>
+                                        Full Profile
+                                    </ProfileButtonText>
+                                </ProfileButton>
+                                <RemoveUserButton
+                                    onPress={() => this.handleDelete(item)}
+                                >
+                                    <Icon
+                                        name="delete"
+                                        color="#FFF"
+                                        size={20}
+                                    />
+                                </RemoveUserButton>
+                            </GroupButton>
                         </User>
                     )}
                 />

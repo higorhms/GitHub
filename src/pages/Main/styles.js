@@ -14,14 +14,15 @@ export const Form = styled.View`
 `;
 
 export const Input = styled.TextInput.attrs({
-    placeholderTextColor: '#333',
+    placeholderTextColor: '#888',
 })`
     flex: 1;
     height: 40px;
     padding: 0 15px;
-    border: 1px solid #eee;
+    border-width: 1px;
     background-color: #eee;
     border-radius: 4px;
+    border: ${props => (props.wrongInput ? 'red' : '#eee')};
 `;
 
 export const SubmitButton = styled(RectButton)`
@@ -71,7 +72,8 @@ export const Bio = styled.Text.attrs({
 `;
 
 export const ProfileButton = styled(RectButton)`
-    margin: 10px;
+    flex: 1;
+    margin: 10px 2px;
     align-self: stretch;
     border-radius: 5px;
     justify-content: center;
@@ -87,4 +89,20 @@ export const ProfileButtonText = styled.Text`
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
+`;
+
+export const GroupButton = styled.View`
+    flex-direction: row;
+`;
+
+export const RemoveUserButton = styled(RectButton)`
+    flex: 1;
+    margin: 10px 2px;
+    max-width: 50px;
+    border-radius: 5px;
+    justify-content: center;
+    background: red;
+    align-items: center;
+    flex-direction: row;
+    height: 36px;
 `;
