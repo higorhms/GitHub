@@ -93,9 +93,7 @@ export default class User extends Component {
                         data={stars}
                         keyExtractor={star => String(star.id)}
                         renderItem={({ item }) => (
-                            <Starred
-                                onTouchStart={() => this.handleNavigate(item)}
-                            >
+                            <Starred onPress={() => this.handleNavigate(item)}>
                                 <OwnerAvatar
                                     source={{ uri: item.owner.avatar_url }}
                                 />

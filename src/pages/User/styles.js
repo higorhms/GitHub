@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
     flex: 1;
@@ -13,9 +14,9 @@ export const Header = styled.View`
 `;
 
 export const Avatar = styled.Image`
-    height: 100px;
-    width: 100px;
-    border-radius: 50px;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
     background: #eee;
 `;
 
@@ -43,7 +44,7 @@ export const StarsList = styled.FlatList.attrs({
     margin-top: 20px;
 `;
 
-export const Starred = styled.View`
+export const Starred = styled(RectButton)`
     background: #f5f5f5;
     border-radius: 4px;
     padding: 10px 15px;
