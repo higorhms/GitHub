@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaSpinner } from 'react-icons/fa';
+import { IoIosArrowBack } from 'react-icons/io';
 import api from '../../services/api';
 
 import ControlledOpenSelect from '../../components/DropdownFilter';
@@ -82,7 +83,10 @@ export default function Repository({ match }) {
    return (
       <Container>
          <Owner>
-            <Link to="/">Back to list</Link>
+            <Link to="/">
+               <IoIosArrowBack size={20} color="#FFF" />
+               Back to list
+            </Link>
             <img
                src={repository.owner.avatar_url}
                alt={repository.owner.login}

@@ -9,7 +9,7 @@ const Container = styled.div`
    margin: 80px auto;
 
    small {
-      font-size: 12px;
+      font-size: 14px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -18,7 +18,7 @@ const Container = styled.div`
    }
 
    h1 {
-      font-size: 20px;
+      font-size: 22px;
       display: flex;
       align-items: center;
       flex-direction: row;

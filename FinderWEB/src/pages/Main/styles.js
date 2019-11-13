@@ -45,6 +45,10 @@ export const SubmitButton = styled.button.attrs(props => ({
    justify-content: center;
    align-items: center;
 
+   &:hover {
+      opacity: 0.6;
+   }
+
    &[disabled] {
       opacity: 0.6;
       cursor: not-allowed;
@@ -80,8 +84,17 @@ export const List = styled.ul`
       }
 
       a {
+         background: ${colors.DefaultColor};
+         border: none;
+         color: #fff;
+         font-weight: bold;
+         padding: 8px;
+         border-radius: 5px;
          text-decoration: none;
-         color: ${colors.DefaultColor};
+
+         &:hover {
+            opacity: 0.6;
+         }
       }
    }
 
@@ -94,8 +107,19 @@ export const List = styled.ul`
 `;
 
 export const ClearButton = styled.button`
-   background: #fff;
+   display: flex;
+   flex: 1;
+   align-items: center;
+   justify-content: center;
+   flex-direction: row;
+   background: ${colors.DefaultColor};
    border: none;
-   margin-left: 5px;
-   color: ${colors.DefaultColor};
+   color: #fff;
+   font-weight: bold;
+   padding: 8px;
+   border-radius: 5px;
+
+   &:hover {
+      opacity: 0.6;
+   }
 `;

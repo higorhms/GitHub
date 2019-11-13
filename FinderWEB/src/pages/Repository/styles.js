@@ -34,9 +34,22 @@ export const Owner = styled.header`
    flex-direction: column;
 
    a {
-      text-decoration: none;
-      color: ${colors.DefaultColor};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      background: ${colors.DefaultColor};
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 8px;
+      border-radius: 5px;
       margin-bottom: 30px;
+      text-decoration: none;
+
+      &:hover {
+         opacity: 0.6;
+      }
    }
 
    img {

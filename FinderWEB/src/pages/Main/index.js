@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaGithubAlt, FaSpinner, FaSearch } from 'react-icons/fa';
+import { MdDeleteSweep } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -102,6 +103,7 @@ export default function Main() {
             ))}
             <div>
                <ClearButton onClick={clearRepositories}>
+                  <MdDeleteSweep color="#FFF" size={20} />
                   Clear Repositories
                </ClearButton>
             </div>
