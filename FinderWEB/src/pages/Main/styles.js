@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
+import { colors } from '../../styles/global';
 
 export const Form = styled.form`
    margin-top: 30px;
@@ -34,7 +35,7 @@ export const SubmitButton = styled.button.attrs(props => ({
    type: 'submit',
    disabled: props.loading,
 }))`
-   background: #7159c1;
+   background: ${colors.DefaultColor};
    border: 0;
    padding: 0 15px;
    margin-left: 10px;
@@ -80,7 +81,7 @@ export const List = styled.ul`
 
       a {
          text-decoration: none;
-         color: #7159c1;
+         color: ${colors.DefaultColor};
       }
    }
 
@@ -96,5 +97,5 @@ export const ClearButton = styled.button`
    background: #fff;
    border: none;
    margin-left: 5px;
-   color: #7159c1;
+   color: ${colors.DefaultColor};
 `;

@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { colors } from '../../styles/global';
 
 const rotate = keyframes`
    from{
@@ -34,7 +35,7 @@ export const Owner = styled.header`
 
    a {
       text-decoration: none;
-      color: #7159c1;
+      color: ${colors.DefaultColor};
       margin-bottom: 30px;
    }
 
@@ -127,7 +128,7 @@ export const ButtonGroup = styled.div`
 `;
 
 export const PreviousButton = styled.button`
-   background: #7159c1;
+   background: ${colors.DefaultColor};
    padding: 5px;
    border-radius: 5px;
    border: 1px solid #eee;
@@ -141,12 +142,12 @@ export const PreviousButton = styled.button`
    ${props =>
       props.page === 1 &&
       css`
-         opacity: 0.6;
+         opacity: 0.3;
       `}
 `;
 
 export const NextButton = styled.button`
-   background: #7159c1;
+   background: ${colors.DefaultColor};
    padding: 5px;
    border-radius: 5px;
    border: 1px solid #eee;

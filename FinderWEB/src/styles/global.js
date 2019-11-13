@@ -28,3 +28,7 @@ export default createGlobalStyle`
       cursor: pointer
    }
 `;
+
+export const colors = {
+   DefaultColor: '#301199',
+};

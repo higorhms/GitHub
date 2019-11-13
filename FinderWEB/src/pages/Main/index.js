@@ -18,7 +18,6 @@ export default function Main() {
 
       if (repos) {
          setRepositories(JSON.parse(repos));
-         // setState({ repositories: JSON.parse(repositories) });
       }
    }, []);
 
