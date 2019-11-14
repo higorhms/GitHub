@@ -109,7 +109,7 @@ export default function Main() {
                         alert('sorry, this feature still not implemented');
                      }}
                   >
-                     Delete
+                     <FaTrash size={18} />
                   </button>
                </li>
             ))}

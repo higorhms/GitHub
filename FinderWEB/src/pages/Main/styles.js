@@ -102,7 +102,7 @@ export const List = styled.ul`
          color: #fff;
          font-weight: bold;
          padding: 8px;
-         border-radius: 5px 0px 0px 5px;
+         border-radius: 5px;
          text-decoration: none;
 
          &:hover {
@@ -110,16 +110,20 @@ export const List = styled.ul`
          }
       }
       button {
-         background: ${colors.DefaultColor};
-         border: none;
-         color: #fff;
-         font-weight: bold;
-         padding: 8px;
-         border-radius: 0px 5px 5px 0px;
-         text-decoration: none;
+         background: #fff;
+         color: ${colors.DefaultColor};
+         border: 1px solid ${colors.DefaultColor};
+         border-radius: 5px;
+         display: flex;
+         margin-left: 2px;
+         align-items: center;
+         justify-content: center;
+         padding: 6px 0px;
+         padding-left: 8px;
 
          &:hover {
-            opacity: 0.6;
+            color: #fff;
+            background: ${colors.DefaultColor};
          }
       }
    }
