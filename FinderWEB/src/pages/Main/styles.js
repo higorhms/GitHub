@@ -102,7 +102,20 @@ export const List = styled.ul`
          color: #fff;
          font-weight: bold;
          padding: 8px;
-         border-radius: 5px;
+         border-radius: 5px 0px 0px 5px;
+         text-decoration: none;
+
+         &:hover {
+            opacity: 0.6;
+         }
+      }
+      button {
+         background: ${colors.DefaultColor};
+         border: none;
+         color: #fff;
+         font-weight: bold;
+         padding: 8px;
+         border-radius: 0px 5px 5px 0px;
          text-decoration: none;
 
          &:hover {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithubAlt, FaSpinner, FaSearch } from 'react-icons/fa';
+import { FaGithubAlt, FaSpinner, FaSearch, FaTrash } from 'react-icons/fa';
 import { MdDeleteSweep } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
@@ -103,6 +103,14 @@ export default function Main() {
                   <Link to={`/repository/${encodeURIComponent(repo.name)}`}>
                      Details
                   </Link>
+                  <button
+                     type="button"
+                     onClick={() => {
+                        alert('sorry, this feature still not implemented');
+                     }}
+                  >
+                     Delete
+                  </button>
                </li>
             ))}
             <div>
