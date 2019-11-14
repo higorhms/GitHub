@@ -45,10 +45,10 @@ export default function Main() {
             if (repositories.find(repo => repo.id === resp.data.id)) {
                setNewRepo('');
                setLoading(true);
-               throw new Error('Repositório duplicado');
+               throw new Error();
             }
-
             const data = {
+               avatar: resp.data.owner.avatar_url,
                id: resp.data.id,
                name: resp.data.full_name,
             };
@@ -98,8 +98,8 @@ export default function Main() {
          <List>
             {repositories.map(repo => (
                <li key={repo.id}>
+                  <img src={repo.avatar} alt={repo.avatar} />
                   <span>{repo.name}</span>
-
                   <Link to={`/repository/${encodeURIComponent(repo.name)}`}>
                      Details
                   </Link>
@@ -108,7 +108,7 @@ export default function Main() {
             <div>
                <ClearButton onClick={clearRepositories}>
                   <MdDeleteSweep color="#FFF" size={20} />
-                  Clear Repositories
+                  Clear all repositories
                </ClearButton>
             </div>
          </List>

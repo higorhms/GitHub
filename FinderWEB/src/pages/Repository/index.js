@@ -39,11 +39,11 @@ export default function Repository({ match }) {
          setRepository(repositoryResponse.data);
          setIssues(issuesResponse.data);
          setLoading(false);
-         setRepositoryName(repositoryName);
+         setRepositoryName(nameOfRepository);
       }
 
       fetchMyApi();
-   }, []);
+   }, [match]);
 
    async function changeFilter(filter) {
       const response = await api.get(`/repos/${repositoryName}/issues`, {
@@ -83,7 +83,7 @@ export default function Repository({ match }) {
                isStopped={false}
                isPaused={false}
             />
-            <p>Carregando...</p>
+            <p>Loading...</p>
          </LoadingContainer>
       );
    }

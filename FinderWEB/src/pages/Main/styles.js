@@ -83,6 +83,19 @@ export const List = styled.ul`
          border-top: 1px solid #eee;
       }
 
+      span {
+         margin-right: auto;
+         margin-left: 10px;
+      }
+
+      img {
+         border: 1px solid #eee;
+         background: #eee;
+         width: 50px;
+         height: 50px;
+         border-radius: 25px;
+      }
+
       a {
          background: ${colors.DefaultColor};
          border: none;
@@ -118,6 +131,7 @@ export const ClearButton = styled.button`
    font-weight: bold;
    padding: 8px;
    border-radius: 5px;
+   max-width: 300px;
 
    &:hover {
       opacity: 0.6;
