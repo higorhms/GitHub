@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { FaSpinner } from 'react-icons/fa';
 import { IoIosArrowBack } from 'react-icons/io';
-import api from '../../services/api';
+import Lottie from 'react-lottie';
 
+import api from '../../services/api';
 import ControlledOpenSelect from '../../components/DropdownFilter';
 
 import Container from '../../components/Container';
 import {
-   Loading,
    Owner,
    IssueList,
    ButtonGroup,
    PreviousButton,
    NextButton,
+   defaultOptions,
+   LoadingContainer,
 } from './styles';
 
 export default function Repository({ match }) {
@@ -74,10 +75,16 @@ export default function Repository({ match }) {
 
    if (loading) {
       return (
-         <Loading>
-            Carregando...
-            <FaSpinner color="#FFF" size={130} />
-         </Loading>
+         <LoadingContainer>
+            <Lottie
+               options={defaultOptions}
+               height={400}
+               width={400}
+               isStopped={false}
+               isPaused={false}
+            />
+            <p>Carregando...</p>
+         </LoadingContainer>
       );
    }
    return (

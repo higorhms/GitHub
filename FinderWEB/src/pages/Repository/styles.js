@@ -1,30 +1,31 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { colors } from '../../styles/global';
+import animationData from '../../animations/ampulheta.json';
 
-const rotate = keyframes`
-   from{
-      transform: rotate(0deg);
-   }
+// const rotate = keyframes` vem do styled-components
+//    from{
+//       transform: rotate(0deg);
+//    }
 
-   to{
-      transform: rotate(360deg);
-   }
-`;
+//    to{
+//       transform: rotate(360deg);
+//    }
+// `;
 
-export const Loading = styled.div`
-   font-size: 30px;
-   color: #fff;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   height: 100vh;
+// export const Loading = styled.div`
+//    font-size: 30px;
+//    color: #fff;
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//    flex-direction: column;
+//    height: 100vh;
 
-   svg {
-      padding-top: 20px;
-      animation: ${rotate} 2s linear infinite;
-   }
-`;
+//    svg {
+//       padding-top: 20px;
+//       animation: ${rotate} 2s linear infinite;
+//    }
+// `;
 
 export const Owner = styled.header`
    margin-top: 20px;
@@ -171,3 +172,26 @@ export const NextButton = styled.button`
       opacity: 0.6;
    }
 `;
+
+export const LoadingContainer = styled.div`
+   display: flex;
+   flex: 1;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+
+   p {
+      color: #fff;
+      font-size: 18px;
+   }
+`;
+
+export const defaultOptions = {
+   loop: true,
+   autoplay: true,
+   animationData,
+   rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+   },
+};
