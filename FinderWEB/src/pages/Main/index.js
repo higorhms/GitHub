@@ -36,6 +36,10 @@ export default function Main() {
       setRepositories([]);
    }
 
+   function handleDelete(id) {
+      setRepositories(repositories.filter(repo => repo.id !== id));
+   }
+
    async function handleSubmit(e) {
       e.preventDefault();
       setLoading(true);
@@ -103,12 +107,7 @@ export default function Main() {
                   <Link to={`/repository/${encodeURIComponent(repo.name)}`}>
                      Details
                   </Link>
-                  <button
-                     type="button"
-                     onClick={() => {
-                        alert('sorry, this feature still not implemented');
-                     }}
-                  >
+                  <button type="button" onClick={() => handleDelete(repo.id)}>
                      <FaTrash size={18} />
                   </button>
                </li>
