@@ -3,6 +3,7 @@ import { FaGithubAlt, FaSpinner, FaSearch } from 'react-icons/fa';
 import { MdDeleteSweep } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
+import { toast } from 'react-toastify';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
@@ -57,6 +58,9 @@ export default function Main() {
             setLoading(false);
          });
       } catch (error) {
+         toast.error(
+            'Repository not found, please check the repository that you want to find'
+         );
          setFinded(true);
          setLoading(false);
          setNewRepo('');
