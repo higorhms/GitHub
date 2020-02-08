@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
+import { toast } from 'react-toastify';
 import {
    Container,
    FormContainer,
@@ -10,12 +11,28 @@ import {
    FormArea,
    SocialMediasContainer,
 } from './styles';
+import api from '../../services/api';
 
 const schema = Yup.object().shape({
    username: Yup.string(),
 });
 
 export default function SignIn() {
+   const [loading, setLoading] = useState(false);
+
+   async function handleSubmit({ username }) {
+      setLoading(true);
+      try {
+         const response = await api.get(`/users/${username}`);
+         setLoading(true);
+      } catch (error) {
+         toast.error(
+            'Something wrong happened, please check your datas and try again.'
+         );
+         setLoading(false);
+      }
+   }
+
    return (
       <Container>
          <PortfolioContainer>
@@ -41,13 +58,15 @@ export default function SignIn() {
          <FormContainer>
             <FormArea>
                <FaGithub size={60} />
-               <Form schema={schema} onSubmit={() => {}}>
+               <Form schema={schema} onSubmit={handleSubmit}>
                   <Input
                      name="username"
                      type="username"
                      placeholder="GitHub Username"
                   />
-                  <button type="submit">Acessar</button>
+                  <button type="submit">
+                     {loading ? 'Loading...' : 'Login'}
+                  </button>
                </Form>
 
                <p>
