@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 import {
    Container,
    FormContainer,
@@ -12,6 +13,7 @@ import {
    SocialMediasContainer,
 } from './styles';
 import api from '../../services/api';
+import { signIn } from '../../store/modules/auth/actions';
 
 const schema = Yup.object().shape({
    username: Yup.string(),
@@ -19,11 +21,14 @@ const schema = Yup.object().shape({
 
 export default function SignIn() {
    const [loading, setLoading] = useState(false);
+   const dispatch = useDispatch();
 
    async function handleSubmit({ username }) {
       setLoading(true);
       try {
          const response = await api.get(`/users/${username}`);
+         dispatch(signIn(response.data));
+
          setLoading(true);
       } catch (error) {
          toast.error(
