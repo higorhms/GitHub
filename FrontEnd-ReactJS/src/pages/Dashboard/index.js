@@ -9,7 +9,7 @@ import api from '../../services/api';
 import Container from '../../components/Container';
 import { Form, SubmitButton, List, Input, ClearButton } from './styles';
 
-export default function Main() {
+export default function Dashboard() {
    const [newRepo, setNewRepo] = useState('');
    const [repositories, setRepositories] = useState([]);
    const [loading, setLoading] = useState(false);
