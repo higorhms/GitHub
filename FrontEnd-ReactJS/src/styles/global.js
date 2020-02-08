@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');

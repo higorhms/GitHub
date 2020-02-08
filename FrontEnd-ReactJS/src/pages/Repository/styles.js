@@ -2,31 +2,6 @@ import styled, { css } from 'styled-components';
 import { colors } from '../../styles/global';
 import animationData from '../../animations/ampulheta.json';
 
-// const rotate = keyframes` vem do styled-components
-//    from{
-//       transform: rotate(0deg);
-//    }
-
-//    to{
-//       transform: rotate(360deg);
-//    }
-// `;
-
-// export const Loading = styled.div`
-//    font-size: 30px;
-//    color: #fff;
-//    display: flex;
-//    justify-content: center;
-//    align-items: center;
-//    flex-direction: column;
-//    height: 100vh;
-
-//    svg {
-//       padding-top: 20px;
-//       animation: ${rotate} 2s linear infinite;
-//    }
-// `;
-
 export const Owner = styled.header`
    margin-top: 20px;
    display: flex;

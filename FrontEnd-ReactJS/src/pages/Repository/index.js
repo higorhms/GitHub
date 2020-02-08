@@ -5,7 +5,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import Lottie from 'react-lottie';
 
 import api from '../../services/api';
-import ControlledOpenSelect from '../../components/DropdownFilter';
+// import ControlledOpenSelect from '../../components/DropdownFilter';
 
 import Container from '../../components/Container';
 import {
@@ -100,7 +100,7 @@ export default function Repository({ match }) {
             />
             <h1>{repository.name}</h1>
             <p>{repository.description}</p>
-            <ControlledOpenSelect changeFilter={changeFilter} />
+            {/* <ControlledOpenSelect changeFilter={changeFilter} /> */}
          </Owner>
 
          <IssueList>
