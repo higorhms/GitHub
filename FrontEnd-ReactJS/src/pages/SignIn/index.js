@@ -1,10 +1,12 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { useState } from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
+import { Spring } from 'react-spring/renderprops';
+
 import {
    Container,
    FormContainer,
@@ -49,40 +51,50 @@ export default function SignIn() {
             </p>
 
             <SocialMediasContainer>
-               <a href="https://github.com/higorhms">
+               <a target="_blank" href="https://github.com/higorhms">
                   <FaGithub size={30} />
                   Portfólio
                </a>
-               <a href="https://www.linkedin.com/in/higormartinsdasilva/">
+               <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/higormartinsdasilva/"
+               >
                   <FaLinkedin size={30} />
                   Linkedin
                </a>
             </SocialMediasContainer>
          </PortfolioContainer>
 
-         <FormContainer>
-            <FormArea>
-               <FaGithub size={60} />
-               <Form schema={schema} onSubmit={handleSubmit}>
-                  <Input
-                     name="username"
-                     type="username"
-                     placeholder="GitHub Username"
-                  />
-                  <button type="submit">
-                     {loading ? 'Loading...' : 'Login'}
-                  </button>
-               </Form>
+         <Spring
+            from={{ transform: 'translateX(100%)' }}
+            to={{ transform: 'translateX(0%)' }}
+         >
+            {props => (
+               <FormContainer style={props}>
+                  <FormArea>
+                     <FaGithub size={60} />
+                     <Form schema={schema} onSubmit={handleSubmit}>
+                        <Input
+                           name="username"
+                           type="username"
+                           placeholder="GitHub Username"
+                        />
+                        <button type="submit">
+                           {loading ? 'Loading...' : 'Login'}
+                        </button>
+                     </Form>
 
-               <p>
-                  Do not have an account?
-                  <a href="https://github.com/join?source=header-home">
-                     {' '}
-                     Sign Up
-                  </a>
-               </p>
-            </FormArea>
-         </FormContainer>
+                     <p>
+                        Do not have an account?
+                        <a href="https://github.com/join?source=header-home">
+                           {' '}
+                           Sign Up
+                        </a>
+                     </p>
+                  </FormArea>
+               </FormContainer>
+            )}
+         </Spring>
       </Container>
    );
 }

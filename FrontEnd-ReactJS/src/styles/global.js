@@ -5,32 +5,41 @@ export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   outline: 0;
+   box-sizing: border-box;
 }
+
 *:focus{
     outline: 0;
 }
+
 html, body, #root {
-    height: 100%;
-    font-family: 'Roboto Mono', monospace;
+   height: 100%;
+   font-family: 'Roboto Mono', monospace;
 }
+
 body{
-    -webkit-font-smoothing: antialiased;
+   -webkit-font-smoothing: antialiased;
+   overflow-x: hidden;
+   overflow-y: hidden;
 }
+
 body, input, button {
-    font-size: 14px;
+   font-size: 14px;
 }
+
 a{
-    text-decoration: none;
+   text-decoration: none;
 }
+
 ul{
-    list-style: none;
+   list-style: none;
 }
+
 button{
-    cursor: pointer;
+   cursor: pointer;
 }
 `;
 
