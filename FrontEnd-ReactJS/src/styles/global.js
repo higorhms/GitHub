@@ -18,12 +18,15 @@ export default createGlobalStyle`
 html, body, #root {
    height: 100%;
    font-family: 'Roboto Mono', monospace;
+
+   ::-webkit-scrollbar{
+      display: none;
+      -ms-overflow-style: none;
+   }
 }
 
 body{
    -webkit-font-smoothing: antialiased;
-   overflow-x: hidden;
-   overflow-y: hidden;
 }
 
 body, input, button {

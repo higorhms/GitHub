@@ -1,17 +1,9 @@
 import React from 'react';
-
+import { Spring } from 'react-spring/renderprops';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FaHome, FaRProject, FaCode } from 'react-icons/fa';
-import {
-   Container,
-   Avatar,
-   ProfileArea,
-   Name,
-   Bio,
-   Menu,
-   MenuItem,
-} from './styles';
+import { FaHome, FaCode } from 'react-icons/fa';
+import { Container, Avatar, ProfileArea, Name, Bio, Menu } from './styles';
 import { signOut } from '../../store/modules/auth/actions';
 
 export default function Navbar() {
@@ -26,32 +18,45 @@ export default function Navbar() {
    }
 
    return (
-      <Container>
-         <div>
-            <ProfileArea>
-               <Avatar src={profile.avatar_url} alt="avatar" />
-               <Name>{profile.name}</Name>
-               <Bio>
-                  {'"'}
-                  {profile.bio}
-                  {'"'}
-               </Bio>
-            </ProfileArea>
-            <Menu>
-               <Link to="/dashboard">
-                  <FaHome size={20} />
-                  Dashboard
-               </Link>
-               <Link to="/repositories">
-                  <FaCode size={20} />
-                  Repositories
-               </Link>
-            </Menu>
-         </div>
+      <Spring
+         from={{ transform: 'translateX(-100%)' }}
+         to={{ transform: 'translateX(0%)' }}
+      >
+         {props => (
+            <Container style={props}>
+               <div>
+                  <ProfileArea>
+                     <Avatar
+                        src={
+                           profile.avatar_url ||
+                           'https://api.adorable.io/avatars/95/abott@adorable.png'
+                        }
+                        alt="avatar"
+                     />
+                     <Name>{profile.name || ''}</Name>
+                     <Bio>
+                        {'"'}
+                        {profile.bio || ''}
+                        {'"'}
+                     </Bio>
+                  </ProfileArea>
+                  <Menu>
+                     <Link to="/dashboard">
+                        <FaHome size={20} />
+                        Dashboard
+                     </Link>
+                     <Link to="/repositories">
+                        <FaCode size={20} />
+                        Repositories
+                     </Link>
+                  </Menu>
+               </div>
 
-         <button type="button" onClick={handleLogOut}>
-            Sair
-         </button>
-      </Container>
+               <button type="button" onClick={handleLogOut}>
+                  Logout
+               </button>
+            </Container>
+         )}
+      </Spring>
    );
 }

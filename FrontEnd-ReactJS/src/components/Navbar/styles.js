@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.nav`
    background: black;
-   width: 200px;
+   min-width: 200px;
+   max-width: 200px;
    border-radius: 0 4px 4px 0;
 
    color: #fff;
