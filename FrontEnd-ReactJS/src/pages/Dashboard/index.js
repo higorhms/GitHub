@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { FaBook } from 'react-icons/fa';
 import api from '../../services/api';
 
@@ -47,9 +46,7 @@ export default function Dashboard() {
                               <div>
                                  <FaBook size={15} /> {r.name}
                               </div>
-                              <div>
-                                 <Language>{r.language}</Language>
-                              </div>
+                              <Language>{r.language}</Language>
                            </Name>
                            <Description>{r.description}</Description>
                         </ListItem>

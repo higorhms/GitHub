@@ -48,7 +48,7 @@ export const ListItem = styled.div`
    }
 `;
 
-export const Name = styled.p`
+export const Name = styled.div`
    display: flex;
    align-items: center;
    justify-content: space-between;
