@@ -19,6 +19,7 @@ html, body, #root {
    height: 100%;
    font-family: 'Roboto Mono', monospace;
 
+
    ::-webkit-scrollbar{
       display: none;
       -ms-overflow-style: none;

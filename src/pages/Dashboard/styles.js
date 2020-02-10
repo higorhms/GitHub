@@ -67,3 +67,25 @@ export const Description = styled.p`
 `;
 
 export const Language = styled.p``;
+
+export const FollowersContainer = styled.div`
+   padding: 20px;
+
+   display: flex;
+   flex-direction: column;
+
+   > h1 {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+   }
+`;
+
+export const Separator = styled.div`
+   height: 1px;
+   background: #eee;
+   margin-top: 20px;
+   margin-bottom: 20px;
+`;

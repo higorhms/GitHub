@@ -12,10 +12,16 @@ import {
    Name,
    Description,
    Language,
+   FollowersContainer,
+   Separator,
 } from './styles';
+import CardFollow from '../../components/CardFollow';
 
 export default function Dashboard() {
    const [repositories, setRepositories] = useState([]);
+   const [following, setFollowing] = useState([]);
+   const [followers, setFollowers] = useState([]);
+
    const profile = useSelector(
       state => state.user.profile && state.user.profile.user
    );
@@ -24,9 +30,26 @@ export default function Dashboard() {
       async function fetchApi() {
          const response = await api.get(`/users/${profile.login}/repos`);
          setRepositories(response.data);
+         console.log(response.data);
       }
       fetchApi();
    }, [profile]);
+
+   useEffect(() => {
+      async function fetchApi() {
+         const response = await api.get(`/users/${profile.login}/followers`);
+         setFollowers(response.data);
+      }
+      fetchApi();
+   }, []);
+
+   useEffect(() => {
+      async function fetchApi() {
+         const response = await api.get(`/users/${profile.login}/following`);
+         setFollowing(response.data);
+      }
+      fetchApi();
+   }, []);
 
    return (
       <Container>
@@ -53,6 +76,13 @@ export default function Dashboard() {
                   ))}
             </List>
          </RepositoriesContainer>
+
+         <FollowersContainer>
+            <h1>Friends</h1>
+            <CardFollow title="Following" list={following} />
+            <Separator />
+            <CardFollow title="Followers" list={followers} />
+         </FollowersContainer>
       </Container>
    );
 }
