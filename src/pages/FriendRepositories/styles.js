@@ -19,14 +19,6 @@ export const RepositoriesContainer = styled.div`
    ::-webkit-scrollbar {
       display: none;
    }
-
-   h1 {
-      text-align: center;
-      font-size: 18px;
-      margin-bottom: 10px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #eee;
-   }
 `;
 
 export const List = styled.div`
@@ -103,6 +95,26 @@ export const FollowersContainer = styled.div`
 export const Separator = styled.div`
    height: 1px;
    background: #eee;
-   margin-top: 20px;
-   margin-bottom: 20px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+`;
+
+export const Avatar = styled.img`
+   height: 50px;
+   width: 50px;
+   border-radius: 50%;
+   background: #eee;
+   border: 1px solid #24292e;
+`;
+
+export const AvatarContainer = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+
+   h1 {
+      text-align: center;
+      font-size: 18px;
+   }
 `;

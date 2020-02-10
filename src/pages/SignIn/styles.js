@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
    display: flex;
-   height: 100%;
+   min-height: 100%;
 `;
 
 export const SocialMediasContainer = styled.div`
@@ -39,12 +39,13 @@ export const PortfolioContainer = styled.div`
    padding: 50px;
    width: 50%;
 
+   @media (max-width: 480px) {
+      display: none;
+   }
+
    h1 {
       color: #fff;
       margin-bottom: 50px;
-   }
-
-   a {
    }
 
    p {
@@ -60,6 +61,11 @@ export const FormContainer = styled.div`
 
    border-radius: 10% 0 0 10%;
    background: #fff;
+
+   @media (max-width: 480px) {
+      border-radius: 0 0 0 0;
+      width: 100%;
+   }
 `;
 
 export const FormArea = styled.div`

@@ -11,27 +11,29 @@ export default createGlobalStyle`
    box-sizing: border-box;
 }
 
-*:focus{
-    outline: 0;
+html{
+   display: block;
+   -webkit-font-smoothing: antialiased;
 }
 
 html, body, #root {
    height: 100%;
-   font-family: 'Roboto Mono', monospace;
-
+   padding: 0;
+   box-sizing: border-box;
+   font-size: 0.875rem;
+   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+   font-weight: 400;
+   line-height: 1.43;
+   letter-spacing: 0.01071em;
 
    ::-webkit-scrollbar{
       display: none;
       -ms-overflow-style: none;
    }
-}
 
-body{
-   -webkit-font-smoothing: antialiased;
-}
-
-body, input, button {
-   font-size: 14px;
+   @media (max-width: 480px) {
+      height: 950px;
+   }
 }
 
 a{

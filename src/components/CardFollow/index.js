@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
 import {
    Container,
    Card,
@@ -21,14 +23,15 @@ export default function CardFollow({ title, list }) {
                <List>
                   {list &&
                      list.map(item => (
-                        <ListItem>
-                           <Avatar
-                              src={`${item.avatar_url} || https://api.adorable.io/avatars/95/abott@adorable.png`}
-                              alt="AvatarFollowing"
-                              key={item.id}
-                           />
-                           <p>{item.login}</p>
-                        </ListItem>
+                        <Link to={`/friend/${item.login}`} key={item.id}>
+                           <ListItem>
+                              <Avatar
+                                 src={`${item.avatar_url} || https://api.adorable.io/avatars/95/abott@adorable.png`}
+                                 alt="AvatarFollowing"
+                              />
+                              <p>{item.login}</p>
+                           </ListItem>
+                        </Link>
                      ))}
                </List>
             </CardContent>
@@ -36,3 +39,12 @@ export default function CardFollow({ title, list }) {
       </Container>
    );
 }
+
+CardFollow.defaultProps = {
+   list: [],
+};
+
+CardFollow.propTypes = {
+   title: PropTypes.string.isRequired,
+   list: PropTypes.arrayOf(PropTypes.object),
+};

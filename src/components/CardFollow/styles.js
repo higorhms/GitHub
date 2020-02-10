@@ -31,6 +31,7 @@ export const List = styled.div`
    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
    grid-gap: 10px;
    padding: 10px;
+   height: 300px;
 
    overflow-y: scroll;
    ::-webkit-scrollbar {

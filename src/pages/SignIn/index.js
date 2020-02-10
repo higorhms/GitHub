@@ -30,7 +30,6 @@ export default function SignIn() {
       try {
          const response = await api.get(`/users/${username}`);
          dispatch(signIn(response.data));
-         console.log(response.data);
          setLoading(true);
       } catch (error) {
          toast.error(

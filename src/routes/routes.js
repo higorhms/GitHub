@@ -6,6 +6,7 @@ import Dashboard from '../pages/Dashboard';
 import Repository from '../pages/Repository';
 import SignIn from '../pages/SignIn';
 import Repositories from '../pages/Repositories';
+import FriendRepositories from '../pages/FriendRepositories';
 
 export default function MainRoutes() {
    return (
@@ -13,6 +14,11 @@ export default function MainRoutes() {
          <AuthRoutes path="/" exact component={SignIn} />
          <AuthRoutes path="/dashboard" isPrivate component={Dashboard} />
          <AuthRoutes path="/repositories" isPrivate component={Repositories} />
+         <AuthRoutes
+            path="/friend/:name"
+            isPrivate
+            component={FriendRepositories}
+         />
          <AuthRoutes
             path="/repository/:repository"
             isPrivate

@@ -1,9 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { FaBook } from 'react-icons/fa';
-import api from '../../services/api';
 
+import { FaBook } from 'react-icons/fa';
 import {
    Container,
    RepositoriesContainer,
@@ -12,54 +10,73 @@ import {
    Name,
    Description,
    Language,
-   FollowersContainer,
+   Avatar,
    Separator,
+   AvatarContainer,
+   FollowersContainer,
 } from './styles';
+import api from '../../services/api';
 import CardFollow from '../../components/CardFollow';
 
-export default function Dashboard() {
+export default function FriendRepositories({ match }) {
    const [repositories, setRepositories] = useState([]);
    const [following, setFollowing] = useState([]);
    const [followers, setFollowers] = useState([]);
-
-   const profile = useSelector(
-      state => state.user.profile && state.user.profile.user
-   );
+   const [profile, setProfile] = useState({});
+   const { name } = match.params;
 
    useEffect(() => {
       async function fetchApi() {
-         const response = await api.get(`/users/${profile.login}/repos`);
+         const response = await api.get(`/users/${name}/repos`);
          setRepositories(response.data);
       }
       fetchApi();
-   }, [profile]);
+   }, [name]);
+
+   useEffect(() => {
+      async function fetchMyApi() {
+         const response = await api.get(`/users/${name}`);
+         setProfile(response.data);
+      }
+      fetchMyApi();
+   }, [name]);
 
    useEffect(() => {
       async function fetchApi() {
-         const response = await api.get(`/users/${profile.login}/followers`);
+         const response = await api.get(`/users/${name}/followers`);
          setFollowers(response.data);
       }
       fetchApi();
-   }, [profile]);
+   }, [name]);
 
    useEffect(() => {
       async function fetchApi() {
-         const response = await api.get(`/users/${profile.login}/following`);
+         const response = await api.get(`/users/${name}/following`);
          setFollowing(response.data);
       }
       fetchApi();
-   }, [profile]);
+   }, [name]);
 
    return (
       <Container>
          <RepositoriesContainer>
-            <h1>Your Repositories</h1>
+            <AvatarContainer>
+               <Avatar
+                  src={
+                     profile.avatar_url ||
+                     'https://api.adorable.io/avatars/95/abott@adorable.png'
+                  }
+                  alt="avatar"
+               />
+               <h1>{name}</h1>
+            </AvatarContainer>
+            <Separator />
             <List>
                {repositories &&
                   repositories.map(r => (
                      <a
                         target="_blank"
-                        href={`https://github.com/${profile.login}/${r.name}`}
+                        href={`https://github.com/${name}/${r.name}`}
                         key={r.id}
                      >
                         <ListItem>
