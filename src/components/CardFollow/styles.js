@@ -32,10 +32,24 @@ export const List = styled.div`
    grid-gap: 10px;
    padding: 10px;
 
-   height: 200px;
+   height: 220px;
    overflow-y: scroll;
    ::-webkit-scrollbar {
       display: none;
+   }
+`;
+
+export const ListItem = styled.div`
+   display: flex;
+   flex-direction: column;
+   padding: 10px;
+   align-items: center;
+   justify-content: center;
+   border: 1px solid #eee;
+
+   p {
+      margin-top: 2px;
+      font-size: 8px;
    }
 `;
 

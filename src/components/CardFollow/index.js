@@ -7,6 +7,7 @@ import {
    CardContent,
    List,
    Avatar,
+   ListItem,
 } from './styles';
 
 export default function CardFollow({ title, list }) {
@@ -20,11 +21,14 @@ export default function CardFollow({ title, list }) {
                <List>
                   {list &&
                      list.map(item => (
-                        <Avatar
-                           src={`${item.avatar_url} || https://api.adorable.io/avatars/95/abott@adorable.png`}
-                           alt="AvatarFollowing"
-                           key={item.id}
-                        />
+                        <ListItem>
+                           <Avatar
+                              src={`${item.avatar_url} || https://api.adorable.io/avatars/95/abott@adorable.png`}
+                              alt="AvatarFollowing"
+                              key={item.id}
+                           />
+                           <p>{item.login}</p>
+                        </ListItem>
                      ))}
                </List>
             </CardContent>

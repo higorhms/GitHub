@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { lighten } from 'polished';
 
 export const Container = styled.nav`
    background: #24292e;
@@ -62,17 +63,22 @@ export const Menu = styled.ul`
    a {
       display: flex;
       align-items: center;
-      padding: 5px;
+      padding: 8px;
       color: #fff;
 
       :hover {
          border-radius: 4px;
-         background: linear-gradient(-90deg, #24292e, white);
-         color: #24292e;
+         color: #777;
       }
 
       svg {
          margin-right: 5px;
       }
    }
+`;
+
+export const Separator = styled.div`
+   height: 1px;
+   background: ${lighten(0.1, '#24292e')};
+   margin: 10px 0 10px 0;
 `;

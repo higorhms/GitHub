@@ -70,7 +70,6 @@ export const Language = styled.p``;
 
 export const FollowersContainer = styled.div`
    padding: 20px;
-
    display: flex;
    flex-direction: column;
 

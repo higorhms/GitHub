@@ -3,7 +3,15 @@ import { Spring } from 'react-spring/renderprops';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaHome, FaCode } from 'react-icons/fa';
-import { Container, Avatar, ProfileArea, Name, Bio, Menu } from './styles';
+import {
+   Container,
+   Avatar,
+   ProfileArea,
+   Name,
+   Bio,
+   Menu,
+   Separator,
+} from './styles';
 import { signOut } from '../../store/modules/auth/actions';
 
 export default function Navbar() {
@@ -40,6 +48,7 @@ export default function Navbar() {
                         {'"'}
                      </Bio>
                   </ProfileArea>
+                  <Separator />
                   <Menu>
                      <Link to="/dashboard">
                         <FaHome size={20} />
