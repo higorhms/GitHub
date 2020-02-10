@@ -32,7 +32,6 @@ export const List = styled.div`
    grid-gap: 10px;
    padding: 10px;
 
-   height: 220px;
    overflow-y: scroll;
    ::-webkit-scrollbar {
       display: none;

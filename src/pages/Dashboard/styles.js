@@ -72,6 +72,10 @@ export const FollowersContainer = styled.div`
    padding: 20px;
    display: flex;
    flex-direction: column;
+   overflow-y: scroll;
+   ::-webkit-scrollbar {
+      display: none;
+   }
 
    > h1 {
       text-align: center;
