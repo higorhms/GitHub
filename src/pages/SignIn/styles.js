@@ -34,6 +34,10 @@ export const SocialMediasContainer = styled.div`
       svg {
          margin-right: 10px;
       }
+
+      @media (max-width: 650px) {
+         padding: 5px;
+      }
    }
 `;
 
