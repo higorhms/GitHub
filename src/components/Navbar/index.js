@@ -34,7 +34,7 @@ export default function Navbar() {
          to={{ transform: 'translateX(0%)' }}
       >
          {props => (
-            <Container style={props} sm={2} xs={12}>
+            <Container style={props} item sm={2} xs={12}>
                <div>
                   <ProfileArea>
                      <div>

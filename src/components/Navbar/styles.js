@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 
 export const Container = styled(Grid)`
    background: #24292e;

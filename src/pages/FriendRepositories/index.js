@@ -61,8 +61,8 @@ export default function FriendRepositories({ match }) {
    }, [name]);
 
    return (
-      <Container container xs>
-         <RepositoriesContainer xs={12} sm={8}>
+      <Container container item xs>
+         <RepositoriesContainer item xs={12} sm={8}>
             <AvatarContainer>
                <Avatar
                   src={
@@ -96,7 +96,7 @@ export default function FriendRepositories({ match }) {
             </List>
          </RepositoriesContainer>
 
-         <FollowersContainer xs>
+         <FollowersContainer item xs>
             <h1>Friends</h1>
             <CardFollow title="Following" list={following} />
             <Separator />

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
+import Grid from '@material-ui/core/Grid';
 
-export const Container = styled.div`
+export const Container = styled(Grid)`
    display: grid;
    grid-template-columns: 1fr 300px;
    width: 100%;
@@ -12,9 +13,11 @@ export const Container = styled.div`
    }
 `;
 
-export const RepositoriesContainer = styled.div`
+export const RepositoriesContainer = styled(Grid)`
    border-right: 1px solid #eee;
    padding: 20px;
+   height: 100%;
+
    overflow-y: scroll;
    ::-webkit-scrollbar {
       display: none;
@@ -70,7 +73,7 @@ export const Description = styled.p`
 
 export const Language = styled.p``;
 
-export const FollowersContainer = styled.div`
+export const FollowersContainer = styled(Grid)`
    padding: 20px;
    height: 100%;
 

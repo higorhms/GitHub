@@ -54,8 +54,8 @@ export default function Dashboard() {
    }, [profile]);
 
    return (
-      <Container container xs>
-         <RepositoriesContainer xs={12} sm={8}>
+      <Container container item xs>
+         <RepositoriesContainer item xs={12} sm={8}>
             <h1>Your Repositories</h1>
             <List>
                {repositories &&
@@ -79,7 +79,7 @@ export default function Dashboard() {
             </List>
          </RepositoriesContainer>
 
-         <FollowersContainer xs>
+         <FollowersContainer item xs>
             <h1>Friends</h1>
             <CardFollow title="Following" list={following} />
             <Separator />
