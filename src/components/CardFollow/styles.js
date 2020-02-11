@@ -33,7 +33,6 @@ export const List = styled(Grid)`
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(60px, 80px));
    justify-content: center;
-   align-items: center;
    grid-gap: 5px;
    padding-top: 5px;
    height: 300px;
