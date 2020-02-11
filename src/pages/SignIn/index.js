@@ -79,7 +79,7 @@ export default function SignIn() {
                            placeholder="GitHub Username"
                         />
                         <button type="submit">
-                           {loading ? 'Loading...' : 'Login'}
+                           {loading ? 'Loading...' : 'Sign in'}
                         </button>
                      </Form>
 

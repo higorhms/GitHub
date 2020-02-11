@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-
 import { darken } from 'polished';
 
 export const Container = styled(Grid)`
@@ -76,7 +74,7 @@ export const FormContainer = styled(Grid)`
 `;
 
 export const FormArea = styled.div`
-   padding: 10px;
+   padding: 15px;
    text-align: center;
 
    svg {
@@ -95,8 +93,9 @@ export const FormArea = styled.div`
          color: #fff;
          margin: 5px 0;
          padding: 0 20px;
-         &::placeholder {
-            color: #eee;
+
+         ::placeholder {
+            color: #fff;
          }
       }
 
@@ -108,6 +107,7 @@ export const FormArea = styled.div`
          margin: 5px 0;
          padding: 0 20px;
          height: 37px;
+         font-weight: bold;
 
          :hover {
             background: ${darken(0.1, '#1074e7')};
@@ -119,12 +119,14 @@ export const FormArea = styled.div`
       font-size: 12px;
       margin-top: 3px;
       color: #24292e;
+
       a {
          font-size: 12px;
          color: #24292e;
+         color: #1074e7;
 
          :hover {
-            color: blue;
+            color: ${darken(0.3, '#1074e7')};
          }
       }
    }
