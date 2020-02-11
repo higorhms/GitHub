@@ -37,6 +37,7 @@ export default function FriendRepositories({ match }) {
       async function fetchMyApi() {
          const response = await api.get(`/users/${name}`);
          setProfile(response.data);
+         console.log('Executado x vezes');
       }
       fetchMyApi();
    }, [name]);
@@ -45,6 +46,7 @@ export default function FriendRepositories({ match }) {
       async function fetchApi() {
          const response = await api.get(`/users/${name}/followers`);
          setFollowers(response.data);
+         console.log('Executado x vezes');
       }
       fetchApi();
    }, [name]);
@@ -53,13 +55,14 @@ export default function FriendRepositories({ match }) {
       async function fetchApi() {
          const response = await api.get(`/users/${name}/following`);
          setFollowing(response.data);
+         console.log('Executado x vezes');
       }
       fetchApi();
    }, [name]);
 
    return (
-      <Container>
-         <RepositoriesContainer>
+      <Container container xs>
+         <RepositoriesContainer xs={12} sm={8}>
             <AvatarContainer>
                <Avatar
                   src={
@@ -93,7 +96,7 @@ export default function FriendRepositories({ match }) {
             </List>
          </RepositoriesContainer>
 
-         <FollowersContainer>
+         <FollowersContainer xs>
             <h1>Friends</h1>
             <CardFollow title="Following" list={following} />
             <Separator />

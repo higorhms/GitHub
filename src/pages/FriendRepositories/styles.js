@@ -74,9 +74,9 @@ export const FollowersContainer = styled.div`
    padding: 20px;
    height: 100%;
 
-   @media (max-width: 480px) {
+   /* @media (max-width: 480px) {
       display: none;
-   }
+   } */
 
    overflow-y: scroll;
    ::-webkit-scrollbar {

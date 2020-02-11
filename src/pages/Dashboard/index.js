@@ -30,6 +30,7 @@ export default function Dashboard() {
       async function fetchApi() {
          const response = await api.get(`/users/${profile.login}/repos`);
          setRepositories(response.data);
+         console.log('Executado x vezes');
       }
       fetchApi();
    }, [profile]);
@@ -38,6 +39,7 @@ export default function Dashboard() {
       async function fetchApi() {
          const response = await api.get(`/users/${profile.login}/followers`);
          setFollowers(response.data);
+         console.log('Executado x vezes');
       }
       fetchApi();
    }, [profile]);
@@ -46,6 +48,7 @@ export default function Dashboard() {
       async function fetchApi() {
          const response = await api.get(`/users/${profile.login}/following`);
          setFollowing(response.data);
+         console.log('Executado x vezes');
       }
       fetchApi();
    }, [profile]);
