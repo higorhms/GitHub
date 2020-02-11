@@ -49,14 +49,20 @@ export const PortfolioContainer = styled(Grid)`
    h1 {
       color: #fff;
       margin-bottom: 50px;
+      font-size: 40px;
 
       @media (max-width: 650px) {
-         margin-bottom: 0px;
+         margin-bottom: 2px;
+         font-size: 30px;
       }
    }
 
    p {
       color: #999;
+
+      @media (max-width: 650px) {
+         margin-bottom: 5px;
+      }
    }
 `;
 

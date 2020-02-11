@@ -39,5 +39,5 @@ button{
 `;
 
 export const colors = {
-   DefaultColor: '#301199',
+   DefaultColor: '#24292e',
 };

@@ -4,17 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaHome, FaCode } from 'react-icons/fa';
 import { GiExitDoor } from 'react-icons/gi';
-import {
-   Container,
-   Avatar,
-   ProfileArea,
-   Name,
-   Bio,
-   Menu,
-   Separator,
-   LogoutResponsible,
-   MenuItemContainer,
-} from './styles';
+import { Container, Avatar, ProfileArea, Bio, Menu, Separator } from './styles';
 import { signOut } from '../../store/modules/auth/actions';
 
 export default function Navbar() {
@@ -45,31 +35,20 @@ export default function Navbar() {
                            }
                            alt="avatar"
                         />
-                        <Name>{profile.name || ''}</Name>
+                        <p>{profile.name || ''}</p>
                      </div>
-                     <Bio>
-                        {'"'}
-                        {profile.bio || ''}
-                        {'"'}
-                     </Bio>
+                     <Bio>{profile.bio}</Bio>
                   </ProfileArea>
                   <Separator />
-                  <Menu>
-                     <MenuItemContainer>
-                        <Link to="/dashboard">
-                           <FaHome size={20} />
-                           <p>Dashboard</p>
-                        </Link>
-                        <Link to="/repositories">
-                           <FaCode size={20} />
-                           <p>Repositories</p>
-                        </Link>
-                     </MenuItemContainer>
-                     <LogoutResponsible>
-                        <Link to="/" onClick={handleLogOut}>
-                           <GiExitDoor size={20} color="#111" />
-                        </Link>
-                     </LogoutResponsible>
+                  <Menu item xs>
+                     <Link to="/dashboard">
+                        <FaHome size={20} />
+                        <p>Dashboard</p>
+                     </Link>
+                     <Link to="/repositories">
+                        <FaCode size={20} />
+                        <p>Repositories</p>
+                     </Link>
                   </Menu>
                </div>
 

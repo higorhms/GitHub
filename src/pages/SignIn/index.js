@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState } from 'react';
 import { Form, Input } from '@rocketseat/unform';
-import * as Yup from 'yup';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
@@ -16,10 +15,6 @@ import {
 } from './styles';
 import api from '../../services/api';
 import { signIn } from '../../store/modules/auth/actions';
-
-const schema = Yup.object().shape({
-   username: Yup.string(),
-});
 
 export default function SignIn() {
    const [loading, setLoading] = useState(false);
@@ -72,7 +67,7 @@ export default function SignIn() {
                <FormContainer style={props} item xs>
                   <FormArea>
                      <FaGithub size={60} />
-                     <Form schema={schema} onSubmit={handleSubmit}>
+                     <Form onSubmit={handleSubmit}>
                         <Input
                            name="username"
                            type="username"

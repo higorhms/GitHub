@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+import Grid from '@material-ui/core/Grid';
 
-export const Container = styled.div``;
+export const Container = styled(Grid)``;
 
-export const Card = styled.div`
+export const Card = styled(Grid)`
+   display: flex;
+   flex-direction: column;
    box-shadow: 0px 0px 8px 0px #999;
    color: #24292e;
    border-radius: 4px;
@@ -26,11 +29,13 @@ export const CardContent = styled.div`
    border-radius: 4px 4px 4px 4px;
 `;
 
-export const List = styled.div`
+export const List = styled(Grid)`
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-   grid-gap: 10px;
-   padding: 10px;
+   grid-template-columns: repeat(auto-fit, minmax(60px, 80px));
+   justify-content: center;
+   align-items: center;
+   grid-gap: 5px;
+   padding-top: 5px;
    height: 300px;
 
    overflow-y: scroll;
@@ -39,13 +44,14 @@ export const List = styled.div`
    }
 `;
 
-export const ListItem = styled.div`
+export const ListItem = styled(Grid)`
    display: flex;
    flex-direction: column;
    padding: 10px;
    align-items: center;
    justify-content: center;
    border: 1px solid #eee;
+   border-radius: 4px;
 
    p {
       margin-top: 2px;

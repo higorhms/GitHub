@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import { FaBook } from 'react-icons/fa';
 import {
@@ -37,7 +38,6 @@ export default function FriendRepositories({ match }) {
       async function fetchMyApi() {
          const response = await api.get(`/users/${name}`);
          setProfile(response.data);
-         console.log('Executado x vezes');
       }
       fetchMyApi();
    }, [name]);
@@ -46,7 +46,6 @@ export default function FriendRepositories({ match }) {
       async function fetchApi() {
          const response = await api.get(`/users/${name}/followers`);
          setFollowers(response.data);
-         console.log('Executado x vezes');
       }
       fetchApi();
    }, [name]);
@@ -55,7 +54,6 @@ export default function FriendRepositories({ match }) {
       async function fetchApi() {
          const response = await api.get(`/users/${name}/following`);
          setFollowing(response.data);
-         console.log('Executado x vezes');
       }
       fetchApi();
    }, [name]);
@@ -105,3 +103,11 @@ export default function FriendRepositories({ match }) {
       </Container>
    );
 }
+
+FriendRepositories.propTypes = {
+   match: PropTypes.shape({
+      params: PropTypes.shape({
+         name: PropTypes.string,
+      }),
+   }).isRequired,
+};

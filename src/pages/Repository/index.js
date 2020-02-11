@@ -7,7 +7,6 @@ import Lottie from 'react-lottie';
 import api from '../../services/api';
 import ControlledOpenSelect from '../../components/DropdownFilter';
 
-import Container from '../../components/Container';
 import {
    Owner,
    IssueList,
@@ -16,6 +15,7 @@ import {
    NextButton,
    defaultOptions,
    LoadingContainer,
+   Container,
 } from './styles';
 
 export default function Repository({ match }) {
@@ -88,7 +88,7 @@ export default function Repository({ match }) {
       );
    }
    return (
-      <Container>
+      <Container container item xs>
          <Owner>
             <Link to="/repositories">
                <IoIosArrowBack size={20} color="#FFF" />

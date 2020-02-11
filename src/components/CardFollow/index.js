@@ -14,8 +14,8 @@ import {
 
 export default function CardFollow({ title, list }) {
    return (
-      <Container>
-         <Card>
+      <Container container>
+         <Card container>
             <CardHeader>
                <h1>{title}</h1>
             </CardHeader>
@@ -24,7 +24,7 @@ export default function CardFollow({ title, list }) {
                   {list &&
                      list.map(item => (
                         <Link to={`/friend/${item.login}`} key={item.id}>
-                           <ListItem>
+                           <ListItem item xs>
                               <Avatar
                                  src={`${item.avatar_url} || https://api.adorable.io/avatars/95/abott@adorable.png`}
                                  alt="AvatarFollowing"

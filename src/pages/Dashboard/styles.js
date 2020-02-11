@@ -7,16 +7,16 @@ export const Container = styled(Grid)`
    grid-template-columns: 1fr 300px;
    width: 100%;
    height: 100%;
-
-   /* @media (max-width: 480px) {
-      grid-template-columns: 1fr;
-   } */
 `;
 
 export const RepositoriesContainer = styled(Grid)`
    border-right: 1px solid #eee;
    padding: 20px;
+   height: 100%;
+
    overflow-y: scroll;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
    ::-webkit-scrollbar {
       display: none;
    }
@@ -44,7 +44,6 @@ export const ListItem = styled.div`
    height: 150px;
    border-radius: 5px;
    padding: 10px;
-
    transition: 0.3s;
 
    :hover {
@@ -72,6 +71,8 @@ export const Description = styled.p`
    height: 100px;
 
    overflow-y: scroll;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
    ::-webkit-scrollbar {
       display: none;
    }
@@ -84,6 +85,8 @@ export const FollowersContainer = styled(Grid)`
    height: 100%;
 
    overflow-y: scroll;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
    ::-webkit-scrollbar {
       display: none;
    }

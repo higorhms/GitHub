@@ -30,7 +30,6 @@ export default function Dashboard() {
       async function fetchApi() {
          const response = await api.get(`/users/${profile.login}/repos`);
          setRepositories(response.data);
-         console.log('Executado x vezes');
       }
       fetchApi();
    }, [profile]);
@@ -39,7 +38,6 @@ export default function Dashboard() {
       async function fetchApi() {
          const response = await api.get(`/users/${profile.login}/followers`);
          setFollowers(response.data);
-         console.log('Executado x vezes');
       }
       fetchApi();
    }, [profile]);
@@ -48,14 +46,13 @@ export default function Dashboard() {
       async function fetchApi() {
          const response = await api.get(`/users/${profile.login}/following`);
          setFollowing(response.data);
-         console.log('Executado x vezes');
       }
       fetchApi();
    }, [profile]);
 
    return (
-      <Container container item xs>
-         <RepositoriesContainer item xs={12} sm={8}>
+      <Container container item xs sm>
+         <RepositoriesContainer item xs={12} sm={9}>
             <h1>Your Repositories</h1>
             <List>
                {repositories &&

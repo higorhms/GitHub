@@ -5,15 +5,19 @@ import AuthRoutes from './AuthRoute';
 import Dashboard from '../pages/Dashboard';
 import Repository from '../pages/Repository';
 import SignIn from '../pages/SignIn';
-import Repositories from '../pages/Repositories';
 import FriendRepositories from '../pages/FriendRepositories';
+import RepositoryFinder from '../pages/RepositoryFinder';
 
 export default function MainRoutes() {
    return (
       <Switch>
          <AuthRoutes path="/" exact component={SignIn} />
          <AuthRoutes path="/dashboard" isPrivate component={Dashboard} />
-         <AuthRoutes path="/repositories" isPrivate component={Repositories} />
+         <AuthRoutes
+            path="/repositories"
+            isPrivate
+            component={RepositoryFinder}
+         />
          <AuthRoutes
             path="/friend/:name"
             isPrivate

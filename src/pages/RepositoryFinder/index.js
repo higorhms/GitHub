@@ -6,10 +6,16 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
 
-import Container from '../../components/Container';
-import { Form, SubmitButton, List, Input, ClearButton } from './styles';
+import {
+   Form,
+   SubmitButton,
+   List,
+   Input,
+   ClearButton,
+   Container,
+} from './styles';
 
-export default function Repositories() {
+export default function RepositoryFinder() {
    const [newRepo, setNewRepo] = useState('');
    const [repositories, setRepositories] = useState([]);
    const [loading, setLoading] = useState(false);
@@ -72,7 +78,7 @@ export default function Repositories() {
    }
 
    return (
-      <Container>
+      <Container container item xs>
          <h1>
             <FaGithubAlt />
             Repositories

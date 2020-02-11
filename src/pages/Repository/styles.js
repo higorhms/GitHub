@@ -1,6 +1,35 @@
 import styled, { css } from 'styled-components';
+import Grid from '@material-ui/core/Grid';
 import { colors } from '../../styles/global';
 import animationData from '../../animations/ampulheta.json';
+
+export const Container = styled(Grid)`
+   padding: 20px;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+
+   small {
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      color: #666;
+   }
+
+   h1 {
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+   }
+
+   svg {
+      margin-right: 10px;
+   }
+`;
 
 export const Owner = styled.header`
    margin-top: 20px;
