@@ -9,7 +9,7 @@
 
 - Run these commands so you make sure you have node on your machine:
 
-node -v 
+node -v
 
 npm -v
 
@@ -21,3 +21,7 @@ npm start
 yarn start
 
 Now in your browser enter this url: localhost:3000
+
+#
+
+<img src="/assets/githubLogin.png" width="600"/>
