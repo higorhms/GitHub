@@ -6,7 +6,7 @@ import Navbar from '../../../components/Navbar';
 
 export default function authLayout({ children }) {
    return (
-      <Container>
+      <Container container>
          <Navbar />
          {children}
       </Container>

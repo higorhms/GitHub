@@ -40,8 +40,8 @@ export default function SignIn() {
    }
 
    return (
-      <Container>
-         <PortfolioContainer>
+      <Container container>
+         <PortfolioContainer item xs={12} sm={6}>
             <h1>Github Finder by Higor Martins</h1>
 
             <p>
@@ -69,7 +69,7 @@ export default function SignIn() {
             to={{ transform: 'translateX(0%)' }}
          >
             {props => (
-               <FormContainer style={props}>
+               <FormContainer style={props} item xs={12} sm={6}>
                   <FormArea>
                      <FaGithub size={60} />
                      <Form schema={schema} onSubmit={handleSubmit}>

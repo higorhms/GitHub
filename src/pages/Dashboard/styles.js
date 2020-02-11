@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
+import Grid from '@material-ui/core/Grid';
 
-export const Container = styled.div`
+export const Container = styled(Grid)`
    display: grid;
    grid-template-columns: 1fr 300px;
    width: 100%;
    height: 100%;
 
-   @media (max-width: 480px) {
+   /* @media (max-width: 480px) {
       grid-template-columns: 1fr;
-   }
+   } */
 `;
 
-export const RepositoriesContainer = styled.div`
+export const RepositoriesContainer = styled(Grid)`
    border-right: 1px solid #eee;
    padding: 20px;
    overflow-y: scroll;
@@ -78,13 +79,13 @@ export const Description = styled.p`
 
 export const Language = styled.p``;
 
-export const FollowersContainer = styled.div`
+export const FollowersContainer = styled(Grid)`
    padding: 20px;
    height: 100%;
 
-   @media (max-width: 480px) {
+   /* @media (max-width: 480px) {
       display: none;
-   }
+   } */
 
    overflow-y: scroll;
    ::-webkit-scrollbar {

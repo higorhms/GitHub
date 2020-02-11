@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-   display: flex;
-   height: 100%;
+import Grid from '@material-ui/core/Grid';
 
-   @media (max-width: 480px) {
-      flex-direction: column;
-   }
-`;
+export const Container = styled(Grid)``;

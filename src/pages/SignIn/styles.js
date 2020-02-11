@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+
 import { darken } from 'polished';
 
-export const Container = styled.div`
-   display: flex;
-   min-height: 100%;
-`;
+export const Container = styled(Grid)``;
 
 export const SocialMediasContainer = styled.div`
    margin-top: auto;
@@ -32,16 +32,10 @@ export const SocialMediasContainer = styled.div`
    }
 `;
 
-export const PortfolioContainer = styled.div`
+export const PortfolioContainer = styled(Grid)`
    display: flex;
    flex-direction: column;
-   justify-content: center;
    padding: 50px;
-   width: 50%;
-
-   @media (max-width: 480px) {
-      display: none;
-   }
 
    h1 {
       color: #fff;
@@ -53,23 +47,20 @@ export const PortfolioContainer = styled.div`
    }
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled(Grid)`
    display: flex;
    align-items: center;
    justify-content: center;
-   width: 50%;
-
    border-radius: 10% 0 0 10%;
    background: #fff;
 
-   @media (max-width: 480px) {
+   @media (max-width: 600px) {
       border-radius: 0 0 0 0;
-      width: 100%;
    }
 `;
 
-export const FormArea = styled.div`
-   max-width: 315px;
+export const FormArea = styled(Paper)`
+   padding: 10px;
    text-align: center;
 
    svg {
