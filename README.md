@@ -9,19 +9,35 @@
 
 - Run these commands so you make sure you have node on your machine:
 
-node -v
+1) node -v
 
-npm -v
+2) npm -v
 
 # Runnning this project
-npm install or yarn
+1) npm install or yarn
 
-npm start
-
-yarn start
+2) npm start or yarn start
 
 Now in your browser enter this url: localhost:3000
 
 #
 
-<img src="/assets/githubLogin.png" width="600"/>
+# Login Screen
+<h1 align="center" >
+   <img src="/assets/githubLogin.png" width="600"/>
+</h1>
+
+# Dashboard
+<h1 align="center" >
+   <img src="/assets/githubDashboard.png" width="600"/>
+</h1>
+
+# Friends repositories
+<h1 align="center" >
+   <img src="/assets/githubFriendsRepo.png" width="600"/>
+</h1>
+
+# Repository finder
+<h1 align="center" >
+   <img src="/assets/githubRepoFinder.png" width="600"/>
+</h1>

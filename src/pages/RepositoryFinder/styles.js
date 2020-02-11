@@ -4,9 +4,15 @@ import { colors } from '../../styles/global';
 
 export const Container = styled(Grid)`
    padding: 20px;
-   height: 100%;
    display: flex;
    flex-direction: column;
+
+   overflow-y: scroll;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+   ::-webkit-scrollbar {
+      display: none;
+   }
 
    small {
       font-size: 14px;
@@ -100,6 +106,13 @@ export const SubmitButton = styled.button.attrs(props => ({
 export const List = styled.ul`
    list-style: none;
    margin-top: 30px;
+
+   overflow-y: scroll;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+   ::-webkit-scrollbar {
+      display: none;
+   }
 
    li {
       display: flex;

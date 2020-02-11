@@ -5,9 +5,15 @@ import animationData from '../../animations/ampulheta.json';
 
 export const Container = styled(Grid)`
    padding: 20px;
-   height: 100%;
    display: flex;
    flex-direction: column;
+
+   overflow-y: scroll;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+   ::-webkit-scrollbar {
+      display: none;
+   }
 
    small {
       font-size: 14px;
@@ -81,6 +87,13 @@ export const IssueList = styled.ul`
    list-style: none;
    padding-top: 30px;
    border-top: 1px solid #eee;
+
+   overflow-y: scroll;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+   ::-webkit-scrollbar {
+      display: none;
+   }
 
    li {
       padding: 15px 10px;
