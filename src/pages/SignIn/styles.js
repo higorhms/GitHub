@@ -75,7 +75,7 @@ export const FormContainer = styled(Grid)`
    }
 `;
 
-export const FormArea = styled(Paper)`
+export const FormArea = styled.div`
    padding: 10px;
    text-align: center;
 
