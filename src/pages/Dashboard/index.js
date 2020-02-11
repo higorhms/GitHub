@@ -65,7 +65,8 @@ export default function Dashboard() {
                         <ListItem>
                            <Name>
                               <div>
-                                 <FaBook size={15} /> {r.name}
+                                 <FaBook size={15} />
+                                 <p>{r.name}</p>
                               </div>
                               <Language>{r.language}</Language>
                            </Name>

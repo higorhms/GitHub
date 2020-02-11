@@ -34,7 +34,8 @@ export const ListItem = styled.div`
    width: 100%;
    height: 100%;
    border-radius: 4px;
-   box-shadow: 0px 0px 8px 0px #999;
+   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+   border: 1px solid rgba(255, 255, 255, 0.1);
    height: 150px;
    border-radius: 5px;
    padding: 10px;
@@ -51,12 +52,20 @@ export const Name = styled.div`
    display: flex;
    align-items: center;
    justify-content: space-between;
-
    padding: 5px;
    color: #0366d6;
    font-weight: bold;
    text-align: center;
    border-radius: 5px 5px 0px 0px;
+
+   > div {
+      display: flex;
+      align-items: center;
+
+      p {
+         margin-left: 5px;
+      }
+   }
 `;
 
 export const Description = styled.p`

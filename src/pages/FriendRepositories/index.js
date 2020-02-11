@@ -60,7 +60,7 @@ export default function FriendRepositories({ match }) {
 
    return (
       <Container container item xs>
-         <RepositoriesContainer item xs={12} sm={8}>
+         <RepositoriesContainer item xs={12} sm={9}>
             <AvatarContainer>
                <Avatar
                   src={
@@ -83,7 +83,8 @@ export default function FriendRepositories({ match }) {
                         <ListItem>
                            <Name>
                               <div>
-                                 <FaBook size={15} /> {r.name}
+                                 <FaBook size={15} />
+                                 <p>{r.name}</p>
                               </div>
                               <Language>{r.language}</Language>
                            </Name>

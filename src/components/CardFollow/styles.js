@@ -6,7 +6,7 @@ export const Container = styled(Grid)``;
 export const Card = styled(Grid)`
    display: flex;
    flex-direction: column;
-   box-shadow: 0px 0px 8px 0px #999;
+   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
    color: #24292e;
    border-radius: 4px;
 `;
@@ -53,6 +53,7 @@ export const ListItem = styled(Grid)`
    border-radius: 4px;
 
    p {
+      color: #0366d6;
       margin-top: 2px;
       font-size: 8px;
    }
