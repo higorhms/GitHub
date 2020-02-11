@@ -4,7 +4,14 @@ import Paper from '@material-ui/core/Paper';
 
 import { darken } from 'polished';
 
-export const Container = styled(Grid)``;
+export const Container = styled(Grid)`
+   background: #24292e;
+   overflow-x: scroll;
+
+   ::-webkit-scrollbar {
+      display: none;
+   }
+`;
 
 export const SocialMediasContainer = styled.div`
    margin-top: auto;
@@ -37,13 +44,21 @@ export const PortfolioContainer = styled(Grid)`
    flex-direction: column;
    padding: 50px;
 
+   @media (max-width: 650px) {
+      height: 45%;
+   }
+
    h1 {
       color: #fff;
       margin-bottom: 50px;
+
+      @media (max-width: 650px) {
+         margin-bottom: 0px;
+      }
    }
 
    p {
-      color: #fff;
+      color: #999;
    }
 `;
 
@@ -54,8 +69,9 @@ export const FormContainer = styled(Grid)`
    border-radius: 10% 0 0 10%;
    background: #fff;
 
-   @media (max-width: 600px) {
-      border-radius: 0 0 0 0;
+   @media (max-width: 650px) {
+      border-radius: 12% 12% 0 0;
+      height: 55%;
    }
 `;
 

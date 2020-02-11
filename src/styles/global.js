@@ -12,28 +12,17 @@ export default createGlobalStyle`
 }
 
 html{
-   display: block;
    -webkit-font-smoothing: antialiased;
 }
 
 html, body, #root {
    height: 100%;
-   padding: 0;
    box-sizing: border-box;
-   font-size: 0.875rem;
+   font-size: 14px;
    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
    font-weight: 400;
    line-height: 1.43;
    letter-spacing: 0.01071em;
-
-   ::-webkit-scrollbar{
-      display: none;
-      -ms-overflow-style: none;
-   }
-
-   @media (max-width: 480px) {
-      height: 950px;
-   }
 }
 
 a{
