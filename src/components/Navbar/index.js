@@ -2,8 +2,9 @@ import React from 'react';
 import { Spring } from 'react-spring/renderprops';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Container, Avatar, ProfileArea, Content } from './styles';
+import { Container, Avatar, ProfileArea, Content, NavbarArea } from './styles';
 import { signOut } from '../../store/modules/auth/actions';
+import { Paper, Grid } from '@material-ui/core';
 
 export default function Navbar() {
    const dispatch = useDispatch();
@@ -23,12 +24,10 @@ export default function Navbar() {
          {props => (
             <Container style={props} item xs={12}>
                <Content>
-                  <nav>
-                     <div>
-                        <Link to="/dashboard">HOME</Link>
-                        <Link to="/repositories">FINDER</Link>
-                     </div>
-                  </nav>
+                  <NavbarArea item>
+                     <Link to="/dashboard">HOME</Link>
+                     <Link to="/repositories">FINDER</Link>
+                  </NavbarArea>
                   <aside>
                      <ProfileArea>
                         <Avatar

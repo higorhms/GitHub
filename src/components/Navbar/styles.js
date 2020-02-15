@@ -5,22 +5,21 @@ import Grid from '@material-ui/core/Grid';
 export const Container = styled(Grid)`
    background: #24292e;
    padding: 0 30px;
+`;
 
-   button {
-      display: flex;
-      align-items: center;
-      flex-direction: center;
-      border: none;
-      background: #fff;
-      color: #24292e;
+export const NavbarArea = styled(Grid)`
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-gap: 10px;
+
+   a {
+      padding: 2px;
+      text-align: center;
       font-weight: bold;
-      border-radius: 4px;
-
-      padding: 5px;
-      margin: 5px;
+      color: #fff;
 
       :hover {
-         background: rgba(255, 255, 255, 0.7);
+         color: ${lighten(0.3, '#333')};
       }
    }
 `;
@@ -33,21 +32,6 @@ export const Content = styled.div`
    align-items: center;
    justify-content: space-between;
 
-   nav {
-      > div {
-         display: grid;
-         grid-template-columns: 1fr 1fr;
-      }
-
-      a {
-         font-weight: bold;
-         color: #fff;
-
-         :hover {
-            color: ${lighten(0.3, '#333')};
-         }
-      }
-   }
    aside {
       display: flex;
       align-items: center;
