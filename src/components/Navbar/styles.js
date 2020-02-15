@@ -4,10 +4,7 @@ import Grid from '@material-ui/core/Grid';
 
 export const Container = styled(Grid)`
    background: #24292e;
-   color: #fff;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+   padding: 0 30px;
 
    button {
       display: flex;
@@ -22,105 +19,76 @@ export const Container = styled(Grid)`
       padding: 5px;
       margin: 5px;
 
-      @media (max-width: 480px) {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-      }
-
-      svg {
-         margin-right: 10px;
-      }
-
       :hover {
          background: rgba(255, 255, 255, 0.7);
       }
    }
 `;
+
+export const Content = styled.div`
+   height: 64px;
+   max-width: 900px;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
+   nav {
+      > div {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+      }
+
+      a {
+         font-weight: bold;
+         color: #fff;
+
+         :hover {
+            color: ${lighten(0.3, '#333')};
+         }
+      }
+   }
+   aside {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+`;
+
 export const Avatar = styled.img`
-   width: 80px;
-   height: 80px;
+   width: 60px;
+   height: 60px;
    border-radius: 50%;
    background: #eee;
    border: 1px solid #eee;
 `;
 
 export const ProfileArea = styled(Grid)`
-   margin-top: 30px;
    display: flex;
-   flex-direction: column;
-   justify-content: center;
    align-items: center;
+   justify-content: center;
 
-   @media (max-width: 480px) {
-      margin-top: 5px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding: 5px;
+   > div {
+      margin-left: 10px;
 
-      > div {
-         > p {
-            display: none;
-         }
-
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
+      strong {
+         display: block;
+         color: #fff;
       }
-   }
-`;
 
-export const Bio = styled.p`
-   padding-right: 10px;
-   padding-left: 10px;
-   margin-top: 10px;
-   text-align: center;
-   font-size: 11px;
-`;
-
-export const Menu = styled(Grid)`
-   display: flex;
-   flex-direction: column;
-   margin-top: 20px;
-
-   @media (max-width: 480px) {
-      display: flex;
-      flex-direction: row;
-
-      a {
+      > a {
+         display: block;
          font-size: 12px;
+         margin-top: 2px;
+         color: #666;
+         :hover {
+            color: ${lighten(0.3, '#eee')};
+         }
       }
    }
-
-   a {
-      display: flex;
-      align-items: center;
-      padding: 8px;
-      color: #fff;
-
-      :hover {
-         color: #777;
-      }
-
-      svg {
-         margin-right: 10px;
-      }
-   }
-`;
-
-export const MenuItemContainer = styled(Grid)`
-   @media (max-width: 480px) {
-      display: flex;
-   }
-`;
-
-export const Separator = styled.div`
-   height: 1px;
-   background: ${lighten(0.1, '#24292e')};
-   margin: 10px 0 10px 0;
-
-   @media (max-width: 480px) {
-      margin: 1px 0 1px 0;
+   img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
    }
 `;

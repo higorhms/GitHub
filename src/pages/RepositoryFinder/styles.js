@@ -6,6 +6,7 @@ export const Container = styled(Grid)`
    padding: 20px;
    display: flex;
    flex-direction: column;
+   height: 100%;
 
    overflow-y: scroll;
    -ms-overflow-style: none;
@@ -37,7 +38,6 @@ export const Container = styled(Grid)`
 `;
 
 export const Form = styled.form`
-   margin-top: 30px;
    display: flex;
    flex-direction: row;
 `;

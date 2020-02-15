@@ -78,7 +78,7 @@ export default function RepositoryFinder() {
    }
 
    return (
-      <Container container item xs>
+      <Container item xs>
          <h1>
             <FaGithubAlt />
             Repositories
