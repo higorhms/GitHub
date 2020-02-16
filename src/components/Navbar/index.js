@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container, Avatar, ProfileArea, Content, NavbarArea } from './styles';
 import { signOut } from '../../store/modules/auth/actions';
-import { Paper, Grid } from '@material-ui/core';
 
 export default function Navbar() {
    const dispatch = useDispatch();
