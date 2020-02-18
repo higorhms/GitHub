@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-export default function defaultLayout({ children }) {
+const defaultLayout: React.FC = ({ children }) => {
    return <Container container>{children}</Container>;
-}
+};
 
 defaultLayout.propTypes = {
    children: PropTypes.element.isRequired,
 };
+
+export default defaultLayout;
