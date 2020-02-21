@@ -26,7 +26,6 @@ export const NavbarArea = styled(Grid)`
 
 export const Content = styled.div`
    height: 64px;
-   max-width: 900px;
    margin: 0 auto;
    display: flex;
    align-items: center;
