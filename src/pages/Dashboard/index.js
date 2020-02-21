@@ -22,9 +22,7 @@ export default function Dashboard() {
    const [following, setFollowing] = useState([]);
    const [followers, setFollowers] = useState([]);
 
-   const profile = useSelector(
-      state => state.user.profile && state.user.profile.user
-   );
+   const profile = useSelector(state => state.user.profile?.user);
 
    useEffect(() => {
       async function fetchApi() {

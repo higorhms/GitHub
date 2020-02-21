@@ -17,6 +17,7 @@ export const RepositoriesContainer = styled(Grid)`
    overflow-y: scroll;
    -ms-overflow-style: none;
    scrollbar-width: none;
+
    ::-webkit-scrollbar {
       display: none;
    }
@@ -82,6 +83,7 @@ export const Description = styled.p`
    overflow-y: scroll;
    -ms-overflow-style: none;
    scrollbar-width: none;
+
    ::-webkit-scrollbar {
       display: none;
    }
