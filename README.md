@@ -1,5 +1,5 @@
 # GitHub
-- An application that you can find your favorites repositories and much more,developed with ReactJS, Redux, Redux-Persist, side effects with Lottie, React Spring and more.
+- An application that you can find your favorites repositories and much more, developed with ReactJS, Redux, Redux-Persist, side effects with Lottie, React Spring and more.
 
 # Getting Started
 - These instructions will get you a copy of the project up and running on your local machine for development.
