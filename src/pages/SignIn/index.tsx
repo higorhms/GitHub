@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState } from 'react';
-import { Form, Input } from '@rocketseat/unform';
+import {Form} from '@unform/web';
+import Input from '../../components/Input';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
@@ -17,14 +18,19 @@ import {
 import api from '../../services/api';
 import { signIn } from '../../store/modules/auth/actions';
 
-const SignIn = () => {
+interface FormProps {
+  username: string;
+}
+
+const SignIn: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
-   function handleSubmit({ username }) {
+   function handleSubmit(data:FormProps):void {
+     console.log(data)
     setLoading(true);
     try {
-      api.get(`/users/${username}`).then(response => {
+      api.get(`/users/${data.username}`).then(response => {
         dispatch(signIn(response.data));
         setLoading(true);
       })
@@ -72,7 +78,7 @@ const SignIn = () => {
               <Form onSubmit={handleSubmit}>
                 <Input
                   name="username"
-                  type="username"
+                  type="text"
                   placeholder="GitHub Username"
                 />
                 <button type="submit">
