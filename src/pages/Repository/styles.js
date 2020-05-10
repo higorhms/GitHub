@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import { colors } from '../../styles/global';
-import animationData from '../../animations/ampulheta.json';
 
 export const Container = styled(Grid)`
    padding: 20px;
@@ -189,26 +188,3 @@ export const NextButton = styled.button`
       opacity: 0.6;
    }
 `;
-
-export const LoadingContainer = styled.div`
-   display: flex;
-   flex: 1;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   text-align: center;
-
-   p {
-      color: #fff;
-      font-size: 18px;
-   }
-`;
-
-export const defaultOptions = {
-   loop: true,
-   autoplay: true,
-   animationData,
-   rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-   },
-};

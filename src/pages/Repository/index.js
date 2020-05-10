@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack } from 'react-icons/io';
-import Lottie from 'react-lottie';
 
 import api from '../../services/api';
 import ControlledOpenSelect from '../../components/DropdownFilter';
@@ -13,8 +11,6 @@ import {
    ButtonGroup,
    PreviousButton,
    NextButton,
-   defaultOptions,
-   LoadingContainer,
    Container,
 } from './styles';
 
@@ -22,7 +18,6 @@ export default function Repository({ match }) {
    const [repository, setRepository] = useState({});
    const [issues, setIssues] = useState([]);
    const [repositoryName, setRepositoryName] = useState('');
-   const [loading, setLoading] = useState(true);
    const [page, setPage] = useState(1);
 
    useEffect(() => {
@@ -38,7 +33,6 @@ export default function Repository({ match }) {
 
          setRepository(repositoryResponse.data);
          setIssues(issuesResponse.data);
-         setLoading(false);
          setRepositoryName(nameOfRepository);
       }
 
@@ -73,20 +67,6 @@ export default function Repository({ match }) {
       setPage(prevPage);
    }
 
-   if (loading) {
-      return (
-         <LoadingContainer>
-            <Lottie
-               options={defaultOptions}
-               height={400}
-               width={400}
-               isStopped={false}
-               isPaused={false}
-            />
-            <p>Loading...</p>
-         </LoadingContainer>
-      );
-   }
    return (
       <Container container item xs>
          <Owner>
@@ -130,11 +110,3 @@ export default function Repository({ match }) {
       </Container>
    );
 }
-
-Repository.propTypes = {
-   match: PropTypes.shape({
-      params: PropTypes.shape({
-         repository: PropTypes.string,
-      }),
-   }).isRequired,
-};

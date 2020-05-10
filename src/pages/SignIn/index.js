@@ -7,88 +7,92 @@ import { useDispatch } from 'react-redux';
 import { Spring } from 'react-spring/renderprops';
 
 import {
-   Container,
-   FormContainer,
-   PortfolioContainer,
-   FormArea,
-   SocialMediasContainer,
+  Container,
+  FormContainer,
+  PortfolioContainer,
+  FormArea,
+  SocialMediasContainer,
 } from './styles';
+
 import api from '../../services/api';
 import { signIn } from '../../store/modules/auth/actions';
 
-export default function SignIn() {
-   const [loading, setLoading] = useState(false);
-   const dispatch = useDispatch();
+const SignIn = () => {
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
-   async function handleSubmit({ username }) {
-      setLoading(true);
-      try {
-         const response = await api.get(`/users/${username}`);
-         dispatch(signIn(response.data));
-         setLoading(true);
-      } catch (error) {
-         toast.error(
-            'Something wrong happened, please check your datas and try again.'
-         );
-         setLoading(false);
-      }
-   }
+   function handleSubmit({ username }) {
+    setLoading(true);
+    try {
+      api.get(`/users/${username}`).then(response => {
+        dispatch(signIn(response.data));
+        setLoading(true);
+      })
+    } catch (error) {
+      toast.error(
+        'Something wrong happened, please check your datas and try again.',
+      );
+      setLoading(false);
+    }
+  }
 
-   return (
-      <Container container>
-         <PortfolioContainer item xs>
-            <h1>Github Finder by Higor Martins</h1>
+  return (
+    <Container container>
+      <PortfolioContainer item xs>
+        <h1>Github Finder by Higor Martins</h1>
 
-            <p>
-               Now, you can add your favorites repositories of your favorites
-               developers on GitHub !
-            </p>
+        <p>
+          Now, you can add your favorites repositories of your favorites
+          developers on GitHub !
+        </p>
 
-            <SocialMediasContainer>
-               <a target="_blank" href="https://github.com/higorhms">
-                  <FaGithub size={30} />
-                  Portfólio
-               </a>
-               <a
-                  target="_blank"
-                  href="https://www.linkedin.com/in/higormartinsdasilva/"
-               >
-                  <FaLinkedin size={30} />
-                  Linkedin
-               </a>
-            </SocialMediasContainer>
-         </PortfolioContainer>
+        <SocialMediasContainer>
+          <a target="_blank" href="https://github.com/higorhms">
+            <FaGithub size={30} />
+            Portfólio
+          </a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/higormartinsdasilva/"
+          >
+            <FaLinkedin size={30} />
+            Linkedin
+          </a>
+        </SocialMediasContainer>
+      </PortfolioContainer>
 
-         <Spring
-            from={{ transform: 'translateX(100%)' }}
-            to={{ transform: 'translateX(0%)' }}
-         >
-            {props => (
-               <FormContainer style={props} item xs>
-                  <FormArea>
-                     <FaGithub size={60} />
-                     <Form onSubmit={handleSubmit}>
-                        <Input
-                           name="username"
-                           type="username"
-                           placeholder="GitHub Username"
-                        />
-                        <button type="submit">
-                           {loading ? 'Loading...' : 'Sign in'}
-                        </button>
-                     </Form>
+      <Spring
+        from={{ transform: 'translateX(100%)' }}
+        to={{ transform: 'translateX(0%)' }}
+      >
+        {(props) => (
+          <FormContainer style={props} item xs>
+            <FormArea>
+              <FaGithub size={60} />
+              <Form onSubmit={handleSubmit}>
+                <Input
+                  name="username"
+                  type="username"
+                  placeholder="GitHub Username"
+                />
+                <button type="submit">
+                  {loading ? 'Loading...' : 'Sign in'}
+                </button>
+              </Form>
 
-                     <p>
-                        Do not have an account?
-                        <a href="https://github.com/join?source=header-home">
-                           {' '}
-                           Sign Up
-                        </a>
-                     </p>
-                  </FormArea>
-               </FormContainer>
-            )}
-         </Spring>
-      </Container>
-   );
-}
+              <p>
+                Do not have an account?
+                <a href="https://github.com/join?source=header-home">
+                  {' '}
+                  Sign Up
+                </a>
+              </p>
+            </FormArea>
+          </FormContainer>
+        )}
+      </Spring>
+    </Container>
+  );
+};
+
+export default SignIn;
