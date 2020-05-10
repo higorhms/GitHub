@@ -12,13 +12,13 @@ const App: React.FC = () => {
    return (
       <Provider store={store}>
          <PersistGate persistor={persistor}>
-            <BrowserRouter>
+          <BrowserRouter>
                <Routes />
-               <GlobalStyle />
-               <ToastContainer autoClose={3000} pauseOnFocusLoss={false} />
+             <GlobalStyle />
+             <ToastContainer autoClose={3000} pauseOnFocusLoss={false} />
             </BrowserRouter>
-         </PersistGate>
-      </Provider>
+        </PersistGate>
+     </Provider>
    );
 };
 
