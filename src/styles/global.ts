@@ -11,18 +11,13 @@ export default createGlobalStyle`
    box-sizing: border-box;
 }
 
-html{
+body{
    -webkit-font-smoothing: antialiased;
 }
 
-html, body, #root {
-   height: 100%;
-   box-sizing: border-box;
+body, input, button {
    font-size: 14px;
    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-   font-weight: 400;
-   line-height: 1.43;
-   letter-spacing: 0.01071em;
 }
 
 a{

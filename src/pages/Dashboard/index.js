@@ -21,29 +21,18 @@ export default function Dashboard() {
    const [repositories, setRepositories] = useState([]);
    const [following, setFollowing] = useState([]);
    const [followers, setFollowers] = useState([]);
-
    const profile = useSelector(state => state.user.profile?.user);
 
    useEffect(() => {
       async function fetchApi() {
-         const response = await api.get(`/users/${profile.login}/repos`);
-         setRepositories(response.data);
-      }
-      fetchApi();
-   }, [profile]);
-
-   useEffect(() => {
-      async function fetchApi() {
-         const response = await api.get(`/users/${profile.login}/followers`);
-         setFollowers(response.data);
-      }
-      fetchApi();
-   }, [profile]);
-
-   useEffect(() => {
-      async function fetchApi() {
-         const response = await api.get(`/users/${profile.login}/following`);
-         setFollowing(response.data);
+        const [repositoriesResponse, followersResponse, followingResponse] = await Promise.all([
+        api.get(`/users/${profile.login}/repos`),
+        api.get(`/users/${profile.login}/followers`),
+        api.get(`/users/${profile.login}/following`)]
+        )
+         setRepositories(repositoriesResponse.data);
+         setFollowers(followersResponse.data);
+         setFollowing(followingResponse.data);
       }
       fetchApi();
    }, [profile]);

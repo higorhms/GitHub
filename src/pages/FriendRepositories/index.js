@@ -28,32 +28,17 @@ export default function FriendRepositories({ match }) {
 
    useEffect(() => {
       async function fetchApi() {
-         const response = await api.get(`/users/${name}/repos`);
-         setRepositories(response.data);
-      }
-      fetchApi();
-   }, [name]);
+        const [repositoriesResponse,profileReponse, followersResponse, followingResponse] = await Promise.all([
+         api.get(`/users/${name}/repos`),
+         api.get(`/users/${name}`),
+         api.get(`/users/${name}/followers`),
+         api.get(`/users/${name}/following`)
+        ])
 
-   useEffect(() => {
-      async function fetchMyApi() {
-         const response = await api.get(`/users/${name}`);
-         setProfile(response.data);
-      }
-      fetchMyApi();
-   }, [name]);
-
-   useEffect(() => {
-      async function fetchApi() {
-         const response = await api.get(`/users/${name}/followers`);
-         setFollowers(response.data);
-      }
-      fetchApi();
-   }, [name]);
-
-   useEffect(() => {
-      async function fetchApi() {
-         const response = await api.get(`/users/${name}/following`);
-         setFollowing(response.data);
+         setRepositories(repositoriesResponse.data);
+         setProfile(profileReponse.data);
+         setFollowers(followersResponse.data);
+         setFollowing(followingResponse.data);
       }
       fetchApi();
    }, [name]);
