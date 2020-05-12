@@ -21,7 +21,7 @@ export default function Navbar() {
          to={{ transform: 'translateY(0%)' }}
       >
          {props => (
-            <Container style={props} item xs={12}>
+            <Container>
                <Content>
                   <NavbarArea item>
                      <Link to="/dashboard">HOME</Link>

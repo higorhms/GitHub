@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
-import Grid from '@material-ui/core/Grid';
 
-export const Container = styled(Grid)`
+export const Container = styled.div`
    background: #24292e;
    padding: 0 30px;
 `;
 
-export const NavbarArea = styled(Grid)`
+export const NavbarArea = styled.div`
    display: grid;
    grid-template-columns: 1fr 1fr;
    grid-gap: 10px;
@@ -46,7 +45,7 @@ export const Avatar = styled.img`
    border: 1px solid #eee;
 `;
 
-export const ProfileArea = styled(Grid)`
+export const ProfileArea = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
