@@ -13,6 +13,10 @@ export default createGlobalStyle`
 
 body{
    -webkit-font-smoothing: antialiased;
+
+   ::-webkit-scrollbar{
+     display: none;
+   }
 }
 
 body, input, button {
