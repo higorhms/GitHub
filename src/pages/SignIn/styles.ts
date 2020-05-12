@@ -4,9 +4,28 @@ import { darken } from 'polished';
 export const Container = styled.div`
   background: #24292e;
   overflow-x: scroll;
+  display: flex;
+  height: 100vh;
 
   ::-webkit-scrollbar {
     display: none;
+  }
+`;
+
+export const PortfolioContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  width: auto;
+
+  h1 {
+    color: #fff;
+    margin-bottom: 50px;
+    font-size: 40px;
+  }
+
+  p {
+    color: #999;
   }
 `;
 
@@ -33,39 +52,6 @@ export const SocialMediasContainer = styled.div`
     svg {
       margin-right: 10px;
     }
-
-    @media (max-width: 650px) {
-      padding: 5px;
-    }
-  }
-`;
-
-export const PortfolioContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 50px;
-
-  @media (max-width: 650px) {
-    height: 45%;
-  }
-
-  h1 {
-    color: #fff;
-    margin-bottom: 50px;
-    font-size: 40px;
-
-    @media (max-width: 650px) {
-      margin-bottom: 2px;
-      font-size: 30px;
-    }
-  }
-
-  p {
-    color: #999;
-
-    @media (max-width: 650px) {
-      margin-bottom: 5px;
-    }
   }
 `;
 
@@ -75,11 +61,7 @@ export const FormContainer = styled.div`
   justify-content: center;
   border-radius: 10% 0 0 10%;
   background: #fff;
-
-  @media (max-width: 650px) {
-    border-radius: 12% 12% 0 0;
-    height: 55%;
-  }
+  width: 100%;
 `;
 
 export const FormArea = styled.div`

@@ -24,6 +24,7 @@ body, input, button {
    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
+
 a{
    text-decoration: none;
 }
@@ -38,5 +39,5 @@ button{
 `;
 
 export const colors = {
-   DefaultColor: '#24292e',
+  DefaultColor: '#24292e',
 };
