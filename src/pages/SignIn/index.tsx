@@ -1,11 +1,13 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useState } from 'react';
-import {Form} from '@unform/web';
-import Input from '../../components/Input';
+import React, { useState, useContext } from 'react';
+import { Form } from '@unform/web';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
 import { Spring } from 'react-spring/renderprops';
+
+import { AuthContext } from '../../hooks/AuthContext';
+
+import Input from '../../components/Input';
 
 import {
   Container,
@@ -15,25 +17,20 @@ import {
   SocialMediasContainer,
 } from './styles';
 
-import api from '../../services/api';
-import { signIn } from '../../store/modules/auth/actions';
-
 interface FormProps {
   username: string;
 }
 
 const SignIn: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
+  const { signIn: login } = useContext(AuthContext);
 
-   function handleSubmit(data:FormProps):void {
-     console.log(data)
+  async function handleSubmit(data: FormProps): Promise<void> {
     setLoading(true);
+
     try {
-      api.get(`/users/${data.username}`).then(response => {
-        dispatch(signIn(response.data));
-        setLoading(true);
-      })
+      login(data.username);
+      setLoading(true);
     } catch (error) {
       toast.error(
         'Something wrong happened, please check your datas and try again.',
@@ -43,8 +40,8 @@ const SignIn: React.FC = () => {
   }
 
   return (
-    <Container container>
-      <PortfolioContainer item xs>
+    <Container>
+      <PortfolioContainer>
         <h1>Github Finder by Higor Martins</h1>
 
         <p>
@@ -72,7 +69,7 @@ const SignIn: React.FC = () => {
         to={{ transform: 'translateX(0%)' }}
       >
         {(props) => (
-          <FormContainer style={props} item xs>
+          <FormContainer style={props}>
             <FormArea>
               <FaGithub size={60} />
               <Form onSubmit={handleSubmit}>

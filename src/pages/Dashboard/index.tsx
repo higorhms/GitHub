@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect, useContext } from 'react';
 import { FaBook } from 'react-icons/fa';
 import api from '../../services/api';
 
@@ -16,6 +15,7 @@ import {
   Separator,
 } from './styles';
 import CardFollow from '../../components/CardFollow';
+import { AuthContext } from '../../hooks/AuthContext';
 
 interface Repository {
   id: number;
@@ -28,9 +28,14 @@ const Dashboard: React.FC = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [following, setFollowing] = useState([]);
   const [followers, setFollowers] = useState([]);
-  const profile = useSelector((state: any) => state.user.profile?.user);
+  const { user } = useContext(AuthContext);
+  const [profile, setProfile] = useState<any>({});
 
   useEffect(() => {
+    if (user) {
+      setProfile(user);
+    }
+
     async function fetchApi() {
       const [
         repositoriesResponse,
@@ -46,11 +51,11 @@ const Dashboard: React.FC = () => {
       setFollowing(followingResponse.data);
     }
     fetchApi();
-  }, [profile]);
+  }, [profile, user]);
 
   return (
-    <Container container item xs sm>
-      <RepositoriesContainer item xs={12} sm={9}>
+    <Container>
+      <RepositoriesContainer>
         <h1>Your Repositories</h1>
         <List>
           {repositories &&
@@ -75,7 +80,7 @@ const Dashboard: React.FC = () => {
         </List>
       </RepositoriesContainer>
 
-      <FollowersContainer item xs>
+      <FollowersContainer>
         <h1>Friends</h1>
         <CardFollow title="Following" list={following} />
         <Separator />

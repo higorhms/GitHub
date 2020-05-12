@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {  useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
 import authLayout from '../pages/_layouts/auth';
 import defaultLayout from '../pages/_layouts/default';
+import { AuthContext } from '../hooks/AuthContext';
 
 export default function AuthRoutes({
    component: Component,
    isPrivate,
    ...rest
 }) {
-   const signed = useSelector(state => state.auth.signed);
+  const {user}  = useContext(AuthContext);
+  const signed = user;
 
    if (!signed && isPrivate) {
       return <Redirect to="/" />;
