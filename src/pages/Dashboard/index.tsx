@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBook } from 'react-icons/fa';
 import api from '../../services/api';
 
@@ -15,7 +15,7 @@ import {
   Separator,
 } from './styles';
 import CardFollow from '../../components/CardFollow';
-import { AuthContext } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/AuthContext';
 
 interface Repository {
   id: number;
@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [following, setFollowing] = useState([]);
   const [followers, setFollowers] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const [profile, setProfile] = useState<any>({});
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Dashboard: React.FC = () => {
       setProfile(user);
     }
 
-    async function fetchApi() {
+    async function fetchApi(): Promise<void> {
       const [
         repositoriesResponse,
         followersResponse,

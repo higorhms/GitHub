@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Form } from '@unform/web';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { Spring } from 'react-spring/renderprops';
 
-import { AuthContext } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/AuthContext';
 
 import Input from '../../components/Input';
 
@@ -23,13 +23,13 @@ interface FormProps {
 
 const SignIn: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const { signIn: login } = useContext(AuthContext);
+  const { signIn } = useAuth();
 
   async function handleSubmit(data: FormProps): Promise<void> {
     setLoading(true);
 
     try {
-      login(data.username);
+      signIn(data.username);
       setLoading(true);
     } catch (error) {
       toast.error(

@@ -1,16 +1,16 @@
-import React, {  useContext } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 import authLayout from '../pages/_layouts/auth';
 import defaultLayout from '../pages/_layouts/default';
-import { AuthContext } from '../hooks/AuthContext';
+import { useAuth } from '../hooks/AuthContext';
 
 export default function AuthRoutes({
    component: Component,
    isPrivate,
    ...rest
 }) {
-  const {user}  = useContext(AuthContext);
+  const {user}  = useAuth();
   const signed = user;
   console.log(signed);
 
