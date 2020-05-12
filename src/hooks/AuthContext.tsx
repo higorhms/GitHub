@@ -38,6 +38,7 @@ const AuthProvider: React.FC = ({ children }) => {
 
   const signOut = useCallback(() => {
     localStorage.removeItem('@GitHub:user');
+    setUserState(null);
   }, []);
 
   return (

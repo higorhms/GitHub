@@ -12,6 +12,7 @@ export default function AuthRoutes({
 }) {
   const {user}  = useContext(AuthContext);
   const signed = user;
+  console.log(signed);
 
    if (!signed && isPrivate) {
       return <Redirect to="/" />;
