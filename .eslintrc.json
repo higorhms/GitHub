@@ -31,15 +31,16 @@
   "rules": {
     "prettier/prettier": "error",
     "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types":"off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "no-unused-expressions":"off",
     "react/jsx-filename-extension": [
       1,
       {
         "extensions": [
-          ".tsx",
-          ".js",
-          ".jsx"
+          ".tsx"
         ]
       }
     ],
@@ -59,7 +60,7 @@
         "js": "never",
         "jsx": "never"
       }
-    ],
+    ]
   },
   "settings": {
     "import/resolver": {
