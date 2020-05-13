@@ -3,7 +3,7 @@ import { useRouteMatch, Link } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
-import { Header, RepositoryInfo, Issues } from './styles';
+import { Header, RepositoryInfo, Issues, Container } from './styles';
 import api from '../../services/api';
 
 interface RepositoryParams {
@@ -47,10 +47,10 @@ const Repository: React.FC = () => {
   }, [params.repository]);
 
   return (
-    <>
+    <Container>
       <Header>
         <img src={logo} alt="logo" />
-        <Link to="/">
+        <Link to="/repositories">
           <FiChevronLeft size={16} />
           Voltar
         </Link>
@@ -94,7 +94,7 @@ const Repository: React.FC = () => {
           </a>
         ))}
       </Issues>
-    </>
+    </Container>
   );
 };
 

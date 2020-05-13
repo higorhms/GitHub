@@ -1,8 +1,11 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
 import { FaBook } from 'react-icons/fa';
-import api from '../../services/api';
 
+import api from '../../services/api';
+import { useAuth } from '../../hooks/AuthContext';
+
+import CardFollow from '../../components/CardFollow';
 import {
   Container,
   RepositoriesContainer,
@@ -14,8 +17,6 @@ import {
   FollowersContainer,
   Separator,
 } from './styles';
-import CardFollow from '../../components/CardFollow';
-import { useAuth } from '../../hooks/AuthContext';
 
 interface Repository {
   id: number;

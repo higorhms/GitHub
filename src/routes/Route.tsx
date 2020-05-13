@@ -5,9 +5,12 @@ import {
   Redirect,
 } from 'react-router-dom';
 
+// Context of Authentication
+import { useAuth } from '../hooks/AuthContext';
+
+// Layouts
 import authLayout from '../pages/_layouts/auth';
 import defaultLayout from '../pages/_layouts/default';
-import { useAuth } from '../hooks/AuthContext';
 
 interface RouteProps extends ReactDOMRouteProps {
   isPrivate?: boolean;

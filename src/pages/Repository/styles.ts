@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  height: 100vh;
+  padding: 30px;
+`;
+
 export const Header = styled.header`
   display: flex;
   align-items: center;
@@ -29,8 +34,8 @@ export const RepositoryInfo = styled.section`
     align-items: center;
 
     img {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
     }
 

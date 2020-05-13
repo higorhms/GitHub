@@ -13,7 +13,7 @@ export const CardHeader = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 4px 4px 0px 0px;
-  background: #eee;
+  background: #d3d3d3;
 
   h1 {
     font-size: 14px;
