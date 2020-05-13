@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
 import { FaBook } from 'react-icons/fa';
-import api from '../../services/api';
+import { useRouteMatch } from 'react-router-dom';
 
 import {
   Container,
@@ -11,64 +11,95 @@ import {
   Name,
   Description,
   Language,
-  FollowersContainer,
+  Avatar,
   Separator,
+  AvatarContainer,
+  FollowersContainer,
 } from './styles';
+import api from '../../services/api';
 import CardFollow from '../../components/CardFollow';
-import { useAuth } from '../../hooks/AuthContext';
+import { User } from '../../hooks/AuthContext';
 
-interface Repository {
-  id: number;
+interface RepositoryParams {
   name: string;
-  description: string;
-  language: string;
 }
 
-const Dashboard: React.FC = () => {
+interface Repository {
+  id: string;
+  name: string;
+  language: string;
+  full_name: string;
+  description: string;
+  stargazers_count: number;
+  forks_count: number;
+  open_issues_count: number;
+  owner: {
+    login: string;
+    avatar_url: string;
+  };
+}
+
+const FriendRepositories: React.FC = () => {
+  const { params } = useRouteMatch<RepositoryParams>();
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [following, setFollowing] = useState([]);
   const [followers, setFollowers] = useState([]);
-  const { user } = useAuth();
+  const [profile, setProfile] = useState<User>({} as User);
+  const { name } = params;
 
   useEffect(() => {
     async function fetchApi(): Promise<void> {
       const [
         repositoriesResponse,
+        profileReponse,
         followersResponse,
         followingResponse,
       ] = await Promise.all([
-        api.get(`/users/${user?.login}/repos`),
-        api.get(`/users/${user?.login}/followers`),
-        api.get(`/users/${user?.login}/following`),
+        api.get(`/users/${name}/repos`),
+        api.get(`/users/${name}`),
+        api.get(`/users/${name}/followers`),
+        api.get(`/users/${name}/following`),
       ]);
+
       setRepositories(repositoriesResponse.data);
+      setProfile(profileReponse.data);
       setFollowers(followersResponse.data);
       setFollowing(followingResponse.data);
     }
     fetchApi();
-  }, [user]);
+  }, [name]);
 
   return (
     <Container>
       <RepositoriesContainer>
-        <h1>Your Repositories</h1>
+        <AvatarContainer>
+          <Avatar
+            src={
+              profile.avatar_url ||
+              'https://api.adorable.io/avatars/95/abott@adorable.png'
+            }
+            alt="avatar"
+          />
+          <h1>{name}</h1>
+        </AvatarContainer>
+        <Separator />
         <List>
           {repositories &&
-            repositories.map((repository) => (
+            repositories.map((r) => (
               <a
                 target="_blank"
-                href={`https://github.com/${user?.login}/${repository.name}`}
-                key={repository.id}
+                href={`https://github.com/${name}/${r.name}`}
+                key={r.id}
               >
                 <ListItem>
                   <Name>
                     <div>
                       <FaBook size={15} />
-                      <p>{repository.name}</p>
+                      <p>{r.name}</p>
                     </div>
-                    <Language>{repository.language}</Language>
+                    <Language>{r.language}</Language>
                   </Name>
-                  <Description>{repository.description}</Description>
+                  <Description>{r.description}</Description>
                 </ListItem>
               </a>
             ))}
@@ -85,4 +116,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default FriendRepositories;
