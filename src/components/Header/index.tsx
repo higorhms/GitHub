@@ -41,9 +41,9 @@ const Header: React.FC = () => {
               <div>
                 <strong>{user.name || ''}</strong>
                 <p>{user.login}</p>
-                {/* <Link to="/" onClick={handleLogOut}>
+                <Link to="/" onClick={handleLogOut}>
                   Sair
-                </Link> */}
+                </Link>
               </div>
               <Avatar
                 src={

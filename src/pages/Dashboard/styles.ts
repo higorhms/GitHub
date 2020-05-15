@@ -9,13 +9,6 @@ export const Container = styled.div`
 
 export const RepositoriesContainer = styled.div`
   padding: 20px;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
 
   h1 {
     text-align: center;
@@ -40,6 +33,15 @@ export const ListItem = styled.div`
   border-radius: 5px;
   padding: 10px;
   transition: 0.3s;
+
+  /* last alt */
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   :hover {
     transform: translateY(-5px);
