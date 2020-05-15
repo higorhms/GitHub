@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { lighten } from 'polished';
 
 export const Container = styled.div`
-  background: #24292e;
+  background: ${(props) => props.theme.colors.primary};
   padding: 0 30px;
 `;
 

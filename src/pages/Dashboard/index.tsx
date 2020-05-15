@@ -75,13 +75,13 @@ const Dashboard: React.FC = () => {
             ))}
         </List>
       </RepositoriesContainer>
-
+      {/*
       <FollowersContainer>
         <h1>Friends</h1>
         <CardFollow title="Following" list={following} />
         <Separator />
         <CardFollow title="Followers" list={followers} />
-      </FollowersContainer>
+      </FollowersContainer> */}
     </Container>
   );
 };

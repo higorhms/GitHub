@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { Container } from './styles';
-import Navbar from '../../../components/Navbar';
+import Header from '../../../components/Header';
 
 const authLayout: React.FC = ({ children }) => {
   return (
     <Container>
-      <Navbar />
+      <Header />
       {children}
     </Container>
   );

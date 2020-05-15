@@ -1,20 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Switch from 'react-switch';
 
 import { Container, Avatar, ProfileArea, Content, NavbarArea } from './styles';
 import { useAuth } from '../../hooks/AuthContext';
+import { useTheme } from '../../hooks/ThemeContext';
 
-interface User {
-  id: string;
-  name: string;
-  bio: string;
-  login: string;
-  avatar_url: string;
-  followers_url: string;
-  following_url: string;
-}
-
-const Navbar: React.FC = () => {
+const Header: React.FC = () => {
+  const { handleChangeTheme, theme } = useTheme();
   const { user, signOut } = useAuth();
 
   function handleLogOut(): void {
@@ -29,8 +22,25 @@ const Navbar: React.FC = () => {
           <Link to="/repositories">FINDER</Link>
         </NavbarArea>
         <aside>
+          <Switch
+            onChange={() => handleChangeTheme()}
+            checked={theme.title === 'light'}
+            checkedIcon={false}
+            uncheckedIcon={false}
+            height={10}
+            width={40}
+            handleDiameter={20}
+            offColor="#3D1225"
+            onColor="#03111E"
+          />
           {user && (
             <ProfileArea>
+              <div>
+                <strong>{user.name || ''}</strong>
+                {/* <Link to="/" onClick={handleLogOut}>
+                  Sair
+                </Link> */}
+              </div>
               <Avatar
                 src={
                   user.avatar_url ||
@@ -38,12 +48,6 @@ const Navbar: React.FC = () => {
                 }
                 alt="avatar"
               />
-              <div>
-                <strong>{user.name || ''}</strong>
-                <Link to="/" onClick={handleLogOut}>
-                  Sair
-                </Link>
-              </div>
             </ProfileArea>
           )}
         </aside>
@@ -52,4 +56,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar;
+export default Header;

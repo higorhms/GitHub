@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { lighten } from 'polished';
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 300px;
+  display: flex;
   width: 100%;
   height: 100%;
 `;
@@ -11,7 +10,6 @@ export const Container = styled.div`
 export const RepositoriesContainer = styled.div`
   border-right: 1px solid #eee;
   padding: 20px;
-  height: 100%;
 
   overflow-y: scroll;
   -ms-overflow-style: none;
