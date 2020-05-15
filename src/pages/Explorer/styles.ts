@@ -8,6 +8,9 @@ interface FormProps {
 export const Container = styled.div`
   height: 100vh;
   padding: 30px;
+
+  max-width: 1366px;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h3`
@@ -47,7 +50,7 @@ export const Form = styled.form<FormProps>`
     width: 210px;
     height: 70px;
 
-    background: #04d361;
+    background: #1ba94c;
     border-radius: 0 5px 5px 0;
     border: 0;
     color: #fff;
@@ -55,7 +58,7 @@ export const Form = styled.form<FormProps>`
     transition: 0.2s;
 
     &:hover {
-      background: ${shade(0.2, '#04d361')};
+      background: ${shade(0.2, '#1ba94c')};
     }
   }
 `;
@@ -65,7 +68,7 @@ export const Repositories = styled.div`
   max-width: 700px;
 
   a {
-    background: #fff;
+    background: ${(props) => props.theme.colors.primary};
     border-radius: 5px;
     width: 100%;
     padding: 24px;
@@ -95,12 +98,12 @@ export const Repositories = styled.div`
 
       strong {
         font-size: 20px;
-        color: #3d3d4d;
+        color: ${(props) => props.theme.colors.text};
       }
 
       p {
         font-size: 18px;
-        color: #a8a8b3;
+        color: ${(props) => props.theme.colors.subText};
         margin-top: 4px;
       }
     }

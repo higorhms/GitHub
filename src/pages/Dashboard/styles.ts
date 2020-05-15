@@ -3,6 +3,8 @@ import { lighten } from 'polished';
 
 export const Container = styled.div`
   height: 100vh;
+  max-width: 1366px;
+  margin: 0 auto;
 `;
 
 export const RepositoriesContainer = styled.div`
@@ -17,7 +19,7 @@ export const RepositoriesContainer = styled.div`
 
   h1 {
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
     padding-bottom: 10px;
     color: ${(props) => props.theme.colors.text};
@@ -50,25 +52,20 @@ export const ListItem = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-    color: ${(props) => props.theme.colors.text};
     font-weight: bold;
     text-align: center;
     border-radius: 5px 5px 0px 0px;
 
-    > div {
-      display: flex;
-      align-items: center;
-
-      p {
-        margin-left: 5px;
-      }
+    p {
+      font-size: 20px;
+      color: ${(props) => props.theme.colors.text};
     }
   }
 `;
 
 export const Description = styled.p`
   padding: 5px;
-  font-size: 14px;
+  font-size: 18px;
   color: ${(props) => props.theme.colors.subText};
   height: 100px;
 

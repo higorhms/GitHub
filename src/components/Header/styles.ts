@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { lighten } from 'polished';
+import { darken, lighten } from 'polished';
 
 export const Container = styled.div`
   background: ${(props) => props.theme.colors.primary};
@@ -7,18 +7,34 @@ export const Container = styled.div`
 `;
 
 export const NavbarArea = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
+  display: flex;
+  align-items: baseline;
 
-  a {
-    padding: 2px;
-    text-align: center;
+  > p {
     font-weight: bold;
+    font-size: 30px;
     color: ${(props) => props.theme.colors.headerText};
+  }
 
-    :hover {
-      color: ${(props) => lighten(0.3, `${props.theme.colors.headerText}`)};
+  div {
+    margin-left: 50px;
+
+    a {
+      font-size: 18px;
+      font-weight: bold;
+
+      color: ${(props) => props.theme.colors.headerText};
+
+      & + a {
+        margin-left: 16px;
+      }
+
+      :hover {
+        color: ${(props) =>
+          props.theme.title === 'dark'
+            ? darken(0.3, `${props.theme.colors.headerText}`)
+            : lighten(0.3, `${props.theme.colors.headerText}`)};
+      }
     }
   }
 `;
@@ -50,6 +66,15 @@ export const ProfileArea = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  &:hover {
+    strong {
+      color: ${(props) =>
+        props.theme.title === 'dark'
+          ? darken(0.3, `${props.theme.colors.headerText}`)
+          : lighten(0.3, `${props.theme.colors.headerText}`)};
+    }
+  }
 
   div {
     margin-left: 10px;

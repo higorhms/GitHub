@@ -18,8 +18,11 @@ const Header: React.FC = () => {
     <Container>
       <Content>
         <NavbarArea>
-          <Link to="/dashboard">HOME</Link>
-          <Link to="/repositories">EXPLORER</Link>
+          <p>GitHub</p>
+          <div>
+            <Link to="/dashboard">HOME</Link>
+            <Link to="/repositories">EXPLORER</Link>
+          </div>
         </NavbarArea>
         <aside>
           <Switch

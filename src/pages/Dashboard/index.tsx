@@ -58,10 +58,7 @@ const Dashboard: React.FC = () => {
               >
                 <ListItem>
                   <div>
-                    <div>
-                      <FaBook size={15} />
-                      <p>{repository.name}</p>
-                    </div>
+                    <p>{repository.name}</p>
                     <p>{repository.language}</p>
                   </div>
                   <Description>{repository.description}</Description>

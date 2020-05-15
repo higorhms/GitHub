@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100vh;
   padding: 30px;
+
+  max-width: 1366px;
+  margin: 0 auto;
 `;
 
-export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
+export const RepositoryInfo = styled.section`
   a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #a8a8b3;
+    color: ${(props) => props.theme.colors.text};
     transition: 0.2s;
+    margin-bottom: 20px;
+    font-size: 16px;
 
     &:hover {
       color: #666;
@@ -25,17 +25,14 @@ export const Header = styled.header`
   svg {
     margin-right: 4px;
   }
-`;
 
-export const RepositoryInfo = styled.section`
-  margin-top: 80px;
   header {
     display: flex;
     align-items: center;
 
     img {
-      width: 110px;
-      height: 110px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
     }
 
@@ -43,21 +40,22 @@ export const RepositoryInfo = styled.section`
       margin-left: 24px;
 
       strong {
-        font-size: 36px;
-        color: #3d3d4d;
+        font-size: 28px;
+        color: ${(props) => props.theme.colors.text};
       }
 
       p {
         font-size: 16px;
-        color: #737380;
+        color: ${(props) => props.theme.colors.subText};
         margin-top: 4px;
       }
     }
   }
+
   ul {
     display: flex;
     list-style: none;
-    margin-top: 40px;
+    margin-top: 20px;
 
     li {
       & + li {
@@ -66,14 +64,14 @@ export const RepositoryInfo = styled.section`
 
       strong {
         display: block;
-        font-size: 36px;
-        color: #3d3d4d;
+        font-size: 20px;
+        color: ${(props) => props.theme.colors.text};
       }
 
       span {
         display: block;
         margin-top: 4px;
-        color: #6c6c80;
+        color: ${(props) => props.theme.colors.subText};
       }
     }
   }
@@ -83,7 +81,7 @@ export const Issues = styled.div`
   margin-top: 80px;
 
   a {
-    background: #fff;
+    background: ${(props) => props.theme.colors.primary};
     border-radius: 5px;
     width: 100%;
     padding: 24px;
@@ -107,12 +105,12 @@ export const Issues = styled.div`
 
       strong {
         font-size: 20px;
-        color: #3d3d4d;
+        color: ${(props) => props.theme.colors.text};
       }
 
       p {
         font-size: 18px;
-        color: #a8a8b3;
+        color: ${(props) => props.theme.colors.subText};
         margin-top: 4px;
       }
     }

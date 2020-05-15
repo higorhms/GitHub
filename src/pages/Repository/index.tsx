@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-import logo from '../../assets/logo.svg';
-import { Header, RepositoryInfo, Issues, Container } from './styles';
+import { RepositoryInfo, Issues, Container } from './styles';
 import api from '../../services/api';
 
 interface RepositoryParams {
@@ -48,15 +47,12 @@ const Repository: React.FC = () => {
 
   return (
     <Container>
-      <Header>
-        <img src={logo} alt="logo" />
-        <Link to="/repositories">
-          <FiChevronLeft size={16} />
-          Voltar
-        </Link>
-      </Header>
       {repository && (
         <RepositoryInfo>
+          <Link to="/repositories">
+            <FiChevronLeft size={16} />
+            Voltar
+          </Link>
           <header>
             <img
               src={repository?.owner.avatar_url}
