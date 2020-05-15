@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="LogoGitHub" title="#Vitrine Americanas" src="src/assets/icons/logo/logoLaranja.png" width="200px" />
+    <img alt="LogoGitHub" src=".github/logo/GitHub_Logo.png" width="300px" />
 </h1>
 
 <h4 align="center">
