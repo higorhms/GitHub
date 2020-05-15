@@ -1,4 +1,10 @@
-import React, { useState, useCallback, createContext, useContext } from 'react';
+import React, {
+  useState,
+  useCallback,
+  createContext,
+  useContext,
+  useEffect,
+} from 'react';
 import { ThemeProvider as Provider } from 'styled-components';
 
 import light from '../styles/themes/light';
@@ -24,11 +30,24 @@ interface ThemeProviderProps {
 }
 
 const ThemeProvider: React.FC = ({ children }) => {
-  const [theme, setTheme] = useState<ThemeProps>(light);
+  const [theme, setTheme] = useState<ThemeProps>(
+    (): ThemeProps => {
+      const storedTheme = localStorage.getItem('@GitHub:theme');
+
+      if (!storedTheme) {
+        return light;
+      }
+      return JSON.parse(storedTheme);
+    },
+  );
+
+  useEffect(() => {
+    localStorage.setItem('@GitHub:theme', JSON.stringify(theme));
+  }, [theme]);
 
   const handleChangeTheme = useCallback(() => {
     setTheme(theme.title === 'light' ? dark : light);
-  }, [theme.title]);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ handleChangeTheme, theme }}>

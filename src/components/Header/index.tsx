@@ -23,8 +23,8 @@ const Header: React.FC = () => {
         </NavbarArea>
         <aside>
           <Switch
-            onChange={() => handleChangeTheme()}
-            checked={theme.title === 'light'}
+            onChange={handleChangeTheme}
+            checked={theme.title === 'dark'}
             checkedIcon={false}
             uncheckedIcon={false}
             height={10}
@@ -35,12 +35,10 @@ const Header: React.FC = () => {
           />
           {user && (
             <ProfileArea>
-              <div>
-                <strong>{user.name || ''}</strong>
-                {/* <Link to="/" onClick={handleLogOut}>
+              <strong>{user.name || ''}</strong>
+              {/* <Link to="/" onClick={handleLogOut}>
                   Sair
                 </Link> */}
-              </div>
               <Avatar
                 src={
                   user.avatar_url ||
