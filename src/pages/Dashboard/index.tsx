@@ -5,17 +5,12 @@ import { FaBook } from 'react-icons/fa';
 import api from '../../services/api';
 import { useAuth } from '../../hooks/AuthContext';
 
-import CardFollow from '../../components/CardFollow';
 import {
   Container,
   RepositoriesContainer,
   List,
   ListItem,
-  Name,
   Description,
-  Language,
-  FollowersContainer,
-  Separator,
 } from './styles';
 
 interface Repository {
@@ -62,13 +57,13 @@ const Dashboard: React.FC = () => {
                 key={repository.id}
               >
                 <ListItem>
-                  <Name>
+                  <div>
                     <div>
                       <FaBook size={15} />
                       <p>{repository.name}</p>
                     </div>
-                    <Language>{repository.language}</Language>
-                  </Name>
+                    <p>{repository.language}</p>
+                  </div>
                   <Description>{repository.description}</Description>
                 </ListItem>
               </a>

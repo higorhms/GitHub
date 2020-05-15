@@ -12,11 +12,11 @@ export default createGlobalStyle`
 }
 
 body{
+    height: 100vh;
    -webkit-font-smoothing: antialiased;
-
    ::-webkit-scrollbar{
      display: none;
-   }
+  }
 }
 
 body, input, button {

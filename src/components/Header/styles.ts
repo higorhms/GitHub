@@ -15,20 +15,21 @@ export const NavbarArea = styled.div`
     padding: 2px;
     text-align: center;
     font-weight: bold;
-    color: #fff;
+    color: ${(props) => props.theme.colors.headerText};
 
     :hover {
-      color: ${lighten(0.3, '#333')};
+      color: ${(props) => lighten(0.3, `${props.theme.colors.headerText}`)};
     }
   }
 `;
 
 export const Content = styled.div`
-  height: 64px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 80px;
+  max-width: 1366px;
+  margin: 0 auto;
 
   aside {
     display: flex;
@@ -41,36 +42,36 @@ export const Avatar = styled.img`
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #eee;
-  border: 1px solid #eee;
+  border: 4px solid ${(props) => props.theme.colors.border};
 `;
 
 export const ProfileArea = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
-  > div {
+  div {
     margin-left: 10px;
 
     strong {
+      font-size: 18px;
       display: block;
-      color: #fff;
+      color: ${(props) => props.theme.colors.headerText};
     }
 
-    > a {
+    > p {
       display: block;
-      font-size: 12px;
+      font-size: 16px;
       margin-top: 2px;
       color: #666;
-      :hover {
-        color: ${lighten(0.3, '#eee')};
-      }
     }
   }
+
   img {
-    width: 32px;
-    height: 32px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
+    margin-left: 9px;
   }
 `;

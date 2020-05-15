@@ -14,9 +14,11 @@ export interface ThemeProps {
   title: string;
   colors: {
     primary: string;
-    secondary: string;
+    border: string;
     background: string;
+    headerText: string;
     text: string;
+    subText: string;
   };
 }
 

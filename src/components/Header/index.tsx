@@ -19,7 +19,7 @@ const Header: React.FC = () => {
       <Content>
         <NavbarArea>
           <Link to="/dashboard">HOME</Link>
-          <Link to="/repositories">FINDER</Link>
+          <Link to="/repositories">EXPLORER</Link>
         </NavbarArea>
         <aside>
           <Switch
@@ -35,10 +35,13 @@ const Header: React.FC = () => {
           />
           {user && (
             <ProfileArea>
-              <strong>{user.name || ''}</strong>
-              {/* <Link to="/" onClick={handleLogOut}>
+              <div>
+                <strong>{user.name || ''}</strong>
+                <p>{user.login}</p>
+                {/* <Link to="/" onClick={handleLogOut}>
                   Sair
                 </Link> */}
+              </div>
               <Avatar
                 src={
                   user.avatar_url ||
