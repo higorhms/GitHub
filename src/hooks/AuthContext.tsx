@@ -21,7 +21,7 @@ const AuthContext = createContext<ContextData>({} as ContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
   const [userState, setUserState] = useState((): User | null => {
-    const storedUser = localStorage.getItem('@GitHub:user');
+    const storedUser = localStorage.getItem('@Higorhms-GitHub:user');
 
     if (storedUser) {
       return JSON.parse(storedUser);
@@ -32,12 +32,12 @@ const AuthProvider: React.FC = ({ children }) => {
   const signIn = useCallback(async (username): Promise<void> => {
     const response = await api.get(`/users/${username}`);
     const user = response.data;
-    localStorage.setItem('@GitHub:user', JSON.stringify(user));
+    localStorage.setItem('@Higorhms-GitHub:user', JSON.stringify(user));
     setUserState(user);
   }, []);
 
   const signOut = useCallback(() => {
-    localStorage.removeItem('@GitHub:user');
+    localStorage.removeItem('@Higorhms-GitHub:user');
     setUserState(null);
   }, []);
 

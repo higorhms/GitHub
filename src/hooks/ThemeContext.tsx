@@ -34,7 +34,7 @@ interface ThemeProviderProps {
 const ThemeProvider: React.FC = ({ children }) => {
   const [theme, setTheme] = useState<ThemeProps>(
     (): ThemeProps => {
-      const storedTheme = localStorage.getItem('@GitHub:theme');
+      const storedTheme = localStorage.getItem('@Higorhms-GitHub:theme');
 
       if (!storedTheme) {
         return light;
@@ -44,7 +44,7 @@ const ThemeProvider: React.FC = ({ children }) => {
   );
 
   useEffect(() => {
-    localStorage.setItem('@GitHub:theme', JSON.stringify(theme));
+    localStorage.setItem('@Higorhms-GitHub:theme', JSON.stringify(theme));
   }, [theme]);
 
   const handleChangeTheme = useCallback(() => {

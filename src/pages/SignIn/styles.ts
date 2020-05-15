@@ -107,13 +107,12 @@ export const FormArea = styled.div`
   }
 
   p {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 3px;
     color: #24292e;
 
     a {
-      font-size: 12px;
-      color: #24292e;
+      font-size: 14px;
       color: #1074e7;
 
       :hover {

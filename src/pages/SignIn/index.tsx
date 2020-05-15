@@ -29,11 +29,10 @@ const SignIn: React.FC = () => {
     setLoading(true);
 
     try {
-      signIn(data.username);
-      setLoading(true);
+      await signIn(data.username);
     } catch (error) {
       toast.error(
-        'Something wrong happened, please check your datas and try again.',
+        'Something wrong happened, please check your credentials and try again.',
       );
       setLoading(false);
     }
@@ -71,7 +70,7 @@ const SignIn: React.FC = () => {
         {(props) => (
           <FormContainer style={props}>
             <FormArea>
-              <FaGithub size={60} />
+              <FaGithub size={100} />
               <Form onSubmit={handleSubmit}>
                 <Input
                   name="username"
