@@ -1,13 +1,27 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+interface TooltipProps {
+  isVisible: boolean;
+}
+
+export const Container = styled.div<TooltipProps>`
   position: absolute;
   width: 250px;
   top: calc(80px + 10px);
   background: ${(props) => props.theme.colors.primary};
   border-radius: 4px;
   padding: 10px 15px 5px 5px;
-  display: block;
+  opacity: 0;
+  transition: opacity 0.4s;
+  visibility: hidden;
+
+  ${(props) =>
+    props.isVisible &&
+    css`
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    `}
 
   &::before {
     content: '';

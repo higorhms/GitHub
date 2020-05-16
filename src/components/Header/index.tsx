@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, Avatar, ProfileArea, Content, NavbarArea } from './styles';
@@ -6,7 +6,12 @@ import { useAuth } from '../../hooks/AuthContext';
 import Tooltip from '../Tooltip';
 
 const Header: React.FC = () => {
+  const [visible, setVisible] = useState(false);
   const { user } = useAuth();
+
+  const handleVisible = useCallback(() => {
+    setVisible(!visible);
+  }, [visible]);
 
   return (
     <Container>
@@ -20,7 +25,7 @@ const Header: React.FC = () => {
         </NavbarArea>
         <aside>
           {user && (
-            <ProfileArea>
+            <ProfileArea onClick={handleVisible}>
               <div>
                 <strong>{user.name || ''}</strong>
                 <p>{user.login}</p>
@@ -32,7 +37,7 @@ const Header: React.FC = () => {
                 }
                 alt="avatar"
               />
-              <Tooltip />
+              <Tooltip visible={visible} />
             </ProfileArea>
           )}
         </aside>

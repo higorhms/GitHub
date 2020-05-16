@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Switch from 'react-switch';
 
 import { Link } from 'react-router-dom';
@@ -6,7 +6,11 @@ import { Container, MenuToolTip, ThemeSwitcher } from './styles';
 import { useAuth } from '../../hooks/AuthContext';
 import { useTheme } from '../../hooks/ThemeContext';
 
-const Tooltip: React.FC = () => {
+interface TooltipProps {
+  visible: boolean;
+}
+
+const Tooltip: React.FC<TooltipProps> = ({ visible }) => {
   const { handleChangeTheme, theme } = useTheme();
   const { signOut } = useAuth();
 
@@ -15,7 +19,7 @@ const Tooltip: React.FC = () => {
   }
 
   return (
-    <Container>
+    <Container isVisible={!!visible}>
       <MenuToolTip>
         <Link to="/profile">My Profile</Link>
         <Link to="/" onClick={handleLogOut}>
