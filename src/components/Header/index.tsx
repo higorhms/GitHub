@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, Avatar, ProfileArea, Content, NavbarArea } from './styles';

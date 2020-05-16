@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
-import { FaBook } from 'react-icons/fa';
 
 import api from '../../services/api';
 import { useAuth } from '../../hooks/AuthContext';
@@ -22,24 +21,24 @@ interface Repository {
 
 const Dashboard: React.FC = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
-  const [following, setFollowing] = useState([]);
-  const [followers, setFollowers] = useState([]);
+  // const [following, setFollowing] = useState([]);
+  // const [followers, setFollowers] = useState([]);
   const { user } = useAuth();
 
   useEffect(() => {
     async function fetchApi(): Promise<void> {
       const [
         repositoriesResponse,
-        followersResponse,
-        followingResponse,
+        // followersResponse,
+        // followingResponse,
       ] = await Promise.all([
         api.get(`/users/${user?.login}/repos`),
-        api.get(`/users/${user?.login}/followers`),
-        api.get(`/users/${user?.login}/following`),
+        // api.get(`/users/${user?.login}/followers`),
+        // api.get(`/users/${user?.login}/following`),
       ]);
       setRepositories(repositoriesResponse.data);
-      setFollowers(followersResponse.data);
-      setFollowing(followingResponse.data);
+      // setFollowers(followersResponse.data);
+      // setFollowing(followingResponse.data);
     }
     fetchApi();
   }, [user]);
