@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { lighten } from 'polished';
 
 export const Container = styled.div`
-  height: 100vh;
   max-width: 1366px;
   margin: 0 auto;
 `;

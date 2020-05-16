@@ -6,7 +6,6 @@ interface FormProps {
 }
 
 export const Container = styled.div`
-  height: 100vh;
   padding: 30px;
 
   max-width: 1366px;
