@@ -1,34 +1,24 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import { RouteProps, Navigate } from 'react-router';
+import React, { Suspense } from 'react';
+import { RouteProps } from 'react-router';
+import { Route as ReactRoute } from 'react-router-dom';
 
-import { useAuth } from '../hooks/AuthContext';
-import authLayout from '../pages/_layouts/auth';
-import defaultLayout from '../pages/_layouts/default';
+import Loading from '../components/Loading';
 
-interface CustomRouteProps extends RouteProps {
-  isPrivate?: boolean;
+interface RProps extends Omit<RouteProps, 'element'> {
+  element: React.ComponentType;
 }
 
-const CustomRoute: React.FC<CustomRouteProps> = ({ isPrivate, ...rest }) => {
-  const { user } = useAuth();
-  const signed = user;
-
-  if (!signed && isPrivate) {
-    return <Navigate to="/" replace />;
-  }
-
-  if (signed && !isPrivate) {
-    return <Navigate to="/dashboard" replace />;
-  }
-
-  const Layout = isPrivate ? authLayout : defaultLayout;
-
+const routes: React.FC<RProps> = ({ element: Element, ...rest }) => {
   return (
-    <Layout>
-      <Route {...rest} />
-    </Layout>
+    <ReactRoute
+      {...rest}
+      element={
+        <Suspense fallback={<Loading />}>
+          <Element />
+        </Suspense>
+      }
+    />
   );
 };
 
-export default CustomRoute;
+export default routes;

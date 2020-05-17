@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Routes } from 'react-router-dom';
 
+import AuthLayout from '../pages/_layouts/auth';
+import DefaultLayout from '../pages/_layouts/default';
+
+import Manager from './Manager';
 import Route from './Route';
 
-import Dashboard from '../pages/Dashboard';
-import Repository from '../pages/Repository';
-import SignIn from '../pages/SignIn';
-import Explorer from '../pages/Explorer';
+const Dashboard = lazy(() => import('../pages/Dashboard'));
+const Repository = lazy(() => import('../pages/Repository'));
+const SignIn = lazy(() => import('../pages/SignIn'));
+const Explorer = lazy(() => import('../pages/Explorer'));
 
 const MainRoutes: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<SignIn />} />
-      <Route path="/dashboard" isPrivate element={<Dashboard />} />
-      <Route path="/explorer" isPrivate element={<Explorer />} />
-      <Route
-        path="/repository/:owner/:repo"
-        isPrivate
-        element={<Repository />}
-      />
+      <Manager path="/" layout={DefaultLayout}>
+        <Route path="/" element={SignIn} />
+      </Manager>
+
+      <Manager path="/dashboard" isPrivate layout={AuthLayout}>
+        <Route path="/" element={Dashboard} />
+      </Manager>
+
+      <Manager path="/explorer" isPrivate layout={AuthLayout}>
+        <Route path="/" element={Explorer} />
+      </Manager>
+
+      <Manager path="/repository/:owner/:repo" isPrivate layout={AuthLayout}>
+        <Route path="/" element={Repository} />
+      </Manager>
     </Routes>
   );
 };

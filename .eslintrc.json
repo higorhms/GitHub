@@ -36,6 +36,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "no-unused-expressions":"off",
+    "react/jsx-wrap-multilines": "off",
     "react/jsx-filename-extension": [
       1,
       {
@@ -56,9 +57,7 @@
       "ignorePackages",
       {
         "ts": "never",
-        "tsx": "never",
-        "js": "never",
-        "jsx": "never"
+        "tsx": "never"
       }
     ]
   },

@@ -6,14 +6,13 @@ export const Container = styled.div`
   margin: 0 auto;
 
   padding: 20px;
+`;
 
-  h1 {
-    text-align: center;
-    font-size: 20px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    color: ${(props) => props.theme.colors.text};
-  }
+export const Title = styled.h1`
+  text-align: center;
+  font-size: 20px;
+  margin-top: 10px;
+  color: ${(props) => props.theme.colors.text};
 `;
 
 export const List = styled.div`
