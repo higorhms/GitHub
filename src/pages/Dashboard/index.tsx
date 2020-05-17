@@ -4,13 +4,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { useAuth } from '../../hooks/AuthContext';
 
-import {
-  Container,
-  RepositoriesContainer,
-  List,
-  ListItem,
-  Description,
-} from './styles';
+import { Container, List, ListItem, Description } from './styles';
 
 interface Repository {
   id: number;
@@ -21,58 +15,39 @@ interface Repository {
 
 const Dashboard: React.FC = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
-  // const [following, setFollowing] = useState([]);
-  // const [followers, setFollowers] = useState([]);
   const { user } = useAuth();
 
   useEffect(() => {
     async function fetchApi(): Promise<void> {
-      const [
-        repositoriesResponse,
-        // followersResponse,
-        // followingResponse,
-      ] = await Promise.all([
+      const [repositoriesResponse] = await Promise.all([
         api.get(`/users/${user?.login}/repos`),
-        // api.get(`/users/${user?.login}/followers`),
-        // api.get(`/users/${user?.login}/following`),
       ]);
       setRepositories(repositoriesResponse.data);
-      // setFollowers(followersResponse.data);
-      // setFollowing(followingResponse.data);
     }
     fetchApi();
   }, [user]);
 
   return (
     <Container>
-      <RepositoriesContainer>
-        <h1>Your Repositories</h1>
-        <List>
-          {repositories &&
-            repositories.map((repository) => (
-              <a
-                target="_blank"
-                href={`https://github.com/${user?.login}/${repository.name}`}
-                key={repository.id}
-              >
-                <ListItem>
-                  <div>
-                    <p>{repository.name}</p>
-                    <p>{repository.language}</p>
-                  </div>
-                  <Description>{repository.description}</Description>
-                </ListItem>
-              </a>
-            ))}
-        </List>
-      </RepositoriesContainer>
-      {/*
-      <FollowersContainer>
-        <h1>Friends</h1>
-        <CardFollow title="Following" list={following} />
-        <Separator />
-        <CardFollow title="Followers" list={followers} />
-      </FollowersContainer> */}
+      <h1>Your Repositories</h1>
+      <List>
+        {repositories &&
+          repositories.map((repository) => (
+            <a
+              target="_blank"
+              href={`https://github.com/${user?.login}/${repository.name}`}
+              key={repository.id}
+            >
+              <ListItem>
+                <div>
+                  <p>{repository.name}</p>
+                  <p>{repository.language}</p>
+                </div>
+                <Description>{repository.description}</Description>
+              </ListItem>
+            </a>
+          ))}
+      </List>
     </Container>
   );
 };

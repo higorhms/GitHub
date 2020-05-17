@@ -20,7 +20,7 @@ const Header: React.FC = () => {
           <p>GitHub</p>
           <div>
             <Link to="/dashboard">HOME</Link>
-            <Link to="/repositories">EXPLORER</Link>
+            <Link to="/explorer">EXPLORER</Link>
           </div>
         </NavbarArea>
         <aside>

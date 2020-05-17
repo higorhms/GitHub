@@ -4,9 +4,7 @@ import { lighten } from 'polished';
 export const Container = styled.div`
   max-width: 1366px;
   margin: 0 auto;
-`;
 
-export const RepositoriesContainer = styled.div`
   padding: 20px;
 
   h1 {

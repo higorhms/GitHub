@@ -13,9 +13,9 @@ const MainRoutes: React.FC = () => {
     <Routes>
       <Route path="/" element={<SignIn />} />
       <Route path="/dashboard" isPrivate element={<Dashboard />} />
-      <Route path="/repositories" isPrivate element={<Explorer />} />
+      <Route path="/explorer" isPrivate element={<Explorer />} />
       <Route
-        path="/repository/:repository+"
+        path="/repository/:owner/:repo"
         isPrivate
         element={<Repository />}
       />

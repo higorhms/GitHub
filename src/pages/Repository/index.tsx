@@ -5,10 +5,6 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { RepositoryInfo, Issues, Container } from './styles';
 import api from '../../services/api';
 
-interface RepositoryParams {
-  repository: string;
-}
-
 interface Repository {
   full_name: string;
   description: string;
@@ -31,25 +27,25 @@ interface Issue {
 }
 
 const Repository: React.FC = () => {
-  const params = useParams();
+  const { owner, repo } = useParams();
   const [repository, setRepository] = useState<Repository | null>(null);
   const [issues, setIssues] = useState<Issue[]>([]);
 
   useEffect(() => {
-    api.get(`/repos/${params.repository}`).then((response) => {
+    api.get(`/repos/${owner}/${repo}`).then((response) => {
       setRepository(response.data);
     });
 
-    api.get(`/repos/${params.repository}/issues`).then((response) => {
+    api.get(`/repos/${owner}/${repo}/issues`).then((response) => {
       setIssues(response.data);
     });
-  }, [params.repository]);
+  }, [owner, repo]);
 
   return (
     <Container>
       {repository && (
         <RepositoryInfo>
-          <Link to="/repositories">
+          <Link to="/explorer">
             <FiChevronLeft size={16} />
             Voltar
           </Link>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { RouteProps, Navigate } from 'react-router';
+
 import { useAuth } from '../hooks/AuthContext';
 import authLayout from '../pages/_layouts/auth';
 import defaultLayout from '../pages/_layouts/default';
@@ -9,11 +10,7 @@ interface CustomRouteProps extends RouteProps {
   isPrivate?: boolean;
 }
 
-const CustomRoute: React.FC<CustomRouteProps> = ({
-  element: Element,
-  isPrivate,
-  ...rest
-}) => {
+const CustomRoute: React.FC<CustomRouteProps> = ({ isPrivate, ...rest }) => {
   const { user } = useAuth();
   const signed = user;
 
@@ -29,7 +26,7 @@ const CustomRoute: React.FC<CustomRouteProps> = ({
 
   return (
     <Layout>
-      <Route {...rest} element={Element} />
+      <Route {...rest} />
     </Layout>
   );
 };
