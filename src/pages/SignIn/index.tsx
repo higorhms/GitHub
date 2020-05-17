@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { Spring } from 'react-spring/renderprops';
 
+import { useNavigate } from 'react-router';
 import { useAuth } from '../../hooks/AuthContext';
 
 import Input from '../../components/Input';
@@ -22,6 +23,7 @@ interface FormProps {
 }
 
 const SignIn: React.FC = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const { signIn } = useAuth();
 
@@ -30,6 +32,7 @@ const SignIn: React.FC = () => {
 
     try {
       await signIn(data.username);
+      navigate('/dashboard');
     } catch (error) {
       toast.error(
         'Something wrong happened, please check your credentials and try again.',

@@ -1,24 +1,16 @@
 import React from 'react';
-import {
-  Route as ReactDOMRoute,
-  RouteProps as ReactDOMRouteProps,
-  Redirect,
-} from 'react-router-dom';
-
-// Context of Authentication
+import { Route } from 'react-router-dom';
+import { RouteProps, Navigate } from 'react-router';
 import { useAuth } from '../hooks/AuthContext';
-
-// Layouts
 import authLayout from '../pages/_layouts/auth';
 import defaultLayout from '../pages/_layouts/default';
 
-interface RouteProps extends ReactDOMRouteProps {
+interface CustomRouteProps extends RouteProps {
   isPrivate?: boolean;
-  component: React.ComponentType;
 }
 
-const Route: React.FC<RouteProps> = ({
-  component: Component,
+const CustomRoute: React.FC<CustomRouteProps> = ({
+  element: Element,
   isPrivate,
   ...rest
 }) => {
@@ -26,25 +18,20 @@ const Route: React.FC<RouteProps> = ({
   const signed = user;
 
   if (!signed && isPrivate) {
-    return <Redirect to={{ pathname: '/' }} />;
+    return <Navigate to="/" replace />;
   }
 
   if (signed && !isPrivate) {
-    return <Redirect to={{ pathname: '/dashboard' }} />;
+    return <Navigate to="/dashboard" replace />;
   }
 
   const Layout = isPrivate ? authLayout : defaultLayout;
 
   return (
-    <ReactDOMRoute
-      {...rest}
-      render={() => (
-        <Layout>
-          <Component />
-        </Layout>
-      )}
-    />
+    <Layout>
+      <Route {...rest} element={Element} />
+    </Layout>
   );
 };
 
-export default Route;
+export default CustomRoute;

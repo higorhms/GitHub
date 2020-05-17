@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useRouteMatch, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import { RepositoryInfo, Issues, Container } from './styles';
@@ -31,7 +31,7 @@ interface Issue {
 }
 
 const Repository: React.FC = () => {
-  const { params } = useRouteMatch<RepositoryParams>();
+  const params = useParams();
   const [repository, setRepository] = useState<Repository | null>(null);
   const [issues, setIssues] = useState<Issue[]>([]);
 
