@@ -1,5 +1,11 @@
-import React, { createContext, useCallback, useState, useContext } from 'react';
+import React, { createContext, useCallback, useState } from 'react';
 import api from '../services/api';
+
+export interface ContextData {
+  user: User | null;
+  signIn(username: string): void;
+  signOut(): void;
+}
 
 export interface User {
   id: string;
@@ -9,12 +15,6 @@ export interface User {
   avatar_url: string;
   followers_url: string;
   following_url: string;
-}
-
-interface ContextData {
-  user: User | null;
-  signIn(username: string): void;
-  signOut(): void;
 }
 
 const AuthContext = createContext<ContextData>({} as ContextData);
@@ -48,13 +48,4 @@ const AuthProvider: React.FC = ({ children }) => {
   );
 };
 
-const useAuth = (): ContextData => {
-  const context = useContext(AuthContext);
-
-  if (!context) {
-    throw Error('Context must be used within an AuthProvider');
-  }
-  return context;
-};
-
-export { AuthProvider, useAuth };
+export { AuthProvider, AuthContext };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { RouteProps, Navigate } from 'react-router';
 
-import { useAuth } from '../hooks/AuthContext';
+import useAuth from '../hooks/useAuth';
 
 interface ManagerProps extends Omit<RouteProps, 'element'> {
   isPrivate?: boolean;

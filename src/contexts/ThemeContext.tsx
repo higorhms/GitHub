@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useCallback,
-  createContext,
-  useContext,
-  useEffect,
-} from 'react';
+import React, { useState, useCallback, createContext, useEffect } from 'react';
 import { ThemeProvider as Provider } from 'styled-components';
 
 import light from '../styles/themes/light';
@@ -26,7 +20,7 @@ const ThemeContext = createContext<ThemeProviderProps>(
   {} as ThemeProviderProps,
 );
 
-interface ThemeProviderProps {
+export interface ThemeProviderProps {
   theme: ThemeProps;
   handleChangeTheme(): void;
 }
@@ -58,10 +52,4 @@ const ThemeProvider: React.FC = ({ children }) => {
   );
 };
 
-const useTheme = (): ThemeProviderProps => {
-  const context = useContext(ThemeContext);
-
-  return context;
-};
-
-export { ThemeProvider, useTheme };
+export { ThemeProvider, ThemeContext };

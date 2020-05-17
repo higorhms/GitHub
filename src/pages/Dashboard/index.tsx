@@ -1,11 +1,12 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import api from '../../services/api';
-import { useAuth } from '../../hooks/AuthContext';
+import useAuth from '../../hooks/useAuth';
 
 import { Container, List, ListItem, Description, Title } from './styles';
 import Loading from '../../components/Loading';
+import useLoading from '../../hooks/useLoading';
 
 interface Repository {
   id: number;
@@ -17,19 +18,16 @@ interface Repository {
 const Dashboard: React.FC = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const { user } = useAuth();
-  const [loading, setLoading] = useState(false);
+  const { isLoading, handleStartLoading } = useLoading();
 
   useEffect(() => {
-    setLoading(true);
     async function fetchApi(): Promise<void> {
-      const [repositoriesResponse] = await Promise.all([
-        api.get(`/users/${user?.login}/repos`),
-      ]);
-      setRepositories(repositoriesResponse.data);
-
-      setTimeout(() => {
-        setLoading(false);
-      }, 1300);
+      api.get(`/users/${user?.login}/repos`).then((response) => {
+        setRepositories(response.data);
+        setTimeout(() => {
+          handleStartLoading();
+        }, 2000);
+      });
     }
     fetchApi();
   }, [user]);
@@ -37,7 +35,7 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <Title>Your Repositories</Title>
-      {loading ? (
+      {isLoading ? (
         <Loading />
       ) : (
         <Container>

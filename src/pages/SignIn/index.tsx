@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { Spring } from 'react-spring/renderprops';
 
 import { useNavigate } from 'react-router';
-import { useAuth } from '../../hooks/AuthContext';
+import useAuth from '../../hooks/useAuth';
 
 import Input from '../../components/Input';
 

@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, Avatar, ProfileArea, Content, NavbarArea } from './styles';
-import { useAuth } from '../../hooks/AuthContext';
+import useAuth from '../../hooks/useAuth';
 import Tooltip from '../Tooltip';
 
 const Header: React.FC = () => {

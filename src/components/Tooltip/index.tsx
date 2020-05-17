@@ -3,8 +3,8 @@ import Switch from 'react-switch';
 
 import { Link } from 'react-router-dom';
 import { Container, MenuToolTip, ThemeSwitcher } from './styles';
-import { useAuth } from '../../hooks/AuthContext';
-import { useTheme } from '../../hooks/ThemeContext';
+import useAuth from '../../hooks/useAuth';
+import useTheme from '../../hooks/useTheme';
 
 interface TooltipProps {
   visible: boolean;
