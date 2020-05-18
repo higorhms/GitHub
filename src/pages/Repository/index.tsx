@@ -75,16 +75,18 @@ const Repository: React.FC = () => {
           </ul>
         </RepositoryInfo>
       )}
+
       <Issues>
-        {issues.map((issue) => (
-          <a key={issue.id} href={issue.html_url}>
-            <div>
-              <strong>{issue.title}</strong>
-              <p>{issue.user.login}</p>
-            </div>
-            <FiChevronRight size={20} />
-          </a>
-        ))}
+        {issues &&
+          issues.map((issue) => (
+            <a key={issue.id} href={issue.html_url}>
+              <div>
+                <strong>{issue.title}</strong>
+                <p>{issue.user.login}</p>
+              </div>
+              <FiChevronRight size={20} />
+            </a>
+          ))}
       </Issues>
     </Container>
   );

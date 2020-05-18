@@ -13,14 +13,21 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h3`
-  color: #a8a8b3;
-  margin-left: 50px;
+  color: ${(props) => props.theme.colors.text};
+  font-size: 28px;
+  font-weight: bold;
+`;
+
+export const Subtitle = styled.p`
+  color: ${(props) => props.theme.colors.subText};
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 export const Form = styled.form<FormProps>`
-  margin-top: 40px;
-  max-width: 700px;
   display: flex;
+  max-width: 50%;
+  margin-top: 4rem;
 
   input {
     flex: 1;
@@ -63,8 +70,7 @@ export const Form = styled.form<FormProps>`
 `;
 
 export const Repositories = styled.div`
-  margin-top: 80px;
-  max-width: 700px;
+  margin-top: 4rem;
 
   a {
     background: ${(props) => props.theme.colors.primary};

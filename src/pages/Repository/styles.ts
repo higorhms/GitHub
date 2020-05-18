@@ -16,6 +16,7 @@ export const RepositoryInfo = styled.section`
     transition: 0.2s;
     margin-bottom: 20px;
     font-size: 16px;
+    width: 80px;
 
     &:hover {
       color: #666;

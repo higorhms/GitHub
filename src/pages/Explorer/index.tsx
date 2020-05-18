@@ -2,8 +2,14 @@ import React, { useState, FormEvent, useEffect, useCallback } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
 
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.svg';
-import { Container, Title, Form, Repositories, Error } from './styles';
+import {
+  Container,
+  Title,
+  Form,
+  Repositories,
+  Error,
+  Subtitle,
+} from './styles';
 import api from '../../services/api';
 
 interface Repository {
@@ -60,8 +66,8 @@ const Explorer: React.FC = () => {
 
   return (
     <Container>
-      <img src={logo} alt="logo" />
       <Title>Explore repositories on GitHub</Title>
+      <Subtitle>Find any repository you want!</Subtitle>
 
       <Form onSubmit={handleAddRepository} hasError={!!errorMessage}>
         <input
