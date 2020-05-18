@@ -18,10 +18,10 @@ interface Repository {
 const Dashboard: React.FC = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const { user } = useAuth();
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, handleStartLoading } = useLoading();
 
   useEffect(() => {
-    setIsLoading(true);
+    handleStartLoading(true);
     async function fetchApi(): Promise<void> {
       api.get(`/users/${user?.login}/repos`).then((response) => {
         setRepositories(response.data);
@@ -29,9 +29,9 @@ const Dashboard: React.FC = () => {
     }
     fetchApi();
     setTimeout(() => {
-      setIsLoading(false);
+      handleStartLoading(false);
     }, 3000);
-  }, [user]);
+  }, [user, handleStartLoading]);
 
   return (
     <>

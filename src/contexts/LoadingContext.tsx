@@ -2,7 +2,7 @@ import React, { createContext, useState, useCallback } from 'react';
 
 export interface LoadingProps {
   isLoading: boolean;
-  handleStartLoading(): void;
+  handleStartLoading(value: boolean): void;
 }
 
 const LoadingContext = createContext({} as LoadingProps);
@@ -10,9 +10,9 @@ const LoadingContext = createContext({} as LoadingProps);
 const LoadingProvider: React.FC = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleStartLoading = useCallback((): void => {
-    setIsLoading(!isLoading);
-  }, [isLoading]);
+  const handleStartLoading = useCallback((value): void => {
+    setIsLoading(value);
+  }, []);
 
   return (
     <LoadingContext.Provider value={{ handleStartLoading, isLoading }}>
