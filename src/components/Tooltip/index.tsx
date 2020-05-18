@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Switch from 'react-switch';
 
 import { Link } from 'react-router-dom';
@@ -14,9 +14,9 @@ const Tooltip: React.FC<TooltipProps> = ({ visible }) => {
   const { handleChangeTheme, theme } = useTheme();
   const { signOut } = useAuth();
 
-  function handleLogOut(): void {
+  const handleLogOut = useCallback((): void => {
     signOut();
-  }
+  }, [signOut]);
 
   return (
     <Container isVisible={!!visible}>

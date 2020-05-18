@@ -8,13 +8,6 @@ export const Container = styled.div`
   padding: 20px;
 `;
 
-export const Title = styled.h1`
-  text-align: center;
-  font-size: 20px;
-  margin-top: 10px;
-  color: ${(props) => props.theme.colors.text};
-`;
-
 export const List = styled.div`
   display: grid;
   grid-gap: 15px;
@@ -22,22 +15,15 @@ export const List = styled.div`
 `;
 
 export const ListItem = styled.div`
-  border-radius: 4px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
   height: 150px;
   border-radius: 5px;
   padding: 10px;
   transition: 0.3s;
-
-  /* last alt */
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
 
   :hover {
     transform: translateY(-5px);
@@ -48,7 +34,6 @@ export const ListItem = styled.div`
   div {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 5px;
     font-weight: bold;
     text-align: center;
@@ -59,19 +44,21 @@ export const ListItem = styled.div`
       color: ${(props) => props.theme.colors.text};
     }
   }
+
+  > span {
+    align-self: flex-end;
+    font-weight: bold;
+    font-size: 14px;
+    color: ${(props) => props.theme.colors.border};
+  }
 `;
 
 export const Description = styled.p`
-  padding: 5px;
+  padding: 10px;
   font-size: 18px;
+  height: 100%;
+
   color: ${(props) => props.theme.colors.subText};
-  height: 100px;
 
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
+  overflow: hidden;
 `;

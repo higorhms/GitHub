@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import api from '../../services/api';
 import useAuth from '../../hooks/useAuth';
 
-import { Container, List, ListItem, Description, Title } from './styles';
+import { Container, List, ListItem, Description } from './styles';
 import Loading from '../../components/Loading';
 import useLoading from '../../hooks/useLoading';
 
@@ -18,23 +18,23 @@ interface Repository {
 const Dashboard: React.FC = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const { user } = useAuth();
-  const { isLoading, handleStartLoading } = useLoading();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     async function fetchApi(): Promise<void> {
       api.get(`/users/${user?.login}/repos`).then((response) => {
         setRepositories(response.data);
-        setTimeout(() => {
-          handleStartLoading();
-        }, 2000);
       });
     }
     fetchApi();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
   }, [user]);
 
   return (
     <>
-      <Title>Your Repositories</Title>
       {isLoading ? (
         <Loading />
       ) : (
@@ -50,9 +50,9 @@ const Dashboard: React.FC = () => {
                   <ListItem>
                     <div>
                       <p>{repository.name}</p>
-                      <p>{repository.language}</p>
                     </div>
                     <Description>{repository.description}</Description>
+                    <span>{repository.language}</span>
                   </ListItem>
                 </a>
               ))}
