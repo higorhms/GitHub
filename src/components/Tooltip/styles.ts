@@ -14,6 +14,7 @@ export const Container = styled.div<TooltipProps>`
   opacity: 0;
   transition: opacity 0.4s;
   visibility: hidden;
+  z-index: 10;
 
   ${(props) =>
     props.isVisible &&

@@ -19,7 +19,7 @@ export const FormContainer = styled.div`
 export const AnimationContainer = styled.div`
   display: flex;
   align-items: center;
-  height: 100%;
+  z-index: 0;
 `;
 
 export const Title = styled.h3`
