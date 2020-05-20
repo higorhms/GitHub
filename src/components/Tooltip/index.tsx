@@ -33,7 +33,7 @@ const Tooltip: React.FC<TooltipProps> = ({ visible }) => {
             checkedIcon={false}
             uncheckedIcon={false}
             height={10}
-            width={40}
+            width={45}
             handleDiameter={20}
             offColor={theme.colors.text}
             onColor={theme.colors.text}

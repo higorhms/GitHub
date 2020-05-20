@@ -91,7 +91,7 @@ const Repository: React.FC = () => {
                 <strong>{issue.title}</strong>
                 <p>{issue.user.login}</p>
               </div>
-              <FiChevronRight size={20} />
+              <FiChevronRight size={25} />
             </a>
           ))}
       </Issues>

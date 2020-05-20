@@ -58,9 +58,6 @@ export const MenuToolTip = styled.div`
 `;
 
 export const ThemeSwitcher = styled.div`
-  padding: 5px;
-  border-radius: 5px;
-
   display: flex;
   align-items: center;
   justify-content: center;

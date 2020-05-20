@@ -16,6 +16,8 @@ export const RepositoryInfo = styled.section`
       width: 90px;
       height: 90px;
       border-radius: 50%;
+
+      border: 2px solid ${(props) => props.theme.colors.border};
     }
 
     div {

@@ -20,7 +20,7 @@ const LogoAnimation: React.FC = () => {
       width="80%"
       height="80%"
       style={{
-        opacity: '0.1',
+        opacity: '0.2',
       }}
     />
   );
