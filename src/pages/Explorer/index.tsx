@@ -9,8 +9,13 @@ import {
   Repositories,
   Error,
   Subtitle,
+  FormContainer,
+  AnimationContainer,
 } from './styles';
 import api from '../../services/api';
+import LogoAnimation from '../../animations/LogoAnimation';
+import SearchAnimation from '../../animations/SearchAnimation';
+import useLoading from '../../hooks/useLoading';
 
 interface Repository {
   full_name: string;
@@ -24,6 +29,7 @@ interface Repository {
 const Explorer: React.FC = () => {
   const [newRepo, setNewRepo] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const { isLoading, handleStartLoading } = useLoading();
   const [repositories, setRepositories] = useState<Repository[]>(() => {
     const storedRepositories = localStorage.getItem(
       '@GitHubExplorer:repositories',
@@ -41,12 +47,26 @@ const Explorer: React.FC = () => {
     );
   }, [repositories]);
 
+  const checkExistRepository = useCallback(
+    (repository: Repository) => {
+      const findRepository = repositories.find(
+        (repo) => repo.full_name === repository.full_name,
+      );
+
+      return !!findRepository;
+    },
+    [repositories],
+  );
+
   const handleAddRepository = useCallback(
     async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+      handleStartLoading(true);
+
       e.preventDefault();
       try {
         if (!newRepo) {
           setErrorMessage('Type the owner/repository you are trying to find');
+          handleStartLoading(false);
           return;
         }
 
@@ -54,53 +74,70 @@ const Explorer: React.FC = () => {
 
         const repository = response.data;
 
+        const repositoryAlreadyExist = checkExistRepository(response.data);
+
+        if (repositoryAlreadyExist) {
+          setErrorMessage('This repository already exist in your list');
+          handleStartLoading(false);
+          return;
+        }
+
         setRepositories([...repositories, repository]);
         setNewRepo('');
         setErrorMessage('');
+        handleStartLoading(false);
       } catch (error) {
         setErrorMessage('This repository does not exist');
+        handleStartLoading(false);
       }
     },
-    [newRepo, repositories],
+    [newRepo, repositories, handleStartLoading, checkExistRepository],
   );
 
   return (
     <Container>
-      <Title>Explore repositories on GitHub</Title>
-      <Subtitle>Find any repository you want!</Subtitle>
+      <FormContainer>
+        <Title>Explore your favorite repositories</Title>
+        <Subtitle>Find any repository you want!</Subtitle>
 
-      <Form onSubmit={handleAddRepository} hasError={!!errorMessage}>
-        <input
-          value={newRepo}
-          onChange={(e) => setNewRepo(e.target.value)}
-          placeholder="Example: Owner/Repository"
-        />
+        <Form onSubmit={handleAddRepository} hasError={!!errorMessage}>
+          <input
+            value={newRepo}
+            onChange={(e) => setNewRepo(e.target.value)}
+            placeholder="Example: Owner/Repository"
+          />
 
-        <button type="submit">Search</button>
-      </Form>
+          <button type="submit">
+            {isLoading ? <p>Searching...</p> : <SearchAnimation />}
+          </button>
+        </Form>
 
-      {errorMessage && <Error>{errorMessage}</Error>}
+        {errorMessage && <Error>{errorMessage}</Error>}
 
-      <Repositories>
-        {repositories.map((repository) => (
-          <Link
-            key={repository.full_name}
-            to={`/repository/${repository.full_name}`}
-          >
-            <img
-              alt={repository.owner.login}
-              src={repository.owner.avatar_url}
-            />
+        <Repositories>
+          {repositories.map((repository) => (
+            <Link
+              key={repository.full_name}
+              to={`/repository/${repository.full_name}`}
+            >
+              <img
+                alt={repository.owner.login}
+                src={repository.owner.avatar_url}
+              />
 
-            <div>
-              <strong>{repository.full_name}</strong>
-              <p>{repository.description}</p>
-            </div>
+              <div>
+                <strong>{repository.full_name}</strong>
+                <p>{repository.description}</p>
+              </div>
 
-            <FiChevronRight size={20} />
-          </Link>
-        ))}
-      </Repositories>
+              <FiChevronRight size={25} />
+            </Link>
+          ))}
+        </Repositories>
+      </FormContainer>
+      <AnimationContainer>
+        <LogoAnimation />
+      </AnimationContainer>
     </Container>
   );
 };

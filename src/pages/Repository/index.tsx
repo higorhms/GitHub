@@ -1,11 +1,14 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { useParams } from 'react-router-dom';
+import { FiChevronRight } from 'react-icons/fi';
 
+import { FaGithub } from 'react-icons/fa';
 import { RepositoryInfo, Issues, Container } from './styles';
 import api from '../../services/api';
 
 interface Repository {
+  name: string;
   full_name: string;
   description: string;
   stargazers_count: number;
@@ -45,10 +48,6 @@ const Repository: React.FC = () => {
     <Container>
       {repository && (
         <RepositoryInfo>
-          <Link to="/explorer">
-            <FiChevronLeft size={16} />
-            Voltar
-          </Link>
           <header>
             <img
               src={repository?.owner.avatar_url}
@@ -71,6 +70,14 @@ const Repository: React.FC = () => {
             <li>
               <strong>Issues abertas</strong>
               <strong>{repository.open_issues_count}</strong>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href={`https://github.com/${repository.owner.login}/${repository.name}`}
+              >
+                <FaGithub size={50} />
+              </a>
             </li>
           </ul>
         </RepositoryInfo>

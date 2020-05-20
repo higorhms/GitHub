@@ -22,6 +22,7 @@ export const NavbarArea = styled.div`
     a {
       font-size: 18px;
       font-weight: bold;
+      transition: 0.3s;
 
       color: ${(props) => props.theme.colors.headerText};
 
@@ -30,10 +31,8 @@ export const NavbarArea = styled.div`
       }
 
       :hover {
-        color: ${(props) =>
-          props.theme.title === 'dark'
-            ? darken(0.3, `${props.theme.colors.headerText}`)
-            : lighten(0.3, `${props.theme.colors.headerText}`)};
+        color: ${(props) => props.theme.colors.border};
+        border-bottom: 2px solid ${(props) => props.theme.colors.border};
       }
     }
   }

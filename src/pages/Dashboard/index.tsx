@@ -1,6 +1,7 @@
-/* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from 'react';
 
+import { Link } from 'react-router-dom';
+import { FiAward } from 'react-icons/fi';
 import api from '../../services/api';
 import useAuth from '../../hooks/useAuth';
 
@@ -13,6 +14,7 @@ interface Repository {
   name: string;
   description: string;
   language: string;
+  full_name: string;
 }
 
 const Dashboard: React.FC = () => {
@@ -42,19 +44,19 @@ const Dashboard: React.FC = () => {
           <List>
             {repositories &&
               repositories.map((repository) => (
-                <a
-                  target="_blank"
-                  href={`https://github.com/${user?.login}/${repository.name}`}
+                <Link
+                  to={`/repository/${repository.full_name}`}
                   key={repository.id}
                 >
                   <ListItem>
                     <div>
+                      <FiAward size={20} color="#1ba94c" />
                       <p>{repository.name}</p>
                     </div>
                     <Description>{repository.description}</Description>
                     <span>{repository.language}</span>
                   </ListItem>
-                </a>
+                </Link>
               ))}
           </List>
         </Container>

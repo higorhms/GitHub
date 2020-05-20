@@ -7,9 +7,19 @@ interface FormProps {
 
 export const Container = styled.div`
   padding: 30px;
+  display: flex;
 
   max-width: 1366px;
   margin: 0 auto;
+`;
+
+export const FormContainer = styled.div`
+  flex: 1;
+`;
+export const AnimationContainer = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
 `;
 
 export const Title = styled.h3`
@@ -26,15 +36,12 @@ export const Subtitle = styled.p`
 
 export const Form = styled.form<FormProps>`
   display: flex;
-  max-width: 50%;
-  margin-top: 4rem;
+  margin-top: 3rem;
 
   input {
     flex: 1;
-
     height: 70px;
     padding: 0 24px;
-    border: 0;
     border-radius: 5px 0 0 5px;
     color: #3a3a3a;
     border: 2px solid #fff;
@@ -53,7 +60,11 @@ export const Form = styled.form<FormProps>`
   }
 
   button {
-    width: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 160px;
     height: 70px;
 
     background: #1ba94c;
@@ -76,7 +87,7 @@ export const Repositories = styled.div`
     background: ${(props) => props.theme.colors.primary};
     border-radius: 5px;
     width: 100%;
-    padding: 24px;
+    padding: 1.3rem;
     display: block;
     text-decoration: none;
     display: flex;
@@ -88,7 +99,7 @@ export const Repositories = styled.div`
     }
 
     & + a {
-      margin-top: 16px;
+      margin-top: 1.6rem;
     }
 
     img {
@@ -98,16 +109,16 @@ export const Repositories = styled.div`
     }
 
     div {
-      margin: 0 16px;
+      margin: 0 1.6rem;
       flex: 1;
 
       strong {
-        font-size: 20px;
+        font-size: 1.25rem;
         color: ${(props) => props.theme.colors.text};
       }
 
       p {
-        font-size: 18px;
+        font-size: 1rem;
         color: ${(props) => props.theme.colors.subText};
         margin-top: 4px;
       }

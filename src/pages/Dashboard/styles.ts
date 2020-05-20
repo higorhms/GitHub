@@ -20,7 +20,7 @@ export const ListItem = styled.div`
   border-radius: 5px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  height: 150px;
+  height: 100%;
   border-radius: 5px;
   padding: 10px;
   transition: 0.3s;
@@ -39,6 +39,10 @@ export const ListItem = styled.div`
     text-align: center;
     border-radius: 5px 5px 0px 0px;
 
+    svg {
+      margin-right: 0.5rem;
+    }
+
     p {
       font-size: 20px;
       color: ${(props) => props.theme.colors.text};
@@ -48,14 +52,14 @@ export const ListItem = styled.div`
   > span {
     align-self: flex-end;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1rem;
     color: ${(props) => props.theme.colors.border};
   }
 `;
 
 export const Description = styled.p`
   padding: 10px;
-  font-size: 18px;
+  font-size: 1rem;
   height: 100%;
 
   color: ${(props) => props.theme.colors.subText};

@@ -8,25 +8,6 @@ export const Container = styled.div`
 `;
 
 export const RepositoryInfo = styled.section`
-  a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: ${(props) => props.theme.colors.text};
-    transition: 0.2s;
-    margin-bottom: 20px;
-    font-size: 16px;
-    width: 80px;
-
-    &:hover {
-      color: #666;
-    }
-  }
-
-  svg {
-    margin-right: 4px;
-  }
-
   header {
     display: flex;
     align-items: center;
@@ -73,6 +54,15 @@ export const RepositoryInfo = styled.section`
         display: block;
         margin-top: 4px;
         color: ${(props) => props.theme.colors.subText};
+      }
+
+      a {
+        color: #fff;
+        transition: 0.2s;
+
+        :hover {
+          color: ${(props) => props.theme.colors.border};
+        }
       }
     }
   }

@@ -8,7 +8,7 @@ export interface LoadingProps {
 const LoadingContext = createContext({} as LoadingProps);
 
 const LoadingProvider: React.FC = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleStartLoading = useCallback((value): void => {
     setIsLoading(value);
