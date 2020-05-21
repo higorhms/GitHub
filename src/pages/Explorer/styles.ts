@@ -18,7 +18,6 @@ export const FormContainer = styled.div`
 `;
 export const AnimationContainer = styled.div`
   display: flex;
-  align-items: center;
   z-index: 0;
 `;
 

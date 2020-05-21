@@ -15,6 +15,9 @@ export interface User {
   avatar_url: string;
   followers_url: string;
   following_url: string;
+  followers: number;
+  following: number;
+  public_repos: number;
 }
 
 const AuthContext = createContext<ContextData>({} as ContextData);

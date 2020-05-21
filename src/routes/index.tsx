@@ -7,6 +7,10 @@ import DefaultLayout from '../pages/_layouts/default';
 import Manager from './Manager';
 import Route from './Route';
 
+const Profile = lazy(() => import('../pages/Profile'));
+const Followers = lazy(() => import('../pages/Profile/Followers'));
+const Followings = lazy(() => import('../pages/Profile/Followings'));
+const Repositories = lazy(() => import('../pages/Profile/Repositories'));
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const Repository = lazy(() => import('../pages/Repository'));
 const SignIn = lazy(() => import('../pages/SignIn'));
@@ -19,16 +23,16 @@ const MainRoutes: React.FC = () => {
         <Route path="/" element={SignIn} />
       </Manager>
 
-      <Manager path="/dashboard" isPrivate layout={AuthLayout}>
-        <Route path="/" element={Dashboard} />
-      </Manager>
+      <Manager path="/" isPrivate layout={AuthLayout}>
+        <Route path="/dashboard" element={Dashboard} />
+        <Route path="/explorer" element={Explorer} />
+        <Route path="/repository/:owner/:repo" element={Repository} />
 
-      <Manager path="/explorer" isPrivate layout={AuthLayout}>
-        <Route path="/" element={Explorer} />
-      </Manager>
-
-      <Manager path="/repository/:owner/:repo" isPrivate layout={AuthLayout}>
-        <Route path="/" element={Repository} />
+        <Route path="/profile" element={Profile}>
+          <Route path="/followers" element={Followers} />
+          <Route path="/followings" element={Followings} />
+          <Route path="/repositories" element={Repositories} />
+        </Route>
       </Manager>
     </Routes>
   );
