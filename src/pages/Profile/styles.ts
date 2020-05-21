@@ -62,6 +62,15 @@ export const Content = styled.div`
       & + li {
         margin-left: 2rem;
       }
+
+      a {
+        color: ${(props) => props.theme.colors.text};
+        transition: 0.2s;
+
+        :hover {
+          color: ${(props) => props.theme.colors.border};
+        }
+      }
     }
   }
 `;

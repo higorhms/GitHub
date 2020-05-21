@@ -1,11 +1,26 @@
-import React from 'react';
+/* eslint-disable react/jsx-no-target-blank */
+import React, { useState, useEffect } from 'react';
 
-import { Outlet } from 'react-router';
+import { Outlet, useParams } from 'react-router';
+import { FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { Container, Avatar, Content } from './styles';
-import useAuth from '../../hooks/useAuth';
+import { User } from '../../contexts/AuthContext';
+
+import api from '../../services/api';
 
 const Profile: React.FC = () => {
-  const { user } = useAuth();
+  const { owner } = useParams();
+
+  const [user, setUser] = useState<User>({} as User);
+
+  useEffect(() => {
+    async function fetchingApi(): Promise<void> {
+      const response = await api.get(`/users/${owner}`);
+      setUser(response.data);
+    }
+    fetchingApi();
+  }, [owner]);
 
   return (
     <Container>
@@ -19,8 +34,15 @@ const Profile: React.FC = () => {
       <Content>
         <ul>
           <li>
-            <strong>Followers</strong>
-            <strong>{user?.followers}</strong>
+            <a target="_blank" href={`https://github.com/${user?.login}`}>
+              <FaGithub size={50} />
+            </a>
+          </li>
+          <li>
+            <Link to={`/profile/${user.login}/followers`}>
+              <strong>Followers</strong>
+              <strong>{user?.followers}</strong>
+            </Link>
           </li>
           <li>
             <strong>Following</strong>

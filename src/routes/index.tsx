@@ -28,7 +28,7 @@ const MainRoutes: React.FC = () => {
         <Route path="/explorer" element={Explorer} />
         <Route path="/repository/:owner/:repo" element={Repository} />
 
-        <Route path="/profile" element={Profile}>
+        <Route path="/profile/:owner" element={Profile}>
           <Route path="/followers" element={Followers} />
           <Route path="/followings" element={Followings} />
           <Route path="/repositories" element={Repositories} />

@@ -11,6 +11,7 @@ interface TooltipProps {
 }
 
 const Tooltip: React.FC<TooltipProps> = ({ visible }) => {
+  const { user } = useAuth();
   const { handleChangeTheme, theme } = useTheme();
   const { signOut } = useAuth();
 
@@ -21,7 +22,7 @@ const Tooltip: React.FC<TooltipProps> = ({ visible }) => {
   return (
     <Container isVisible={!!visible}>
       <MenuToolTip>
-        <Link to="/profile">My Profile</Link>
+        <Link to={`/profile/${user?.login}/followers`}>My Profile</Link>
         <Link to="/" onClick={handleLogOut}>
           Logout
         </Link>
