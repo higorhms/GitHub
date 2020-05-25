@@ -73,13 +73,20 @@ export const Repository = styled.div`
   justify-content: space-between;
   background: ${(props) => props.theme.colors.primary};
   border-radius: 5px;
+  transition: 0.2s;
+
+  :hover {
+    box-shadow: 0px 0px 3px 0px #7908c4;
+  }
 
   > a {
     display: flex;
     width: 100%;
     padding: 10px;
+    transition: 0.2s;
 
     :hover {
+      border-radius: 5px;
       background: ${(props) => shade(0.1, props.theme.colors.primary)};
     }
 
@@ -87,7 +94,6 @@ export const Repository = styled.div`
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      border: 2px solid #301199;
     }
 
     div {
@@ -111,12 +117,12 @@ export const IconArea = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #301199;
+  background: #7908c4;
   color: #f5f5f5;
   border-radius: 0 5px 5px 0;
 
   :hover {
     cursor: pointer;
-    background: ${shade(0.1, '#301199')};
+    background: ${shade(0.1, '#7908c4')};
   }
 `;

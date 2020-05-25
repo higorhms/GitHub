@@ -9022,10 +9022,10 @@ react-switch@^5.0.1:
   dependencies:
     prop-types "^15.6.2"
 
-react-toastify@^6.0.0-rc.2-1:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-6.0.4.tgz#5a06f9ef29b9f257813fd0ab7c5b1f2aa9e33551"
-  integrity sha512-ieNHqMZim/8h0NfSigWsmqly9dG4JwtTnBCq3y5UVua73Os8VyvsZkdu5CHORqXXgIe9CGIIPz4AbIiFXWkLHg==
+react-toastify@^6.0.0-rc.3:
+  version "6.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-6.0.0-rc.3.tgz#9e18bcfa91d5c470e6ba31ea1d1a204647331a7b"
+  integrity sha512-ZUcrZ75P6h1m3STxvSs4NW1x1an0HyOcIh9KKBUHhJUMBhXoCV2rGDHqlBJVY3roReyFWPf4X6xkPDtYxj1r3w==
   dependencies:
     classnames "^2.2.6"
     prop-types "^15.7.2"
