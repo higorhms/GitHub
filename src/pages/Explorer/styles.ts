@@ -7,18 +7,11 @@ interface FormProps {
 
 export const Container = styled.div`
   padding: 30px;
-  display: flex;
 
   max-width: 1366px;
   margin: 0 auto;
-`;
-
-export const FormContainer = styled.div`
-  flex: 1;
-`;
-export const AnimationContainer = styled.div`
-  display: flex;
-  z-index: 0;
+  min-height: 100vh;
+  height: 100%;
 `;
 
 export const Title = styled.h3`
@@ -105,7 +98,7 @@ export const Repository = styled.div`
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      border: 2px solid ${(props) => props.theme.colors.border};
+      border: 2px solid #301199;
     }
 
     div {
