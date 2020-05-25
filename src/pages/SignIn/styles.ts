@@ -12,20 +12,35 @@ export const Container = styled.div`
   }
 `;
 
-export const PortfolioContainer = styled.section`
+export const PortfolioContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 50px;
-  width: auto;
+  min-width: 0%;
+  max-width: 100%;
 
   h1 {
     color: #fff;
     margin-bottom: 50px;
-    font-size: 40px;
+    font-size: 2.2rem;
   }
 
   p {
+    font-size: 1.2rem;
     color: #999;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 450px) {
+    display: none;
   }
 `;
 
@@ -53,6 +68,10 @@ export const SocialMediasContainer = styled.div`
       margin-right: 10px;
     }
   }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -62,6 +81,10 @@ export const FormContainer = styled.div`
   border-radius: 10% 0 0 10%;
   background: #fff;
   width: 100%;
+
+  @media (max-width: 450px) {
+    border-radius: 0;
+  }
 `;
 
 export const FormArea = styled.div`
