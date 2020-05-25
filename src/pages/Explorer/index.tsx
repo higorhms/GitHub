@@ -2,12 +2,12 @@ import React, { useState, FormEvent, useEffect, useCallback } from 'react';
 import { FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
+import { toast } from 'react-toastify';
 import {
   Container,
   Title,
   Form,
   Repositories,
-  Error,
   Subtitle,
   Repository,
   IconArea,
@@ -27,7 +27,6 @@ interface Repository {
 
 const Explorer: React.FC = () => {
   const [newRepo, setNewRepo] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
   const { isLoading, handleStartLoading } = useLoading();
   const [repositories, setRepositories] = useState<Repository[]>(() => {
     const storedRepositories = localStorage.getItem(
@@ -64,7 +63,7 @@ const Explorer: React.FC = () => {
       e.preventDefault();
       try {
         if (!newRepo) {
-          setErrorMessage('Type the owner/repository you are trying to find');
+          toast.error('Type the owner/repository you are trying to find');
           handleStartLoading(false);
           return;
         }
@@ -76,17 +75,16 @@ const Explorer: React.FC = () => {
         const repositoryAlreadyExist = checkExistRepository(response.data);
 
         if (repositoryAlreadyExist) {
-          setErrorMessage('This repository already exist in your list');
+          toast.error('This repository already exist in your list');
           handleStartLoading(false);
           return;
         }
 
         setRepositories([...repositories, repository]);
         setNewRepo('');
-        setErrorMessage('');
         handleStartLoading(false);
       } catch (error) {
-        setErrorMessage('This repository does not exist');
+        toast.error('This repository does not exist');
         handleStartLoading(false);
       }
     },
@@ -109,7 +107,7 @@ const Explorer: React.FC = () => {
       <Title>Explore your favorite repositories</Title>
       <Subtitle>Find any repository you want!</Subtitle>
 
-      <Form onSubmit={handleAddRepository} hasError={!!errorMessage}>
+      <Form onSubmit={handleAddRepository}>
         <input
           value={newRepo}
           onChange={(e) => setNewRepo(e.target.value)}
@@ -121,11 +119,9 @@ const Explorer: React.FC = () => {
         </button>
       </Form>
 
-      {errorMessage && <Error>{errorMessage}</Error>}
-
       <Repositories>
         {repositories.map((repository) => (
-          <Repository>
+          <Repository key={repository.full_name}>
             <Link
               key={repository.full_name}
               to={`/repository/${repository.full_name}`}

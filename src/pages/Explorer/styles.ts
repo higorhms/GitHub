@@ -1,9 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { shade } from 'polished';
-
-interface FormProps {
-  hasError: boolean;
-}
 
 export const Container = styled.div`
   padding: 30px;
@@ -26,7 +22,7 @@ export const Subtitle = styled.p`
   font-weight: bold;
 `;
 
-export const Form = styled.form<FormProps>`
+export const Form = styled.form`
   display: flex;
   margin-top: 2rem;
 
@@ -38,13 +34,6 @@ export const Form = styled.form<FormProps>`
     color: #3a3a3a;
     border: 2px solid #fff;
     transition: 0.2s;
-
-    ${(props) =>
-      props.hasError &&
-      css`
-        border-color: #c53030;
-        border-right: none;
-      `}
 
     &::placeholder {
       color: #a8a8b3;
@@ -130,10 +119,4 @@ export const IconArea = styled.div`
     cursor: pointer;
     background: ${shade(0.1, '#301199')};
   }
-`;
-
-export const Error = styled.span`
-  display: block;
-  color: #c53030;
-  margin-top: 8px;
 `;
