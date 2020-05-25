@@ -4,8 +4,22 @@ import { lighten } from 'polished';
 export const Container = styled.div`
   max-width: 1366px;
   margin: 0 auto;
-
   padding: 20px;
+
+  overflow-y: scroll;
+  height: 100vh;
+
+  ::-webkit-scrollbar-track {
+    background-color: ${(props) => props.theme.colors.background};
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: ${(props) => props.theme.colors.border};
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: ${(props) => props.theme.colors.border};
+  }
 `;
 
 export const List = styled.div`

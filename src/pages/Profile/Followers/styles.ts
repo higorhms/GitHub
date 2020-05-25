@@ -3,15 +3,28 @@ import { lighten } from 'polished';
 
 export const Container = styled.div`
   display: flex;
-
   border-radius: 5px;
-
-  padding: 10px;
   align-items: center;
 
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(11rem, 11rem));
+
+  padding: 10px 10px 0 5px;
+  overflow-y: scroll;
+  height: 100vh;
+
+  ::-webkit-scrollbar-track {
+    background-color: ${(props) => props.theme.colors.background};
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: ${(props) => props.theme.colors.border};
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: ${(props) => props.theme.colors.border};
+  }
 
   a {
     border-radius: 10px;

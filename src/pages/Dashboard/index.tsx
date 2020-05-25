@@ -9,7 +9,7 @@ import { Container, List, ListItem, Description } from './styles';
 import Loading from '../../components/Loading';
 import useLoading from '../../hooks/useLoading';
 
-interface Repository {
+export interface Repository {
   id: number;
   name: string;
   description: string;

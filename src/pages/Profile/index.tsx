@@ -11,7 +11,6 @@ import api from '../../services/api';
 
 const Profile: React.FC = () => {
   const { owner } = useParams();
-
   const [user, setUser] = useState<User>({} as User);
 
   useEffect(() => {
@@ -45,12 +44,16 @@ const Profile: React.FC = () => {
             </Link>
           </li>
           <li>
-            <strong>Following</strong>
-            <strong>{user?.following}</strong>
+            <Link to={`/profile/${user.login}/followings`}>
+              <strong>Following</strong>
+              <strong>{user?.following}</strong>
+            </Link>
           </li>
           <li>
-            <strong>Repositories</strong>
-            <strong>{user?.public_repos}</strong>
+            <Link to={`/profile/${user.login}/repositories`}>
+              <strong>Repositories</strong>
+              <strong>{user?.public_repos}</strong>
+            </Link>
           </li>
         </ul>
         <Outlet />
