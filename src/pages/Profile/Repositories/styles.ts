@@ -5,8 +5,8 @@ export const Container = styled.div`
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  padding: 10px 10px 0 5px;
 
+  padding: 10px;
   overflow-y: scroll;
   max-height: 100vh;
 

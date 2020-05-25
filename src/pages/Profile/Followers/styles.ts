@@ -10,7 +10,7 @@ export const Container = styled.div`
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(11rem, 11rem));
 
-  padding: 10px 10px 0 5px;
+  padding: 10px;
   overflow-y: scroll;
   min-height: 0%;
   max-height: 100vh;
