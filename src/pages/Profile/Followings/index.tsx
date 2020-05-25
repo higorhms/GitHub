@@ -24,7 +24,7 @@ const Followings: React.FC = () => {
     <Container>
       {followings?.map((following) => (
         <Link
-          to={`/profile/${following?.login}/followings`}
+          to={`/profile/${following?.login}/repositories`}
           key={following.login}
         >
           <Avatar src={following.avatar_url} alt="avatar" />

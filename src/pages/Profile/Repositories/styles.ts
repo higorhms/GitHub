@@ -8,7 +8,7 @@ export const Container = styled.div`
   padding: 10px 10px 0 5px;
 
   overflow-y: scroll;
-  height: 100vh;
+  max-height: 100vh;
 
   ::-webkit-scrollbar-track {
     background-color: ${(props) => props.theme.colors.background};

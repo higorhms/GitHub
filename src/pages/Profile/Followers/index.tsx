@@ -23,7 +23,10 @@ const Followers: React.FC = () => {
   return (
     <Container>
       {followers?.map((follower) => (
-        <Link to={`/profile/${follower?.login}/followers`} key={follower.login}>
+        <Link
+          to={`/profile/${follower?.login}/repositories`}
+          key={follower.login}
+        >
           <Avatar src={follower.avatar_url} alt="avatar" />
           <p>{follower?.login}</p>
         </Link>
