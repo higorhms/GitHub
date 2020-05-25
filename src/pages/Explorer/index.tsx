@@ -1,7 +1,7 @@
 import React, { useState, FormEvent, useEffect, useCallback } from 'react';
-import { FiChevronRight } from 'react-icons/fi';
-
+import { FiX, FiPlus } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+
 import {
   Container,
   Title,
@@ -11,6 +11,8 @@ import {
   Subtitle,
   FormContainer,
   AnimationContainer,
+  Repository,
+  IconArea,
 } from './styles';
 import api from '../../services/api';
 import LogoAnimation from '../../animations/LogoAnimation';
@@ -94,6 +96,17 @@ const Explorer: React.FC = () => {
     [newRepo, repositories, handleStartLoading, checkExistRepository],
   );
 
+  const handleDeleteRepository = useCallback(
+    (repository): void => {
+      const filtredRepositories = repositories.filter(
+        (repo) => repo.full_name !== repository.full_name,
+      );
+
+      setRepositories(filtredRepositories);
+    },
+    [repositories],
+  );
+
   return (
     <Container>
       <FormContainer>
@@ -116,22 +129,29 @@ const Explorer: React.FC = () => {
 
         <Repositories>
           {repositories.map((repository) => (
-            <Link
-              key={repository.full_name}
-              to={`/repository/${repository.full_name}`}
-            >
-              <img
-                alt={repository.owner.login}
-                src={repository.owner.avatar_url}
-              />
+            <Repository>
+              <Link
+                key={repository.full_name}
+                to={`/repository/${repository.full_name}`}
+              >
+                <img
+                  alt={repository.owner.login}
+                  src={repository.owner.avatar_url}
+                />
 
-              <div>
-                <strong>{repository.full_name}</strong>
-                <p>{repository.description}</p>
-              </div>
+                <div>
+                  <strong>{repository.full_name}</strong>
+                  <p>{repository.description}</p>
+                </div>
+              </Link>
 
-              <FiChevronRight size={25} />
-            </Link>
+              <IconArea>
+                <FiX
+                  size={22}
+                  onClick={() => handleDeleteRepository(repository)}
+                />
+              </IconArea>
+            </Repository>
           ))}
         </Repositories>
       </FormContainer>

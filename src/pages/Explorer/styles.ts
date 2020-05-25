@@ -35,11 +35,11 @@ export const Subtitle = styled.p`
 
 export const Form = styled.form<FormProps>`
   display: flex;
-  margin-top: 3rem;
+  margin-top: 2rem;
 
   input {
     flex: 1;
-    height: 70px;
+    height: 50px;
     padding: 0 24px;
     border-radius: 5px 0 0 5px;
     color: #3a3a3a;
@@ -64,7 +64,7 @@ export const Form = styled.form<FormProps>`
     justify-content: center;
 
     width: 160px;
-    height: 70px;
+    height: 50px;
 
     background: #1ba94c;
     border-radius: 0 5px 5px 0;
@@ -80,36 +80,36 @@ export const Form = styled.form<FormProps>`
 `;
 
 export const Repositories = styled.div`
-  margin-top: 4rem;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+  margin-top: 2rem;
+`;
 
-  a {
-    background: ${(props) => props.theme.colors.primary};
-    border-radius: 5px;
-    width: 100%;
-    padding: 1.3rem;
-    display: block;
-    text-decoration: none;
+export const Repository = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background: ${(props) => props.theme.colors.primary};
+  border-radius: 5px;
+
+  > a {
     display: flex;
-    align-items: center;
-    transition: transform 0.2s;
+    width: 100%;
+    padding: 10px;
 
-    &:hover {
-      transform: translateX(10px);
-    }
-
-    & + a {
-      margin-top: 1.6rem;
+    :hover {
+      background: ${(props) => shade(0.1, props.theme.colors.primary)};
     }
 
     img {
       width: 64px;
       height: 64px;
       border-radius: 50%;
+      border: 2px solid ${(props) => props.theme.colors.border};
     }
 
     div {
-      margin: 0 1.6rem;
-      flex: 1;
+      margin-left: 1rem;
 
       strong {
         font-size: 1.25rem;
@@ -122,11 +122,20 @@ export const Repositories = styled.div`
         margin-top: 4px;
       }
     }
+  }
+`;
 
-    svg {
-      margin-left: auto;
-      color: #cbcbd6;
-    }
+export const IconArea = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #301199;
+  color: #f5f5f5;
+  border-radius: 0 5px 5px 0;
+
+  :hover {
+    cursor: pointer;
+    background: ${shade(0.1, '#301199')};
   }
 `;
 
