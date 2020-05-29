@@ -40,20 +40,20 @@ const Profile: React.FC = () => {
           <li>
             <Link to={`/profile/${user.login}/followers`}>
               <strong>Followers</strong>
-              <strong>{user?.followers}</strong>
             </Link>
+            <span>{user?.followers}</span>
           </li>
           <li>
             <Link to={`/profile/${user.login}/followings`}>
               <strong>Following</strong>
-              <strong>{user?.following}</strong>
             </Link>
+            <span>{user?.following}</span>
           </li>
           <li>
             <Link to={`/profile/${user.login}/repositories`}>
               <strong>Repositories</strong>
-              <strong>{user?.public_repos}</strong>
             </Link>
+            <span>{user?.public_repos}</span>
           </li>
         </ul>
         <Outlet />

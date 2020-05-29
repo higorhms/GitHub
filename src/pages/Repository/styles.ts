@@ -59,7 +59,7 @@ export const RepositoryInfo = styled.section`
       }
 
       a {
-        color: #fff;
+        color: ${(props) => props.theme.colors.text};
         transition: 0.2s;
 
         :hover {
@@ -106,11 +106,6 @@ export const Issues = styled.div`
         color: ${(props) => props.theme.colors.subText};
         margin-top: 4px;
       }
-    }
-
-    svg {
-      margin-left: auto;
-      color: #cbcbd6;
     }
   }
 `;

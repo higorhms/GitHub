@@ -53,14 +53,12 @@ export const Content = styled.div`
       color: ${(props) => props.theme.colors.text};
       transition: 0.3s;
 
-      strong {
-        display: block;
-        font-size: 20px;
-        color: ${(props) => props.theme.colors.text};
-      }
-
       & + li {
         margin-left: 2rem;
+      }
+
+      span {
+        font-size: 18px;
       }
 
       a {
@@ -69,6 +67,17 @@ export const Content = styled.div`
 
         :hover {
           color: ${(props) => props.theme.colors.border};
+        }
+
+        strong {
+          display: block;
+          font-size: 20px;
+          color: ${(props) => props.theme.colors.text};
+          transition: 0.2s;
+
+          :hover {
+            color: ${(props) => props.theme.colors.border};
+          }
         }
       }
     }
