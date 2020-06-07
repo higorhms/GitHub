@@ -35,7 +35,6 @@ export const ListItem = styled.div`
   padding: 10px;
 
   :hover {
-    transform: translateY(-5px);
     box-shadow: 0px 0px 8px 0px
       ${(props) => lighten(0.3, `${props.theme.colors.border}`)};
   }

@@ -13,7 +13,6 @@ import {
   IconArea,
 } from './styles';
 import api from '../../services/api';
-import SearchAnimation from '../../animations/SearchAnimation';
 import useLoading from '../../hooks/useLoading';
 import BottomNavigator from '../../components/BottomNavigator';
 
@@ -117,7 +116,7 @@ const Explorer: React.FC = () => {
           />
 
           <button type="submit">
-            {isLoading ? <p>Searching...</p> : <SearchAnimation />}
+            {isLoading ? <p>Searching...</p> : <p>Search</p>}
           </button>
         </Form>
 

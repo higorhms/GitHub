@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import Switch from 'react-switch';
 
 import { Link } from 'react-router-dom';
+import { FiSun, FiMoon, FiUser, FiLogOut } from 'react-icons/fi';
 import { Container, MenuToolTip, ThemeSwitcher } from './styles';
 import useAuth from '../../hooks/useAuth';
 import useTheme from '../../hooks/useTheme';
@@ -22,23 +22,16 @@ const Tooltip: React.FC<TooltipProps> = ({ visible }) => {
   return (
     <Container isVisible={!!visible}>
       <MenuToolTip>
-        <Link to={`/profile/${user?.login}/followers`}>My Profile</Link>
-        <Link to="/" onClick={handleLogOut}>
-          Logout
+        <Link to={`/profile/${user?.login}/followers`}>
+          <FiUser />
+          <p>My Profile</p>
         </Link>
-        <ThemeSwitcher>
-          <p>Change theme</p>
-          <Switch
-            onChange={handleChangeTheme}
-            checked={theme.title === 'dark'}
-            checkedIcon={false}
-            uncheckedIcon={false}
-            height={10}
-            width={45}
-            handleDiameter={20}
-            offColor={theme.colors.text}
-            onColor={theme.colors.text}
-          />
+        <Link to="/" onClick={handleLogOut}>
+          <FiLogOut />
+          <p>Sign out</p>
+        </Link>
+        <ThemeSwitcher type="button" onClick={handleChangeTheme}>
+          {theme.title === 'light' ? <FiMoon size={30} /> : <FiSun size={30} />}
         </ThemeSwitcher>
       </MenuToolTip>
     </Container>

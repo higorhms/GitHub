@@ -75,7 +75,7 @@ export const ProfileArea = styled.div`
   cursor: pointer;
 
   &:hover {
-    strong {
+    > strong {
       color: ${(props) =>
         props.theme.title === 'dark'
           ? darken(0.3, `${props.theme.colors.headerText}`)

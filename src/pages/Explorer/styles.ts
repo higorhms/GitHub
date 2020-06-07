@@ -8,6 +8,11 @@ export const Container = styled.div`
   margin: 0 auto;
   min-height: 100vh;
   height: 100%;
+  max-width: 80%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 export const Title = styled.h3`
