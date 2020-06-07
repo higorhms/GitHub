@@ -11,13 +11,16 @@ const BottomNavigator: React.FC = () => {
   return (
     <Container>
       <Link to="/dashboard">
-        <FiHome />
+        <FiHome size={20} />
+        <p>Home</p>
       </Link>
       <Link to="/explorer">
-        <FiSearch />
+        <FiSearch size={20} />
+        <p>Explorer</p>
       </Link>
       <Link to={`/profile/${user?.login}/followers`}>
-        <FiUser />
+        <FiUser size={20} />
+        <p>Me</p>
       </Link>
     </Container>
   );

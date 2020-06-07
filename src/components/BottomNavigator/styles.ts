@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
 export const Container = styled.div`
   overflow: hidden;
@@ -7,32 +6,35 @@ export const Container = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 2rem;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   grid-template-rows: 1fr;
 
   @media (min-width: 768px) {
-       display: none;
+    display: none;
   }
 
   a {
-    padding: 5px;
+    padding: 5px 0 0 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: ${(props) => props.theme.colors.primary};
 
     :hover {
-      /* background: ${(props) => shade(0.1, props.theme.colors.border)}; */
       background: ${(props) => props.theme.colors.border};
     }
 
     svg {
-      size: 2rem;
       color: ${(props) => props.theme.colors.headerText};
+    }
 
+    p {
+      margin-top: 5px;
+      font-size: 0.8rem;
+      color: ${(props) => props.theme.colors.subText};
     }
   }
 `;
