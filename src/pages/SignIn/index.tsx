@@ -47,11 +47,22 @@ const SignIn: React.FC = () => {
   return (
     <Container>
       <PortfolioContainer>
-        <h1>Github Finder by Higor Martins</h1>
+        <h1>A Github version developed by Higor Martins</h1>
 
         <p>
-          Now, you can add your favorites repositories of your favorites
-          developers on GitHub !
+          If you do not have an account on Github, you can try the application
+          using mine, just type: higorhms.
+        </p>
+        <p>
+          Technologies:
+          <ul>
+            <li>TypeScript</li>
+            <li>ReactJS</li>
+            <li>Styled Components</li>
+            <li>Eslint</li>
+            <li>Prettier</li>
+            <li>and more...</li>
+          </ul>
         </p>
 
         <SocialMediasContainer>

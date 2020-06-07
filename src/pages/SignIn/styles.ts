@@ -5,7 +5,8 @@ export const Container = styled.div`
   background: #24292e;
   overflow-x: scroll;
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 
   ::-webkit-scrollbar {
     display: none;
@@ -27,7 +28,21 @@ export const PortfolioContainer = styled.div`
 
   p {
     font-size: 1.2rem;
-    color: #999;
+    color: ${(props) => props.theme.colors.subText};
+
+    ul {
+      margin-top: 10px;
+
+      li {
+        & + li {
+          margin-top: 2px;
+        }
+      }
+    }
+
+    & + p {
+      margin-top: 20px;
+    }
   }
 
   @media (max-width: 768px) {
