@@ -51,7 +51,7 @@ const Dashboard: React.FC = () => {
                   <ListItem>
                     <div>
                       <FiAward size={20} color="#1ba94c" />
-                      <p>{repository.name}</p>
+                      <h1>{repository.name}</h1>
                     </div>
                     <Description>{repository.description}</Description>
                     <span>{repository.language}</span>

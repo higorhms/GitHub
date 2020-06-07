@@ -4,6 +4,10 @@ import { darken, lighten } from 'polished';
 export const Container = styled.div`
   background: ${(props) => props.theme.colors.primary};
   padding: 0 30px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavbarArea = styled.div`

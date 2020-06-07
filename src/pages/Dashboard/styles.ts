@@ -20,12 +20,23 @@ export const Container = styled.div`
     border-radius: 5px;
     background: ${(props) => props.theme.colors.border};
   }
+
+  @media (max-width: 768px) {
+    min-height: 100vh;
+    height: 100%;
+  }
 `;
 
 export const List = styled.div`
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+  @media (max-width: 768px) {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 `;
 
 export const ListItem = styled.div`
@@ -57,26 +68,31 @@ export const ListItem = styled.div`
       margin-right: 0.5rem;
     }
 
-    p {
-      font-size: 20px;
+    h1 {
       color: ${(props) => props.theme.colors.text};
+      font-size: 1.4rem;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
     }
   }
 
   > span {
     align-self: flex-end;
     font-weight: bold;
-    font-size: 1rem;
     color: ${(props) => props.theme.colors.border};
   }
 `;
 
 export const Description = styled.p`
   padding: 10px;
-  font-size: 1rem;
   height: 100%;
-
   color: ${(props) => props.theme.colors.subText};
-
   overflow: hidden;
+  font-size: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
