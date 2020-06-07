@@ -35,33 +35,31 @@ const Dashboard: React.FC = () => {
     }, 3000);
   }, [user, handleStartLoading]);
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
-    <>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <Container>
-          <List>
-            {repositories &&
-              repositories.map((repository) => (
-                <Link
-                  to={`/repository/${repository.full_name}`}
-                  key={repository.id}
-                >
-                  <ListItem>
-                    <div>
-                      <FiAward size={20} color="#1ba94c" />
-                      <h1>{repository.name}</h1>
-                    </div>
-                    <Description>{repository.description}</Description>
-                    <span>{repository.language}</span>
-                  </ListItem>
-                </Link>
-              ))}
-          </List>
-        </Container>
-      )}
-    </>
+    <Container>
+      <List>
+        {repositories &&
+          repositories.map((repository) => (
+            <Link
+              to={`/repository/${repository.full_name}`}
+              key={repository.id}
+            >
+              <ListItem>
+                <div>
+                  <FiAward size={20} color="#1ba94c" />
+                  <h1>{repository.name}</h1>
+                </div>
+                <Description>{repository.description}</Description>
+                <span>{repository.language}</span>
+              </ListItem>
+            </Link>
+          ))}
+      </List>
+    </Container>
   );
 };
 

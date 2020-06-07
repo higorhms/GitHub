@@ -15,6 +15,7 @@ import {
 import api from '../../services/api';
 import SearchAnimation from '../../animations/SearchAnimation';
 import useLoading from '../../hooks/useLoading';
+import BottomNavigator from '../../components/BottomNavigator';
 
 interface Repository {
   full_name: string;
@@ -103,47 +104,50 @@ const Explorer: React.FC = () => {
   );
 
   return (
-    <Container>
-      <Title>Explore your favorite repositories</Title>
-      <Subtitle>Find any repository you want!</Subtitle>
+    <>
+      <Container>
+        <Title>Explore your favorite repositories</Title>
+        <Subtitle>Find any repository you want!</Subtitle>
 
-      <Form onSubmit={handleAddRepository}>
-        <input
-          value={newRepo}
-          onChange={(e) => setNewRepo(e.target.value)}
-          placeholder="Example: Owner/Repository"
-        />
+        <Form onSubmit={handleAddRepository}>
+          <input
+            value={newRepo}
+            onChange={(e) => setNewRepo(e.target.value)}
+            placeholder="Example: Owner/Repository"
+          />
 
-        <button type="submit">
-          {isLoading ? <p>Searching...</p> : <SearchAnimation />}
-        </button>
-      </Form>
+          <button type="submit">
+            {isLoading ? <p>Searching...</p> : <SearchAnimation />}
+          </button>
+        </Form>
 
-      <Repositories>
-        {repositories.map((repository) => (
-          <Repository key={repository.full_name}>
-            <Link
-              key={repository.full_name}
-              to={`/repository/${repository.full_name}`}
-            >
-              <img
-                alt={repository.owner.login}
-                src={repository.owner.avatar_url}
-              />
+        <Repositories>
+          {repositories.map((repository) => (
+            <Repository key={repository.full_name}>
+              <Link
+                key={repository.full_name}
+                to={`/repository/${repository.full_name}`}
+              >
+                <img
+                  alt={repository.owner.login}
+                  src={repository.owner.avatar_url}
+                />
 
-              <div>
-                <strong>{repository.full_name}</strong>
-                <p>{repository.description}</p>
-              </div>
-            </Link>
+                <div>
+                  <strong>{repository.full_name}</strong>
+                  <p>{repository.description}</p>
+                </div>
+              </Link>
 
-            <IconArea onClick={() => handleDeleteRepository(repository)}>
-              <FiX size={22} />
-            </IconArea>
-          </Repository>
-        ))}
-      </Repositories>
-    </Container>
+              <IconArea onClick={() => handleDeleteRepository(repository)}>
+                <FiX size={22} />
+              </IconArea>
+            </Repository>
+          ))}
+        </Repositories>
+      </Container>
+      <BottomNavigator />
+    </>
   );
 };
 
