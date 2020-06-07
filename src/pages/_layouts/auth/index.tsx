@@ -11,8 +11,8 @@ const authLayout: React.FC = () => {
       <Header />
       <Container>
         <Outlet />
-        <BottomNavigator />
       </Container>
+      <BottomNavigator />
     </>
   );
 };

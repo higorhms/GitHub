@@ -5,4 +5,8 @@ export const Container = styled.div`
   min-height: 100vh;
   height: 100%;
   margin-top: 80px;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
 `;
