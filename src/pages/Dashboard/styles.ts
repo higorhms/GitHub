@@ -25,6 +25,17 @@ export const Container = styled.div`
     min-height: 100vh;
     height: 100%;
   }
+
+  > h1 {
+    font-size: 1.4rem;
+    color: ${(props) => props.theme.colors.headerText};
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
 `;
 
 export const List = styled.div`

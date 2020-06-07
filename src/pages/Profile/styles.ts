@@ -70,6 +70,19 @@ export const Avatar = styled.div`
       display: none;
     }
   }
+
+  button {
+    background: transparent;
+    border: none;
+
+    svg {
+      color: ${(props) => props.theme.colors.headerText};
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
 `;
 
 export const Content = styled.div`

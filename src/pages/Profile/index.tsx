@@ -4,14 +4,17 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, useParams } from 'react-router';
 import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { FiMoon, FiSun } from 'react-icons/fi';
 import { Container, Avatar, Content } from './styles';
 import { User } from '../../contexts/AuthContext';
 
 import api from '../../services/api';
+import useTheme from '../../hooks/useTheme';
 
 const Profile: React.FC = () => {
   const { owner } = useParams();
   const [user, setUser] = useState<User>({} as User);
+  const { theme, handleChangeTheme } = useTheme();
 
   useEffect(() => {
     async function fetchingApi(): Promise<void> {
@@ -28,6 +31,9 @@ const Profile: React.FC = () => {
         <h3>{user?.name}</h3>
         <p>{user?.login}</p>
         <span>{user?.bio}</span>
+        <button type="button" onClick={handleChangeTheme}>
+          {theme.title === 'light' ? <FiMoon size={20} /> : <FiSun size={20} />}
+        </button>
       </Avatar>
 
       <Content>
