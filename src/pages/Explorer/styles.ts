@@ -12,14 +12,22 @@ export const Container = styled.div`
 
 export const Title = styled.h3`
   color: ${(props) => props.theme.colors.text};
-  font-size: 28px;
+  font-size: 2rem;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const Subtitle = styled.p`
   color: ${(props) => props.theme.colors.subText};
-  font-size: 20px;
+  font-size: 1.4rem;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Form = styled.form`
@@ -94,6 +102,12 @@ export const Repository = styled.div`
       width: 64px;
       height: 64px;
       border-radius: 50%;
+
+      @media (max-width: 768px) {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
     }
 
     div {
@@ -102,12 +116,20 @@ export const Repository = styled.div`
       strong {
         font-size: 1.25rem;
         color: ${(props) => props.theme.colors.text};
+
+        @media (max-width: 768px) {
+          font-size: 1rem;
+        }
       }
 
       p {
         font-size: 1rem;
         color: ${(props) => props.theme.colors.subText};
         margin-top: 4px;
+
+        @media (max-width: 768px) {
+          font-size: 0.8rem;
+        }
       }
     }
   }

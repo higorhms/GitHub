@@ -13,6 +13,10 @@ export const Container = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   grid-template-rows: 1fr;
 
+  @media (min-width: 768px) {
+       display: none;
+  }
+
   a {
     padding: 5px;
     display: flex;
