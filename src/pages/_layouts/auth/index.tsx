@@ -7,11 +7,13 @@ import BottomNavigator from '../../../components/BottomNavigator';
 
 const authLayout: React.FC = () => {
   return (
-    <Container>
+    <>
       <Header />
-      <Outlet />
-      <BottomNavigator />
-    </Container>
+      <Container>
+        <Outlet />
+        <BottomNavigator />
+      </Container>
+    </>
   );
 };
 
