@@ -15,6 +15,10 @@ export const Container = styled.div`
   min-height: 0%;
   max-height: 100vh;
 
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  }
+
   ::-webkit-scrollbar-track {
     background-color: ${(props) => props.theme.colors.background};
   }
@@ -48,6 +52,11 @@ export const Container = styled.div`
     p {
       margin-top: 0.4rem;
       color: ${(props) => props.theme.colors.subText};
+
+      @media (max-width: 768px) {
+        font-size: 0.8rem;
+        color: ${(props) => props.theme.colors.subText};
+      }
     }
   }
 `;
@@ -57,4 +66,11 @@ export const Avatar = styled.img`
   height: 64px;
   border-radius: 50%;
   border: 4px solid ${(props) => props.theme.colors.border};
+
+  @media (max-width: 768px) {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid ${(props) => props.theme.colors.border};
+  }
 `;

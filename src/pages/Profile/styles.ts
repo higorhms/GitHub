@@ -19,7 +19,7 @@ export const Avatar = styled.div`
   max-width: 200px;
 
   @media (max-width: 768px) {
-    display: flex;
+    max-width: 100%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -34,10 +34,11 @@ export const Avatar = styled.div`
     border: 4px solid ${(props) => props.theme.colors.border};
 
     @media (max-width: 768px) {
-      width: 50px;
-      height: 50px;
-      border-radius: 25px;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
       margin-right: 10px;
+      border: 2px solid ${(props) => props.theme.colors.border};
     }
   }
 
@@ -47,7 +48,7 @@ export const Avatar = styled.div`
     color: ${(props) => props.theme.colors.text};
 
     @media (max-width: 768px) {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
 
