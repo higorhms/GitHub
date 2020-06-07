@@ -5,11 +5,24 @@ export const Container = styled.div`
   padding: 30px;
   max-width: 1366px;
   margin: 0 auto;
+  overflow-y: scroll;
 
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     padding: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: ${(props) => props.theme.colors.background};
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: ${(props) => props.theme.colors.border};
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: ${(props) => props.theme.colors.border};
   }
 `;
 
@@ -22,7 +35,7 @@ export const Avatar = styled.div`
     max-width: 100%;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 20px;
   }
 

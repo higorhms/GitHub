@@ -32,7 +32,7 @@ const Profile: React.FC = () => {
         <p>{user?.login}</p>
         <span>{user?.bio}</span>
         <button type="button" onClick={handleChangeTheme}>
-          {theme.title === 'light' ? <FiMoon size={20} /> : <FiSun size={20} />}
+          {theme.title === 'light' ? <FiMoon size={30} /> : <FiSun size={30} />}
         </button>
       </Avatar>
 
