@@ -9,7 +9,8 @@
 <p align="center">
   <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout-and-functionalities">Layout and Functionalities</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-technologies">Tecnologias</a>
+  <a href="#-technologies">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://higorhms-github.netlify.com/">Try it <strong>HERE</strong></a>
 </p>
 
 [![All Contributors](https://img.shields.io/badge/All_contributors-1-green.svg?style=flat-square)](./CONTRIBUTORS.md)
@@ -22,7 +23,7 @@
 
 An application that you can find your favorites repositories and all its informations (Stars, Forks, Issues) see your followers and their repositories, come on, take a look!
 
-Link for this project: 
+Try this project HERE: 
 [GitHub by Higor Martins](https://higorhms-github.netlify.app/)
 
 ## 🔖 Layout and Functionalities
@@ -43,11 +44,16 @@ Link for this project:
 
 This project was developed using these technologies:
 
+- [TypeScript](https://www.typescriptlang.org/)
 - [React JS](https://reactjs.org/docs/context.html)
 - [Styled Components](https://styled-components.com/)
 - [React Toastify](https://www.npmjs.com/package/react-toastify)
 - [React Spring](https://www.react-spring.io/)
 - [Lottie](https://lottiefiles.com/)
+- [Axios](https://github.com/axios/axios)
+- [Polished](https://polished.js.org/)
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 
 ## 🏃‍♂️ Installing this project
 
