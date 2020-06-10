@@ -1,5 +1,5 @@
 import React, { useState, FormEvent, useEffect, useCallback } from 'react';
-import { FiX } from 'react-icons/fi';
+import { FiTrash2 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -136,7 +136,7 @@ const Explorer: React.FC = () => {
             </Link>
 
             <IconArea onClick={() => handleDeleteRepository(repository)}>
-              <FiX size={22} />
+              <FiTrash2 />
             </IconArea>
           </Repository>
         ))}

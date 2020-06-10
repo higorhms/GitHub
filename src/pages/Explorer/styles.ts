@@ -79,24 +79,6 @@ export const Repositories = styled.div`
   grid-gap: 12px;
   grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
   margin-top: 2rem;
-  overflow-y: scroll;
-
-  ::-webkit-scrollbar-track {
-    background-color: ${(props) => props.theme.colors.background};
-  }
-  ::-webkit-scrollbar {
-    width: 6px;
-    background: ${(props) => props.theme.colors.border};
-  }
-  ::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: ${(props) => props.theme.colors.border};
-  }
-
-  @media (max-width: 768px) {
-    overflow-y: scroll;
-    max-height: 100vh;
-  }
 `;
 
 export const Repository = styled.div`
@@ -105,6 +87,7 @@ export const Repository = styled.div`
   background: ${(props) => props.theme.colors.primary};
   border-radius: 5px;
   transition: 0.2s;
+  flex: 1;
 
   :hover {
     box-shadow: 0px 0px 3px 0px ${(props) => props.theme.colors.border};
@@ -162,12 +145,27 @@ export const IconArea = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${(props) => shade(0.5, props.theme.colors.border)};
   color: #f5f5f5;
   border-radius: 0 5px 5px 0;
+  width: 40px;
+  transition: 0.2s;
+
+  svg {
+    height: 25px;
+    width: 25px;
+    color: ${(props) => props.theme.colors.border};
+    transition: 0.2s;
+  }
 
   :hover {
     cursor: pointer;
-    background: ${(props) => shade(0.6, props.theme.colors.border)};
+
+    background: ${(props) => shade(0.1, props.theme.colors.primary)};
+
+    svg {
+      height: 35px;
+      width: 35px;
+      color: ${(props) => shade(0.1, props.theme.colors.border)};
+    }
   }
 `;
