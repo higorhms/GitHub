@@ -2,16 +2,16 @@
     <img alt="LogoGitHub" src=".github/logo/GitHub_Logo.png" width="300px" />
 </h1>
 
-<h4 align="center">
+<h3 align="center">
   🚀 A GitHub version made by Higor Martins
 </h4>
 
-<p align="center">
-  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout-and-functionalities">Layout and Functionalities</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-technologies">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://higorhms-github.netlify.com/" target="_blank">Try it <strong>HERE</strong></a>
-</p>
+<h3 align="center">
+  <a href="#-project">💻&nbsp;Project</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-layout-and-functionalities">🔖&nbsp;Layout and Functionalities</a>&nbsp;&nbsp;|&nbsp;
+  <a href="#-technologies">🚀&nbspTecnologias</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="https://higorhms-github.netlify.com/" target="_blank">📱&nbsp;Try it <strong>HERE</strong></a>
+</h3>
 
 [![All Contributors](https://img.shields.io/badge/All_contributors-1-green.svg?style=flat-square)](./CONTRIBUTORS.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -62,7 +62,7 @@ This project was developed using these technologies:
 - Run `yarn start` to start the Metro Bundler.
 - After all the instructions you can see the application on port http://localhost:3000
 
-## 💻 Made by
+## 👨‍ Made by
 
 | [<img src="https://avatars3.githubusercontent.com/u/44821959?s=460&u=3d09f94c26b0fd9b9ed57670c62db54fa3ae0a83&v=4" width="100px;"/><br /><sub><b>Higor Martins</b></sub>](https://www.linkedin.com/in/higormartinsdasilva/)<br /> [💻](https://github.com/MegaHack-Shawee/Mobile "Full Stack Developer") |
 | :---: |
