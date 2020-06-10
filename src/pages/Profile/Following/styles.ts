@@ -9,21 +9,23 @@ export const Container = styled.div`
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(11rem, 11rem));
-
   padding: 10px;
-  overflow-y: scroll;
-  max-height: 100vh;
 
-  ::-webkit-scrollbar-track {
-    background-color: ${(props) => props.theme.colors.background};
-  }
-  ::-webkit-scrollbar {
-    width: 2px;
-    background: ${(props) => props.theme.colors.border};
-  }
-  ::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: ${(props) => props.theme.colors.border};
+  @media (max-width: 768px) {
+    overflow-y: scroll;
+    max-height: calc(100vh - 100px);
+
+    ::-webkit-scrollbar-track {
+      background-color: ${(props) => props.theme.colors.background};
+    }
+    ::-webkit-scrollbar {
+      width: 2px;
+      background: ${(props) => props.theme.colors.border};
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: ${(props) => props.theme.colors.border};
+    }
   }
 
   @media (max-width: 768px) {
