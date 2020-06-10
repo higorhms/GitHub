@@ -10,7 +10,7 @@
   <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout-and-functionalities">Layout and Functionalities</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-technologies">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://higorhms-github.netlify.com/">Try it <strong>HERE</strong></a>
+  <a href="https://higorhms-github.netlify.com/" target="_blank">Try it <strong>HERE</strong></a>
 </p>
 
 [![All Contributors](https://img.shields.io/badge/All_contributors-1-green.svg?style=flat-square)](./CONTRIBUTORS.md)
@@ -34,10 +34,13 @@ Try this project HERE:
 - See repositories of your list of followers.
 
 <h1 align="center" >
-  <img src="/assets/githubDashboard.png" width="600"/>
-  <img src="/assets/githubRepoFinder.png" width="600"/>
-  <img src="/assets/githubFriendsRepo.png" width="600"/>
-  <img src="/assets/githubLogin.png" width="600"/>
+  <a target="_blank" href="https://higorhms-github.netlify.app/">
+      <img src="https://user-images.githubusercontent.com/44821959/84213303-aba8bc80-aa96-11ea-91b4-e9984eda83ec.gif" width="600" alt="web-example"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  </a>
+    <a target="_blank" href="https://higorhms-github.netlify.app/">
+      <img src="https://user-images.githubusercontent.com/44821959/84213720-cdef0a00-aa97-11ea-83f1-3509d400b3b9.gif" width="200" alt="mobile-first-example"/>
+   </a>
 </h1>
 
 ## 🚀 Technologies
