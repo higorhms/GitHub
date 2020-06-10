@@ -23,19 +23,12 @@
   </a>
 </p>
 
-<h3 align="center">
-  <a href="#-project">💻&nbsp;Project</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#-layout-and-functionalities">🔖&nbsp;Layout and Functionalities</a>&nbsp;&nbsp;|&nbsp;
-  <a href="#-technologies">🚀&nbspTecnologias</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="https://higorhms-github.netlify.com/" target="_blank">📱&nbsp;Try it <strong>HERE</strong></a>
-</h3>
-
 ## 💻 Project
 
 An application that you can find your favorites repositories and all its informations (Stars, Forks, Issues) see your followers and their repositories, come on, take a look!
 
 Try this project HERE: 
-[GitHub by Higor Martins](https://higorhms-github.netlify.app/)
+[higorhms-github.netlify.com](https://higorhms-github.netlify.app/)
 
 ## 🔖 Layout and Functionalities
 
