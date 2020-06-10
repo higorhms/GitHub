@@ -95,6 +95,8 @@ export const ThemeSwitcher = styled.button`
   svg {
     color: ${(props) => props.theme.colors.headerText};
     margin: 5px 0 5px 0;
+    width: 30px;
+    height: 30px;
   }
 
   @media (max-width: 768px) {

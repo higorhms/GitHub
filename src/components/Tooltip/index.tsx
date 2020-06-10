@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
-
+import React, { useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { FiSun, FiMoon, FiUser, FiLogOut } from 'react-icons/fi';
+
 import { Container, MenuToolTip, ThemeSwitcher } from './styles';
 import useAuth from '../../hooks/useAuth';
 import useTheme from '../../hooks/useTheme';
@@ -19,6 +19,10 @@ const Tooltip: React.FC<TooltipProps> = ({ visible }) => {
     signOut();
   }, [signOut]);
 
+  const themeChangerIcon = useMemo(() => {
+    return theme.title === 'light' ? <FiMoon /> : <FiSun />;
+  }, [theme.title]);
+
   return (
     <Container isVisible={!!visible}>
       <MenuToolTip>
@@ -31,7 +35,7 @@ const Tooltip: React.FC<TooltipProps> = ({ visible }) => {
           <p>Sign out</p>
         </Link>
         <ThemeSwitcher type="button" onClick={handleChangeTheme}>
-          {theme.title === 'light' ? <FiMoon size={30} /> : <FiSun size={30} />}
+          {themeChangerIcon}
         </ThemeSwitcher>
       </MenuToolTip>
     </Container>

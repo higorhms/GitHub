@@ -11,15 +11,15 @@ const BottomNavigator: React.FC = () => {
   return (
     <Container>
       <Link to="/dashboard">
-        <FiHome size={20} />
+        <FiHome />
         <p>Home</p>
       </Link>
       <Link to="/explorer">
-        <FiSearch size={20} />
+        <FiSearch />
         <p>Explorer</p>
       </Link>
       <Link to={`/profile/${user?.login}/followers`}>
-        <FiUser size={20} />
+        <FiUser />
         <p>Me</p>
       </Link>
     </Container>

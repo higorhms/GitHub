@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   overflow: hidden;
-  background-color: #333;
+  background-color: ${(props) => props.theme.colors.primary};
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -29,6 +29,8 @@ export const Container = styled.div`
 
     svg {
       color: ${(props) => props.theme.colors.headerText};
+      height: 20px;
+      width: 20px;
     }
 
     p {
