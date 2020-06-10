@@ -1,10 +1,27 @@
 <h1 align="center">
-    <img alt="LogoGitHub" src=".github/logo/GitHub_Logo.png" width="250px" />
+    <img alt="LogoGitHub" src=".github/logo/GitHub_Logo.png" width="200px"/>
 </h1>
 
 <h3 align="center">
   🚀 A GitHub version made by Higor Martins
 </h4>
+
+<p align="center">		 
+
+  <img alt="Language" src="https://img.shields.io/github/languages/top/higorhms/GitHub?style=for-the-badge">
+	
+  <a href="https://www.linkedin.com/in/higormartinsdasilva/" target="_blank">
+    <img alt="Made by Higor Martins" src="https://img.shields.io/badge/made%20by-Higor_martins-%2304D361?style=for-the-badge">
+  </a>
+
+  <a href="https://github.com/higorhms/GitHub" target="_blank">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/higorhms/GitHub?style=for-the-badge">
+  </a>
+
+   <a href="https://github.com/higorhms/GitHub/stargazers" target="_blank">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/higorhms/GitHub?style=for-the-badge">
+  </a>
+</p>
 
 <h3 align="center">
   <a href="#-project">💻&nbsp;Project</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -12,9 +29,6 @@
   <a href="#-technologies">🚀&nbspTecnologias</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="https://higorhms-github.netlify.com/" target="_blank">📱&nbsp;Try it <strong>HERE</strong></a>
 </h3>
-
-[![All Contributors](https://img.shields.io/badge/All_contributors-1-green.svg?style=flat-square)](./CONTRIBUTORS.md)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ## 💻 Project
 
