@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect, useMemo } from 'react';
 import { Outlet, useParams } from 'react-router';
 import { FaGithub } from 'react-icons/fa';
@@ -56,7 +55,11 @@ const Profile: React.FC = () => {
       <Content>
         <ul>
           <li>
-            <a target="_blank" href={`https://github.com/${user?.login}`}>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://github.com/${user?.login}`}
+            >
               <FaGithub size={50} />
             </a>
           </li>

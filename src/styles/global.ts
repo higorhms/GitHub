@@ -35,7 +35,3 @@ button{
    cursor: pointer;
 }
 `;
-
-export const colors = {
-  DefaultColor: '#24292e',
-};

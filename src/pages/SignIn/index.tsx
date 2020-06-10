@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useCallback } from 'react';
 import { Form } from '@unform/web';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -7,9 +6,7 @@ import { Spring } from 'react-spring/renderprops';
 import { useNavigate } from 'react-router';
 
 import useAuth from '../../hooks/useAuth';
-
 import Input from '../../components/Input';
-
 import {
   Container,
   FormContainer,
@@ -65,12 +62,17 @@ const SignIn: React.FC = () => {
         </p>
 
         <SocialMediasContainer>
-          <a target="_blank" href="https://github.com/higorhms">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/higorhms"
+          >
             <FaGithub size={30} />
             Portfólio
           </a>
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href="https://www.linkedin.com/in/higormartinsdasilva/"
           >
             <FaLinkedin size={30} />

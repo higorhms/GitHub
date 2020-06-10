@@ -1,7 +1,6 @@
-/* eslint-disable react/jsx-no-target-blank */
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { FiChevronRight } from 'react-icons/fi';
+import { FiPlus } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
 
 import { RepositoryInfo, Issues, Container } from './styles';
@@ -61,36 +60,40 @@ const Repository: React.FC = () => {
           <ul>
             <li>
               <strong>Stars</strong>
-              <strong>{repository.stargazers_count}</strong>
+              <span>{repository.stargazers_count}</span>
             </li>
             <li>
               <strong>Forks</strong>
-              <strong>{repository.forks_count}</strong>
+              <span>{repository.forks_count}</span>
             </li>
             <li>
-              <strong>Issues abertas</strong>
-              <strong>{repository.open_issues_count}</strong>
+              <strong>Issues</strong>
+              <span>{repository.open_issues_count}</span>
             </li>
-            <li>
-              <a
-                target="_blank"
-                href={`https://github.com/${repository.owner.login}/${repository.name}`}
-              >
-                <FaGithub size={50} />
-              </a>
-            </li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://github.com/${repository.owner.login}/${repository.name}`}
+            >
+              <FaGithub size={50} />
+            </a>
           </ul>
         </RepositoryInfo>
       )}
 
       <Issues>
         {issues?.map((issue) => (
-          <a key={issue.id} href={issue.html_url}>
+          <a
+            key={issue.id}
+            href={issue.html_url}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <div>
               <strong>{issue.title}</strong>
               <p>{issue.user.login}</p>
             </div>
-            <FiChevronRight size={25} />
+            <FiPlus />
           </a>
         ))}
       </Issues>
