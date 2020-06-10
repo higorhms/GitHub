@@ -74,11 +74,11 @@ This project was developed using these technologies:
 - Make sure you have NodeJS installed on your machine.
 - Download or clone this project.
 - If you are using Yarn as a package manager.
-  - 1) Run `yarn` to install all the necessary dependencies.
-  - 2) Run `yarn start` to start the Metro Bundler.
+  - Run `yarn` to install all the necessary dependencies.
+  - Run `yarn start` to start the Metro Bundler.
 - If you are using NPM as a package manager.
-  - 1) Run `npm install` to install all the necessary dependencies.
-  - 2) Run `npm start` to start the Metro Bundler.
+  - Run `npm install` to install all the necessary dependencies.
+  - Run `npm start` to start the Metro Bundler.
 - After all the instructions you can see the application on port http://localhost:3000.
 
 ## 👨‍ Made by
