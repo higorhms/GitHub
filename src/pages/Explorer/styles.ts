@@ -44,12 +44,12 @@ export const Form = styled.form`
     height: 50px;
     padding: 0 24px;
     border-radius: 5px 0 0 5px;
-    color: #3a3a3a;
+    color: ${(props) => props.theme.colors.subText};
     border: 2px solid #fff;
     transition: 0.2s;
 
     &::placeholder {
-      color: #a8a8b3;
+      color: ${(props) => props.theme.colors.subText};
     }
   }
 
@@ -61,7 +61,7 @@ export const Form = styled.form`
     width: 160px;
     height: 50px;
 
-    background: #1ba94c;
+    background: ${(props) => props.theme.colors.border};
     border-radius: 0 5px 5px 0;
     border: 0;
     color: #fff;
@@ -69,7 +69,7 @@ export const Form = styled.form`
     transition: 0.2s;
 
     &:hover {
-      background: ${shade(0.2, '#1ba94c')};
+      background: ${(props) => shade(0.2, props.theme.colors.border)};
     }
   }
 `;
@@ -89,7 +89,7 @@ export const Repository = styled.div`
   transition: 0.2s;
 
   :hover {
-    box-shadow: 0px 0px 3px 0px #7908c4;
+    box-shadow: 0px 0px 3px 0px ${(props) => props.theme.colors.border};
   }
 
   > a {
@@ -144,12 +144,12 @@ export const IconArea = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #7908c4;
+  background: ${(props) => shade(0.5, props.theme.colors.border)};
   color: #f5f5f5;
   border-radius: 0 5px 5px 0;
 
   :hover {
     cursor: pointer;
-    background: ${shade(0.1, '#7908c4')};
+    background: ${(props) => shade(0.6, props.theme.colors.border)};
   }
 `;

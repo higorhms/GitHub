@@ -9,7 +9,7 @@ import Route from './Route';
 
 const Profile = lazy(() => import('../pages/Profile'));
 const Followers = lazy(() => import('../pages/Profile/Followers'));
-const Followings = lazy(() => import('../pages/Profile/Followings'));
+const Following = lazy(() => import('../pages/Profile/Following'));
 const Repositories = lazy(() => import('../pages/Profile/Repositories'));
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const Repository = lazy(() => import('../pages/Repository'));
@@ -30,7 +30,7 @@ const MainRoutes: React.FC = () => {
 
         <Route path="/profile/:owner" element={Profile}>
           <Route path="/followers" element={Followers} />
-          <Route path="/followings" element={Followings} />
+          <Route path="/following" element={Following} />
           <Route path="/repositories" element={Repositories} />
         </Route>
       </Manager>

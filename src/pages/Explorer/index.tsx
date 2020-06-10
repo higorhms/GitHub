@@ -1,8 +1,8 @@
 import React, { useState, FormEvent, useEffect, useCallback } from 'react';
 import { FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-
 import { toast } from 'react-toastify';
+
 import {
   Container,
   Title,
@@ -14,9 +14,8 @@ import {
 } from './styles';
 import api from '../../services/api';
 import useLoading from '../../hooks/useLoading';
-import BottomNavigator from '../../components/BottomNavigator';
 
-interface Repository {
+interface RepositoryProps {
   full_name: string;
   description: string;
   owner: {
@@ -28,7 +27,7 @@ interface Repository {
 const Explorer: React.FC = () => {
   const [newRepo, setNewRepo] = useState('');
   const { isLoading, handleStartLoading } = useLoading();
-  const [repositories, setRepositories] = useState<Repository[]>(() => {
+  const [repositories, setRepositories] = useState<RepositoryProps[]>(() => {
     const storedRepositories = localStorage.getItem(
       '@GitHubExplorer:repositories',
     );
@@ -46,7 +45,7 @@ const Explorer: React.FC = () => {
   }, [repositories]);
 
   const checkExistRepository = useCallback(
-    (repository: Repository) => {
+    (repository: RepositoryProps) => {
       const findRepository = repositories.find(
         (repo) => repo.full_name === repository.full_name,
       );
@@ -58,9 +57,9 @@ const Explorer: React.FC = () => {
 
   const handleAddRepository = useCallback(
     async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+      e.preventDefault();
       handleStartLoading(true);
 
-      e.preventDefault();
       try {
         if (!newRepo) {
           toast.error('Type the owner/repository you are trying to find');
@@ -68,7 +67,7 @@ const Explorer: React.FC = () => {
           return;
         }
 
-        const response = await api.get<Repository>(`/repos/${newRepo}`);
+        const response = await api.get<RepositoryProps>(`/repos/${newRepo}`);
 
         const repository = response.data;
 
@@ -76,15 +75,14 @@ const Explorer: React.FC = () => {
 
         if (repositoryAlreadyExist) {
           toast.error('This repository already exist in your list');
-          handleStartLoading(false);
           return;
         }
 
         setRepositories([...repositories, repository]);
         setNewRepo('');
-        handleStartLoading(false);
       } catch (error) {
         toast.error('This repository does not exist');
+      } finally {
         handleStartLoading(false);
       }
     },
@@ -103,50 +101,47 @@ const Explorer: React.FC = () => {
   );
 
   return (
-    <>
-      <Container>
-        <Title>Explore your favorite repositories</Title>
-        <Subtitle>Find any repository you want!</Subtitle>
+    <Container>
+      <Title>Explore your favorite repositories</Title>
+      <Subtitle>Find any repository you want!</Subtitle>
 
-        <Form onSubmit={handleAddRepository}>
-          <input
-            value={newRepo}
-            onChange={(e) => setNewRepo(e.target.value)}
-            placeholder="Example: Owner/Repository"
-          />
+      <Form onSubmit={handleAddRepository}>
+        <input
+          value={newRepo}
+          onChange={(e) => setNewRepo(e.target.value)}
+          placeholder="Example: Owner/Repository"
+        />
 
-          <button type="submit">
-            {isLoading ? <p>Searching...</p> : <p>Search</p>}
-          </button>
-        </Form>
+        <button type="submit">
+          {isLoading ? <p>Searching...</p> : <p>Search</p>}
+        </button>
+      </Form>
 
-        <Repositories>
-          {repositories.map((repository) => (
-            <Repository key={repository.full_name}>
-              <Link
-                key={repository.full_name}
-                to={`/repository/${repository.full_name}`}
-              >
-                <img
-                  alt={repository.owner.login}
-                  src={repository.owner.avatar_url}
-                />
+      <Repositories>
+        {repositories?.map((repository) => (
+          <Repository key={repository.full_name}>
+            <Link
+              key={repository.full_name}
+              to={`/repository/${repository.full_name}`}
+            >
+              <img
+                alt={repository.owner.login}
+                src={repository.owner.avatar_url}
+              />
 
-                <div>
-                  <strong>{repository.full_name}</strong>
-                  <p>{repository.description}</p>
-                </div>
-              </Link>
+              <div>
+                <strong>{repository.full_name}</strong>
+                <p>{repository.description}</p>
+              </div>
+            </Link>
 
-              <IconArea onClick={() => handleDeleteRepository(repository)}>
-                <FiX size={22} />
-              </IconArea>
-            </Repository>
-          ))}
-        </Repositories>
-      </Container>
-      <BottomNavigator />
-    </>
+            <IconArea onClick={() => handleDeleteRepository(repository)}>
+              <FiX size={22} />
+            </IconArea>
+          </Repository>
+        ))}
+      </Repositories>
+    </Container>
   );
 };
 

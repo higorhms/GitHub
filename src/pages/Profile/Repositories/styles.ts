@@ -49,6 +49,9 @@ export const ListItem = styled.div`
 
     svg {
       margin-right: 0.5rem;
+      height: 20px;
+      width: 20px;
+      color: ${(props) => props.theme.colors.border};
     }
 
     p {

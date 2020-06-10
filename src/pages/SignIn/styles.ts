@@ -27,13 +27,15 @@ export const PortfolioContainer = styled.div`
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: ${(props) => props.theme.colors.subText};
 
     ul {
       margin-top: 10px;
 
       li {
+        font-size: 1.2rem;
+
         & + li {
           margin-top: 2px;
         }
@@ -74,6 +76,8 @@ export const SocialMediasContainer = styled.div`
     background: #fff;
     border-radius: 5px;
     font-weight: bold;
+    font-size: 1rem;
+    transition: 0.2s;
 
     :hover {
       background: rgba(255, 255, 255, 0.7);
@@ -122,14 +126,16 @@ export const FormArea = styled.div`
       color: #fff;
       margin: 5px 0;
       padding: 0 20px;
+      font-size: 1.2rem;
 
       ::placeholder {
-        color: #fff;
+        color: ${(props) => props.theme.colors.subText};
+        font-size: 1.1rem;
       }
     }
 
     button {
-      background: #1074e7;
+      background: ${(props) => props.theme.colors.border};
       border: none;
       border-radius: 4px;
       color: #fff;
@@ -137,9 +143,11 @@ export const FormArea = styled.div`
       padding: 0 20px;
       height: 37px;
       font-weight: bold;
+      font-size: 1.1rem;
+      transition: 0.2s;
 
       :hover {
-        background: ${darken(0.1, '#1074e7')};
+        background: ${(props) => darken(0.1, props.theme.colors.border)};
       }
     }
   }

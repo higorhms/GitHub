@@ -4,8 +4,8 @@ import { Form } from '@unform/web';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { Spring } from 'react-spring/renderprops';
-
 import { useNavigate } from 'react-router';
+
 import useAuth from '../../hooks/useAuth';
 
 import Input from '../../components/Input';
@@ -30,7 +30,6 @@ const SignIn: React.FC = () => {
   const handleSubmit = useCallback(
     async (data: FormProps): Promise<void> => {
       setLoading(true);
-
       try {
         await signIn(data.username);
         navigate('/dashboard');
@@ -87,7 +86,7 @@ const SignIn: React.FC = () => {
         {(props) => (
           <FormContainer style={props}>
             <FormArea>
-              <FaGithub size={100} />
+              <FaGithub size={120} />
               <Form onSubmit={handleSubmit}>
                 <Input
                   name="username"

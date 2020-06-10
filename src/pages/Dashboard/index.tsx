@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-
 import { Link } from 'react-router-dom';
 import { FiAward } from 'react-icons/fi';
-import api from '../../services/api';
-import useAuth from '../../hooks/useAuth';
 
 import { Container, List, ListItem, Description } from './styles';
+import api from '../../services/api';
 import Loading from '../../components/Loading';
+import useAuth from '../../hooks/useAuth';
 import useLoading from '../../hooks/useLoading';
 
-export interface Repository {
+interface Repository {
   id: number;
   name: string;
   description: string;
@@ -24,12 +23,9 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     handleStartLoading(true);
-    async function fetchApi(): Promise<void> {
-      api.get(`/users/${user?.login}/repos`).then((response) => {
-        setRepositories(response.data);
-      });
-    }
-    fetchApi();
+    api.get(`/users/${user?.login}/repos`).then((response) => {
+      setRepositories(response.data);
+    });
     setTimeout(() => {
       handleStartLoading(false);
     }, 3000);
@@ -43,22 +39,18 @@ const Dashboard: React.FC = () => {
     <Container>
       <h1>My Repositories</h1>
       <List>
-        {repositories &&
-          repositories.map((repository) => (
-            <Link
-              to={`/repository/${repository.full_name}`}
-              key={repository.id}
-            >
-              <ListItem>
-                <div>
-                  <FiAward size={20} color="#1ba94c" />
-                  <h1>{repository.name}</h1>
-                </div>
-                <Description>{repository.description}</Description>
-                <span>{repository.language}</span>
-              </ListItem>
-            </Link>
-          ))}
+        {repositories?.map((repository) => (
+          <Link to={`/repository/${repository.full_name}`} key={repository.id}>
+            <ListItem>
+              <div>
+                <FiAward />
+                <h1>{repository.name}</h1>
+              </div>
+              <Description>{repository.description}</Description>
+              <span>{repository.language}</span>
+            </ListItem>
+          </Link>
+        ))}
       </List>
     </Container>
   );

@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from 'react';
-
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+
 import { Container, Avatar } from './styles';
-import { User } from '../../../contexts/AuthContext';
 import api from '../../../services/api';
 
-const Followings: React.FC = () => {
+interface User {
+  id: string;
+  login: string;
+  avatar_url: string;
+}
+
+const Following: React.FC = () => {
   const { owner } = useParams();
   const [followings, setFollowings] = useState<User[]>([]);
 
   useEffect(() => {
-    async function fetchMyApi(): Promise<void> {
-      const response = await api.get(
-        `https://api.github.com/users/${owner}/following`,
-      );
-      setFollowings(response.data);
-    }
-    fetchMyApi();
+    api
+      .get(`https://api.github.com/users/${owner}/following`)
+      .then((response) => {
+        setFollowings(response.data);
+      });
   }, [owner]);
 
   return (
@@ -35,4 +38,4 @@ const Followings: React.FC = () => {
   );
 };
 
-export default Followings;
+export default Following;

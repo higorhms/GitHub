@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
-
 import { FaGithub } from 'react-icons/fa';
+
 import { RepositoryInfo, Issues, Container } from './styles';
 import api from '../../services/api';
 
@@ -35,12 +35,12 @@ const Repository: React.FC = () => {
   const [issues, setIssues] = useState<Issue[]>([]);
 
   useEffect(() => {
-    api.get(`/repos/${owner}/${repo}`).then((response) => {
-      setRepository(response.data);
-    });
-
-    api.get(`/repos/${owner}/${repo}/issues`).then((response) => {
-      setIssues(response.data);
+    Promise.all([
+      api.get(`/repos/${owner}/${repo}`),
+      api.get(`/repos/${owner}/${repo}/issues`),
+    ]).then(([repositoryResponse, issueResponse]) => {
+      setRepository(repositoryResponse.data);
+      setIssues(issueResponse.data);
     });
   }, [owner, repo]);
 
@@ -84,16 +84,15 @@ const Repository: React.FC = () => {
       )}
 
       <Issues>
-        {issues &&
-          issues.map((issue) => (
-            <a key={issue.id} href={issue.html_url}>
-              <div>
-                <strong>{issue.title}</strong>
-                <p>{issue.user.login}</p>
-              </div>
-              <FiChevronRight size={25} />
-            </a>
-          ))}
+        {issues?.map((issue) => (
+          <a key={issue.id} href={issue.html_url}>
+            <div>
+              <strong>{issue.title}</strong>
+              <p>{issue.user.login}</p>
+            </div>
+            <FiChevronRight size={25} />
+          </a>
+        ))}
       </Issues>
     </Container>
   );

@@ -1,28 +1,40 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, useMemo } from 'react';
 import { Outlet, useParams } from 'react-router';
 import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { FiMoon, FiSun } from 'react-icons/fi';
-import { Container, Avatar, Content } from './styles';
-import { User } from '../../contexts/AuthContext';
+import { FiMoon, FiSun, FiPower } from 'react-icons/fi';
 
+import { Container, Avatar, Content } from './styles';
 import api from '../../services/api';
 import useTheme from '../../hooks/useTheme';
+import useAuth from '../../hooks/useAuth';
+
+export interface User {
+  name: string;
+  bio: string;
+  login: string;
+  avatar_url: string;
+  followers: number;
+  following: number;
+  public_repos: number;
+}
 
 const Profile: React.FC = () => {
   const { owner } = useParams();
   const [user, setUser] = useState<User>({} as User);
   const { theme, handleChangeTheme } = useTheme();
+  const { signOut } = useAuth();
 
   useEffect(() => {
-    async function fetchingApi(): Promise<void> {
-      const response = await api.get(`/users/${owner}`);
+    api.get(`/users/${owner}`).then((response) => {
       setUser(response.data);
-    }
-    fetchingApi();
+    });
   }, [owner]);
+
+  const themeChangerIcon = useMemo(() => {
+    return theme.title === 'light' ? <FiMoon /> : <FiSun />;
+  }, [theme.title]);
 
   return (
     <Container>
@@ -31,9 +43,14 @@ const Profile: React.FC = () => {
         <h3>{user?.name}</h3>
         <p>{user?.login}</p>
         <span>{user?.bio}</span>
-        <button type="button" onClick={handleChangeTheme}>
-          {theme.title === 'light' ? <FiMoon size={30} /> : <FiSun size={30} />}
-        </button>
+        <div>
+          <button type="button" onClick={handleChangeTheme}>
+            {themeChangerIcon}
+          </button>
+          <button type="button" onClick={signOut}>
+            <FiPower />
+          </button>
+        </div>
       </Avatar>
 
       <Content>
@@ -50,7 +67,7 @@ const Profile: React.FC = () => {
             <span>{user?.followers}</span>
           </li>
           <li>
-            <Link to={`/profile/${user.login}/followings`}>
+            <Link to={`/profile/${user.login}/following`}>
               <strong>Following</strong>
             </Link>
             <span>{user?.following}</span>

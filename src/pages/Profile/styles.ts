@@ -84,16 +84,28 @@ export const Avatar = styled.div`
     }
   }
 
-  button {
-    background: transparent;
-    border: none;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    svg {
-      color: ${(props) => props.theme.colors.headerText};
-    }
+    button {
+      background: transparent;
+      border: none;
 
-    @media (min-width: 768px) {
-      display: none;
+      & + button {
+        margin-left: 10px;
+      }
+
+      > svg {
+        color: ${(props) => props.theme.colors.headerText};
+        height: 25px;
+        width: 25px;
+      }
+
+      @media (min-width: 768px) {
+        display: none;
+      }
     }
   }
 `;
@@ -119,6 +131,7 @@ export const Content = styled.div`
 
         @media (max-width: 768px) {
           margin-left: 1rem;
+          padding-bottom: 5px;
         }
       }
 

@@ -7,7 +7,7 @@ export interface ContextData {
   signOut(): void;
 }
 
-export interface User {
+interface User {
   id: string;
   name: string;
   bio: string;
