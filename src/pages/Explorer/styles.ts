@@ -79,6 +79,24 @@ export const Repositories = styled.div`
   grid-gap: 12px;
   grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
   margin-top: 2rem;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar-track {
+    background-color: ${(props) => props.theme.colors.background};
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: ${(props) => props.theme.colors.border};
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: ${(props) => props.theme.colors.border};
+  }
+
+  @media (max-width: 768px) {
+    overflow-y: scroll;
+    max-height: 100vh;
+  }
 `;
 
 export const Repository = styled.div`

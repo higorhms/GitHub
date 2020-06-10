@@ -14,7 +14,7 @@ export const Container = styled.div`
     background-color: ${(props) => props.theme.colors.background};
   }
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 2px;
     background: ${(props) => props.theme.colors.border};
   }
   ::-webkit-scrollbar-thumb {

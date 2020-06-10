@@ -15,20 +15,20 @@ export const Container = styled.div`
   min-height: 0%;
   max-height: 100vh;
 
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-  }
-
   ::-webkit-scrollbar-track {
     background-color: ${(props) => props.theme.colors.background};
   }
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 2px;
     background: ${(props) => props.theme.colors.border};
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background: ${(props) => props.theme.colors.border};
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   }
 
   a {

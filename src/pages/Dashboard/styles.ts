@@ -6,21 +6,6 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 20px;
 
-  overflow-y: scroll;
-  height: 100vh;
-
-  ::-webkit-scrollbar-track {
-    background-color: ${(props) => props.theme.colors.background};
-  }
-  ::-webkit-scrollbar {
-    width: 6px;
-    background: ${(props) => props.theme.colors.border};
-  }
-  ::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: ${(props) => props.theme.colors.border};
-  }
-
   @media (max-width: 768px) {
     min-height: 100vh;
     height: 100%;
@@ -47,6 +32,21 @@ export const List = styled.div`
     display: grid;
     grid-gap: 15px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    overflow-y: scroll;
+    height: 100vh;
+
+    ::-webkit-scrollbar-track {
+      background-color: ${(props) => props.theme.colors.background};
+    }
+    ::-webkit-scrollbar {
+      width: 2px;
+      background: ${(props) => props.theme.colors.border};
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: ${(props) => props.theme.colors.border};
+    }
   }
 `;
 
