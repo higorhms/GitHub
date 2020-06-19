@@ -40,7 +40,7 @@ Try this project HERE:
 <h1 align="center" >
   <a target="_blank" href="https://higorhms-github.netlify.app/">
       <img src="https://user-images.githubusercontent.com/44821959/84213303-aba8bc80-aa96-11ea-91b4-e9984eda83ec.gif" width="600" alt="web-example"/>
-    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;
   </a>
     <a target="_blank" href="https://higorhms-github.netlify.app/">
       <img src="https://user-images.githubusercontent.com/44821959/84213720-cdef0a00-aa97-11ea-83f1-3509d400b3b9.gif" width="200" alt="mobile-first-example"/>
